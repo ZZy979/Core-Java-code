@@ -1,0 +1,8 @@
+# Java
+*.class
+
+# IDEA
+/.idea/
+
+# Visual Studio Code
+/.vscode/
