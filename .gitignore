@@ -3,6 +3,7 @@
 
 # IDEA
 /.idea/
+/out/
 
 # Visual Studio Code
 /.vscode/
