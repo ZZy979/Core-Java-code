@@ -17,7 +17,7 @@ java Welcome
 在项目根目录下执行：
 
 ```shell
-python test.py
+python corejava.py
 ```
 
 # 代码目录 卷I
