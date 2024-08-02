@@ -25,4 +25,4 @@ jobs:
         with:
           python-version: '3.11'
       - name: Run test
-        run: python corejava.py
+        run: python corejava.py test
