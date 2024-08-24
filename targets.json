@@ -2,5 +2,19 @@
   "v1ch02": [
     "Welcome/Welcome",
     "ImageViewer/ImageViewer"
+  ],
+  "v1ch03": [
+    "FirstSample/FirstSample",
+    "Constants/Constants",
+    "Constants/Constants2",
+    "InputTest/InputTest",
+    "Retirement/Retirement",
+    "Retirement2/Retirement2",
+    "LotteryOdds/LotteryOdds",
+    "BigIntegerTest/BigIntegerTest",
+    "Message/Message",
+    "LotteryDrawing/LotteryDrawing",
+    "CompoundInterest/CompoundInterest",
+    "LotteryArray/LotteryArray"
   ]
 }

@@ -1,0 +1,14 @@
+How much money will you contribute every year? Interest rate in %: After year 1, your balance is 205,000.00
+Ready to retire? (Y/N) After year 2, your balance is 415,125.00
+Ready to retire? (Y/N) After year 3, your balance is 630,503.13
+Ready to retire? (Y/N) After year 4, your balance is 851,265.70
+Ready to retire? (Y/N) After year 5, your balance is 1,077,547.35
+Ready to retire? (Y/N) After year 6, your balance is 1,309,486.03
+Ready to retire? (Y/N) After year 7, your balance is 1,547,223.18
+Ready to retire? (Y/N) After year 8, your balance is 1,790,903.76
+Ready to retire? (Y/N) After year 9, your balance is 2,040,676.35
+Ready to retire? (Y/N) After year 10, your balance is 2,296,693.26
+Ready to retire? (Y/N) After year 11, your balance is 2,559,110.59
+Ready to retire? (Y/N) After year 12, your balance is 2,828,088.36
+Ready to retire? (Y/N) After year 13, your balance is 3,103,790.57
+Ready to retire? (Y/N) 

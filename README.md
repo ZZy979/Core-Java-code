@@ -36,7 +36,22 @@ python corejava.py run v1ch02/Welcome/Welcome
 python corejava.py test
 ```
 
-# 代码目录 卷I
-## 第2章
+# 代码目录
+## 卷I 基础知识
+### 第2章 Java编程环境
 * [程序清单2-1 Welcome/Welcome.java](v1ch02/Welcome/Welcome.java)
 * [程序清单2-2 ImageViewer/ImageViewer.java](v1ch02/ImageViewer/ImageViewer.java)
+
+### 第3章 Java的基本编程结构
+* [程序清单3-1 FirstSample/FirstSample.java](v1ch03/FirstSample/FirstSample.java)
+* [Constants/Constants.java](v1ch03/Constants/Constants.java)
+* [Constants/Constants2.java](v1ch03/Constants/Constants2.java)
+* [程序清单3-2 InputTest/InputTest.java](v1ch03/InputTest/InputTest.java)
+* [程序清单3-3 Retirement/Retirement.java](v1ch03/Retirement/Retirement.java)
+* [程序清单3-4 Retirement2/Retirement2.java](v1ch03/Retirement2/Retirement2.java)
+* [程序清单3-5 LotteryOdds/LotteryOdds.java](v1ch03/LotteryOdds/LotteryOdds.java)
+* [程序清单3-6 BigIntegerTest/BigIntegerTest.java](v1ch03/BigIntegerTest/BigIntegerTest.java)
+* [Message/Message.java](v1ch03/Message/Message.java)
+* [程序清单3-7 LotteryDrawing/LotteryDrawing.java](v1ch03/LotteryDrawing/LotteryDrawing.java)
+* [程序清单3-8 CompoundInterest/CompoundInterest.java](v1ch03/CompoundInterest/CompoundInterest.java)
+* [程序清单3-9 LotteryArray/LotteryArray.java](v1ch03/LotteryArray/LotteryArray.java)

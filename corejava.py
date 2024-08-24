@@ -1,4 +1,5 @@
 import argparse
+import difflib
 import json
 import pathlib
 import shlex
@@ -104,6 +105,9 @@ class TestCase:
             "input_file": 标准输入文件（可选）
             "output_file": 用于比较标准输出的文件
         """
+        if not config.get('target') or not config.get('output_file'):
+            raise ValueError(f'Missing "target" or "output_file" in config: {config}')
+
         self.example = Example(chapter, config['target'])
         self.config = config
         self.args = self.config.get('args', '')
@@ -119,10 +123,23 @@ class TestCase:
 
         :return: bool 输出与预期是否一致
         """
+        print(f'Testing {self}...', end='')
         with open(self.output_file, encoding='utf-8') as f:
             expected_output = f.read()
         result = self.example.test(args=self.args, input_file=self.input_file)
-        return expected_output == result.stdout
+        actual_output = result.stdout
+        if expected_output == actual_output:
+            print('OK')
+            return True
+        else:
+            print('failed')
+            self._print_diff(expected_output, actual_output)
+            return False
+
+    def _print_diff(self, expected, actual):
+        expected_lines = expected.splitlines(keepends=True)
+        actual_lines = actual.splitlines(keepends=True)
+        sys.stdout.writelines(difflib.ndiff(expected_lines, actual_lines))
 
 
 def load_tests():
@@ -137,21 +154,17 @@ def load_tests():
 def run(args):
     """运行示例程序。"""
     chapter, target = args.target.split('/', 1)
-    Example(chapter, target).run()
+    Example(chapter, target).run(args.args)
 
 
 def test(args):
     """运行测试。"""
     run = failed = 0
     for test_case in load_tests():
-        print(f'Testing {test_case}...', end='')
-        run += 1
-        if test_case.run():
-            print('OK')
-        else:
-            print('failed')
-            # TODO diff
-            failed += 1
+        if not args.chapter or test_case.example.chapter == args.chapter:
+            run += 1
+            if not test_case.run():
+                failed += 1
     print(f'Run {run} tests, {failed} failed')
     sys.exit(failed)
 
@@ -163,9 +176,11 @@ def create_arg_parser():
 
     run_parser = sub_parsers.add_parser('run', help='运行示例程序')
     run_parser.add_argument('target', help='示例程序名称（例如v1ch02/Welcome/Welcome）')
+    run_parser.add_argument('-a', '--args', default='', help='命令行参数，用引号括起来')
     run_parser.set_defaults(func=run)
 
     test_parser = sub_parsers.add_parser('test', help='运行测试')
+    test_parser.add_argument('-c', '--chapter', help='章节名称')
     test_parser.set_defaults(func=test)
 
     return parser

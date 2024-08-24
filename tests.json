@@ -1,5 +1,19 @@
 {
   "v1ch02": [
     {"target": "Welcome/Welcome", "output_file": "Welcome_output.txt"}
+  ],
+  "v1ch03": [
+    {"target": "FirstSample/FirstSample", "output_file": "FirstSample_output.txt"},
+    {"target": "Constants/Constants", "output_file": "Constants_output.txt"},
+    {"target": "Constants/Constants2", "output_file": "Constants_output.txt"},
+    {"target": "InputTest/InputTest", "input_file": "InputTest_input.txt", "output_file": "InputTest_output.txt"},
+    {"target": "Retirement/Retirement", "input_file": "Retirement_input.txt", "output_file": "Retirement_output.txt"},
+    {"target": "Retirement2/Retirement2", "input_file": "Retirement2_input.txt", "output_file": "Retirement2_output.txt"},
+    {"target": "LotteryOdds/LotteryOdds", "input_file": "LotteryOdds_input.txt", "output_file": "LotteryOdds_output.txt"},
+    {"target": "BigIntegerTest/BigIntegerTest", "input_file": "BigIntegerTest_input.txt", "output_file": "BigIntegerTest_output.txt"},
+    {"target": "Message/Message", "args": "-h world", "output_file": "Message_output.txt"},
+    {"target": "Message/Message", "args": "-g cruel world", "output_file": "Message_output2.txt"},
+    {"target": "CompoundInterest/CompoundInterest", "output_file": "CompoundInterest_output.txt"},
+    {"target": "LotteryArray/LotteryArray", "output_file": "LotteryArray_output.txt"}
   ]
 }
