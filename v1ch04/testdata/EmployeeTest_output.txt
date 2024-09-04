@@ -1,0 +1,3 @@
+name=Carl Cracker,salary=78750.0,hireDay=1987-12-15
+name=Harry Hacker,salary=52500.0,hireDay=1989-10-01
+name=Tony Tester,salary=42000.0,hireDay=1990-03-15

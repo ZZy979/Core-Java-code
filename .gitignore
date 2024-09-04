@@ -1,6 +1,10 @@
 # Java
 *.class
 
+# Python
+__pycache__/
+*.py[cod]
+
 # IDEA
 /.idea/
 /out/

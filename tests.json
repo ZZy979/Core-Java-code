@@ -15,5 +15,11 @@
     {"target": "Message/Message", "args": "-g cruel world", "output_file": "Message_output2.txt"},
     {"target": "CompoundInterest/CompoundInterest", "output_file": "CompoundInterest_output.txt"},
     {"target": "LotteryArray/LotteryArray", "output_file": "LotteryArray_output.txt"}
+  ],
+  "v1ch04": [
+    {"target": "EmployeeTest/EmployeeTest", "output_file": "EmployeeTest_output.txt"},
+    {"target": "StaticTest/StaticTest", "output_file": "StaticTest_output.txt"},
+    {"target": "ParamTest/ParamTest", "output_file": "ParamTest_output.txt"},
+    {"target": "PackageTest/PackageTest", "output_file": "PackageTest_output.txt"}
   ]
 }

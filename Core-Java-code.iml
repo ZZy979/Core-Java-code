@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Python" name="Python">
+      <configuration sdkName="Python 3.11" />
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/v1ch02/ImageViewer" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch02/Welcome" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch03/FirstSample" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch03/Constants" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch03/InputTest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch03/Retirement" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch03/Retirement2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch03/LotteryOdds" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch03/BigIntegerTest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch03/Message" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch03/CompoundInterest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch03/LotteryArray" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch03/LotteryDrawing" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch04/CalendarTest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch04/EmployeeTest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch04/StaticTest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch04/ParamTest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch04/ConstructorTest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch04/PackageTest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/v1ch04/RecordTest" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Python 3.11 interpreter library" level="application" />
+  </component>
+</module>

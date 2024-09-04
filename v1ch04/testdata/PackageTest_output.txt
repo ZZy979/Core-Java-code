@@ -1,0 +1,1 @@
+name=Harry Hacker,salary=52500.0

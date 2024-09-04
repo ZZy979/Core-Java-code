@@ -55,3 +55,13 @@ python corejava.py test
 * [程序清单3-7 LotteryDrawing/LotteryDrawing.java](v1ch03/LotteryDrawing/LotteryDrawing.java)
 * [程序清单3-8 CompoundInterest/CompoundInterest.java](v1ch03/CompoundInterest/CompoundInterest.java)
 * [程序清单3-9 LotteryArray/LotteryArray.java](v1ch03/LotteryArray/LotteryArray.java)
+
+### 第4章 对象和类
+* [程序清单4-1 CalendarTest/CalendarTest.java](v1ch04/CalendarTest/CalendarTest.java)
+* [程序清单4-2 EmployeeTest/EmployeeTest.java](v1ch04/EmployeeTest/EmployeeTest.java)
+* [程序清单4-3 StaticTest/StaticTest.java](v1ch04/StaticTest/StaticTest.java)
+* [程序清单4-4 ParamTest/ParamTest.java](v1ch04/ParamTest/ParamTest.java)
+* [程序清单4-5 ConstructorTest/ConstructorTest.java](v1ch04/ConstructorTest/ConstructorTest.java)
+* [程序清单4-6 RecordTest/RecordTest.java](v1ch04/RecordTest/RecordTest.java)
+* [程序清单4-7 PackageTest/PackageTest.java](v1ch04/PackageTest/PackageTest.java)
+* [程序清单4-8 PackageTest/com/horstmann/corejava/Employee.java](v1ch04/PackageTest/com/horstmann/corejava/Employee.java)

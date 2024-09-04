@@ -16,5 +16,14 @@
     "LotteryDrawing/LotteryDrawing",
     "CompoundInterest/CompoundInterest",
     "LotteryArray/LotteryArray"
+  ],
+  "v1ch04": [
+    "CalendarTest/CalendarTest",
+    "EmployeeTest/EmployeeTest",
+    "StaticTest/StaticTest",
+    "ParamTest/ParamTest",
+    "ConstructorTest/ConstructorTest",
+    "RecordTest/RecordTest",
+    "PackageTest/PackageTest"
   ]
 }

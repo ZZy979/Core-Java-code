@@ -1,0 +1,17 @@
+Testing tripleValue:
+Before: percent=10.0
+End of method: x=30.0
+After: percent=10.0
+
+Testing tripleSalary:
+Before: salary=50000.0
+End of method: salary=150000.0
+After: salary=150000.0
+
+Testing swap:
+Before: a=Alice
+Before: b=Bob
+End of method: x=Bob
+End of method: y=Alice
+After: a=Alice
+After: b=Bob
