@@ -54,35 +54,43 @@ class Example:
         else:
             return '', self.full_class_name
 
-    def build(self):
-        """编译示例程序。"""
-        cmd = ['javac', '-d', self.class_dir, self.src_file]
+    def build(self, compile_options=''):
+        """编译示例程序。
+
+        :param compile_options: str 编译选项，空格分隔
+        """
+        cmd = ['javac', '-d', self.class_dir, *shlex.split(compile_options), self.src_file]
         subprocess.run(cmd, cwd=self.src_dir, check=True)
 
-    def run(self, args=''):
-        """运行示例程序。"""
-        self.build()
-        cmd = ['java', self.full_class_name, *shlex.split(args)]
+    def run(self, compile_options='', jvm_options='', args=''):
+        """运行示例程序。
+
+        :param compile_options: str 编译选项，空格分隔
+        :param jvm_options: str JVM选项，空格分隔
+        :param args: str 命令行参数，空格分隔
+        """
+        self.build(compile_options)
+        cmd = ['java', *shlex.split(jvm_options), self.full_class_name, *shlex.split(args)]
         subprocess.run(cmd, cwd=self.class_dir)
 
-    def test(self, args='', input_file=None):
+    def test(self, compile_options='', jvm_options='', args='', input_file=None):
         """测试示例程序。
 
+        :param compile_options: str 编译选项，空格分隔
+        :param jvm_options: str JVM选项，空格分隔
         :param args: str 命令行参数，空格分隔
         :param input_file: str 输入文件名
         :return: subprocess.CompletedProcess对象
         """
-        self.build()
+        self.build(compile_options)
 
         if input_file:
             stdin = open(input_file, encoding='utf-8')
         else:
             stdin = DEVNULL
 
-        cmd = ['java', self.full_class_name, *shlex.split(args)]
-        result = subprocess.run(
-            cmd, stdin=stdin, stdout=PIPE, stderr=PIPE,
-            cwd=self.class_dir, encoding='utf-8', text=True)
+        cmd = ['java', *shlex.split(jvm_options), self.full_class_name, *shlex.split(args)]
+        result = subprocess.run(cmd, stdin=stdin, stdout=PIPE, cwd=self.class_dir, encoding='utf-8', text=True)
 
         if input_file:
             stdin.close()
@@ -101,6 +109,8 @@ class TestCase:
         :param chapter: str 章节名称
         :param config: dict 测试用例配置，包含以下键值对：
             "target": 示例程序名称，格式同Example.target
+            "compile_options"：编译选项（可选）
+            "jvm_options"：JVM选项（可选）
             "args": 命令行参数（可选）
             "input_file": 标准输入文件（可选）
             "output_file": 用于比较标准输出的文件
@@ -110,6 +120,8 @@ class TestCase:
 
         self.example = Example(chapter, config['target'])
         self.config = config
+        self.compile_options = self.config.get('compile_options', '')
+        self.jvm_options = self.config.get('jvm_options', '')
         self.args = self.config.get('args', '')
         self.input_file = self.example.testdata_dir / config['input_file'] \
             if 'input_file' in config else None
@@ -126,7 +138,7 @@ class TestCase:
         print(f'Testing {self}...', end='')
         with open(self.output_file, encoding='utf-8') as f:
             expected_output = f.read()
-        result = self.example.test(args=self.args, input_file=self.input_file)
+        result = self.example.test(self.compile_options, self.jvm_options, self.args, self.input_file)
         actual_output = result.stdout
         if expected_output == actual_output:
             print('OK')

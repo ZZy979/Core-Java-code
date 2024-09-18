@@ -1,0 +1,1 @@
+java.util.ArrayList[elementData=class java.lang.Object[]{java.lang.Integer[value=1][][],java.lang.Integer[value=4][][],java.lang.Integer[value=9][][],java.lang.Integer[value=16][][],java.lang.Integer[value=25][][],null,null,null,null,null},size=5][modCount=5][][]

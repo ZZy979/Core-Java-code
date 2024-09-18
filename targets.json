@@ -25,5 +25,18 @@
     "ConstructorTest/ConstructorTest",
     "RecordTest/RecordTest",
     "PackageTest/PackageTest"
+  ],
+  "v1ch05": [
+    "inheritance.ManagerTest",
+    "equals.EqualsTest",
+    "arrayList.ArrayListTest",
+    "abstractClasses.PersonTest",
+    "enums.EnumTest",
+    "sealed.SealedTest",
+    "resources.ResourceTest",
+    "reflection.ReflectionTest",
+    "objectAnalyzer.ObjectAnalyzerTest",
+    "arrays.CopyOfTest",
+    "methods.MethodTableTest"
   ]
 }

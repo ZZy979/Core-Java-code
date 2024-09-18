@@ -1,0 +1,2 @@
+{ "luckyNumbers": [13.0, null], "name": "Harry", "salary": 90000.0, "married": false }
+object

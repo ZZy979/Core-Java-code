@@ -21,5 +21,19 @@
     {"target": "StaticTest/StaticTest", "output_file": "StaticTest_output.txt"},
     {"target": "ParamTest/ParamTest", "output_file": "ParamTest_output.txt"},
     {"target": "PackageTest/PackageTest", "output_file": "PackageTest_output.txt"}
+  ],
+  "v1ch05": [
+    {"target": "inheritance.ManagerTest", "output_file": "ManagerTest_output.txt"},
+    {"target": "equals.EqualsTest", "output_file": "EqualsTest_output.txt"},
+    {"target": "arrayList.ArrayListTest", "output_file": "../../v1ch04/testdata/EmployeeTest_output.txt"},
+    {"target": "abstractClasses.PersonTest", "output_file": "PersonTest_output.txt"},
+    {"target": "enums.EnumTest", "input_file": "EnumTest_input.txt", "output_file": "EnumTest_output.txt"},
+    {"target": "sealed.SealedTest", "output_file": "SealedTest_output.txt"},
+    {"target": "reflection.ReflectionTest", "input_file": "ReflectionTest_input.txt", "output_file": "ReflectionTest_output.txt"},
+    {"target": "objectAnalyzer.ObjectAnalyzerTest",
+      "jvm_options": "--add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED",
+      "output_file": "ObjectAnalyzerTest_output.txt"},
+    {"target": "arrays.CopyOfTest", "output_file": "CopyOfTest_output.txt"},
+    {"target": "methods.MethodTableTest", "output_file": "MethodTableTest_output.txt"}
   ]
 }

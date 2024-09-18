@@ -1,0 +1,11 @@
+alice1 == alice2: true
+alice1 == alice3: false
+alice1.equals(alice3): true
+alice1.equals(bob): false
+bob.toString(): equals.Employee[name=Bob Brandson,salary=50000.0,hireDay=1989-10-01]
+boss.toString(): equals.Manager[name=Carl Cracker,salary=80000.0,hireDay=1987-12-15][bonus=5000.0]
+carl.equals(boss): false
+alice1.hashCode(): -808853550
+alice3.hashCode(): -808853550
+bob.hashCode(): -624019882
+carl.hashCode(): -2004699436
