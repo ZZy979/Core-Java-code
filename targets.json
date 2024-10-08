@@ -38,5 +38,18 @@
     "objectAnalyzer.ObjectAnalyzerTest",
     "arrays.CopyOfTest",
     "methods.MethodTableTest"
+  ],
+  "v1ch06": [
+    "interfaces.EmployeeSortTest",
+    "timer.TimerTest",
+    "clone.CloneTest",
+    "lambda.LambdaTest",
+    "comparator.ComparatorTest",
+    "innerClass.InnerClassTest",
+    "localInnerClass.LocalInnerClassTest",
+    "anonymousInnerClass.AnonymousInnerClassTest",
+    "staticInnerClass.StaticInnerClassTest",
+    "serviceLoader.ServiceLoaderTest",
+    "proxy.ProxyTest"
   ]
 }

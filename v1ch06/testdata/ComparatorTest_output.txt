@@ -1,0 +1,10 @@
+Sort by name:
+[Alice B. Johnson, Bob C. Doe, Jane A. Smith, John Doe]
+Sort by last name, then first name:
+[Bob C. Doe, John Doe, Alice B. Johnson, Jane A. Smith]
+Sort by length of name:
+[John Doe, Bob C. Doe, Jane A. Smith, Alice B. Johnson]
+Sort by middle name, null first:
+[John Doe, Jane A. Smith, Alice B. Johnson, Bob C. Doe]
+Sort by name in reversed order:
+[John Doe, Jane A. Smith, Bob C. Doe, Alice B. Johnson]

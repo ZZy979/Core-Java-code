@@ -1,0 +1,3 @@
+name=Harry Hacker,salary=35000.0
+name=Tony Tester,salary=38000.0
+name=Carl Cracker,salary=75000.0

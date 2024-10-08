@@ -86,3 +86,18 @@ python corejava.py test
 * [程序清单5-17 objectAnalyzer/ObjectAnalyzer.java](v1ch05/objectAnalyzer/ObjectAnalyzer.java)
 * [程序清单5-18 arrays/CopyOfTest.java](v1ch05/arrays/CopyOfTest.java)
 * [程序清单5-19 methods/MethodTableTest.java](v1ch05/methods/MethodTableTest.java)
+
+### 第6章 接口、Lambda表达式和内部类
+* [程序清单6-1 interfaces/EmployeeSortTest.java](v1ch06/interfaces/EmployeeSortTest.java)
+* [程序清单6-2 interfaces/Employee.java](v1ch06/interfaces/Employee.java)
+* [程序清单6-3 timer/TimerTest.java](v1ch06/timer/TimerTest.java)
+* [程序清单6-4 clone/CloneTest.java](v1ch06/clone/CloneTest.java)
+* [程序清单6-5 clone/Employee.java](v1ch06/clone/Employee.java)
+* [程序清单6-6 lambda/LambdaTest.java](v1ch06/lambda/LambdaTest.java)
+* [comparator/ComparatorTest.java](v1ch06/comparator/ComparatorTest.java)
+* [程序清单6-7 innerClass/InnerClassTest.java](v1ch06/innerClass/InnerClassTest.java)
+* [localInnerClass/LocalInnerClassTest.java](v1ch06/localInnerClass/LocalInnerClassTest.java)
+* [程序清单6-8 anonymousInnerClass/AnonymousInnerClassTest.java](v1ch06/anonymousInnerClass/AnonymousInnerClassTest.java)
+* [程序清单6-9 staticInnerClass/StaticInnerClassTest.java](v1ch06/staticInnerClass/StaticInnerClassTest.java)
+* [serviceLoader/ServiceLoaderTest.java](v1ch06/serviceLoader/ServiceLoaderTest.java)
+* [程序清单6-10 proxy/ProxyTest.java](v1ch06/proxy/ProxyTest.java)

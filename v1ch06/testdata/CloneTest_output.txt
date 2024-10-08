@@ -1,0 +1,2 @@
+original=Employee[name=John Q. Public,salary=50000.0,hireDay=Sat Jan 01 00:00:00 CST 2000]
+copy=Employee[name=John Q. Public,salary=55000.0,hireDay=Tue Dec 31 00:00:00 CST 2002]

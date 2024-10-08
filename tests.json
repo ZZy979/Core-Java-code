@@ -35,5 +35,9 @@
       "output_file": "ObjectAnalyzerTest_output.txt"},
     {"target": "arrays.CopyOfTest", "output_file": "CopyOfTest_output.txt"},
     {"target": "methods.MethodTableTest", "output_file": "MethodTableTest_output.txt"}
+  ],
+  "v1ch06": [
+    {"target": "interfaces.EmployeeSortTest", "output_file": "EmployeeSortTest_output.txt"},
+    {"target": "comparator.ComparatorTest", "output_file": "ComparatorTest_output.txt"}
   ]
 }
