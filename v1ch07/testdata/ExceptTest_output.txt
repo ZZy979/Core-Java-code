@@ -1,0 +1,16 @@
+Integer divide by zero
+java.lang.ArithmeticException: / by zero
+Floating point divide by zero
+Infinity
+Integer overflow
+-727379968
+Square root of negative number
+NaN
+Array index out of bounds
+java.lang.ArrayIndexOutOfBoundsException: Index 100 out of bounds for length 10
+Bad cast
+java.lang.ClassCastException: class [D cannot be cast to class [I ([D and [I are in module java.base of loader 'bootstrap')
+Null pointer
+java.lang.NullPointerException: Cannot invoke "String.toString()" because the return value of "java.lang.System.getProperty(String)" is null
+No such file
+java.nio.file.NoSuchFileException: woozle.txt

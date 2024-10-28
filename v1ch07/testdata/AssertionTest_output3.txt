@@ -1,0 +1,2 @@
+Enter a floating-point number: The square root is 0.0
+java.lang.AssertionError: Value must not be zero

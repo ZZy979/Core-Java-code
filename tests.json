@@ -39,5 +39,14 @@
   "v1ch06": [
     {"target": "interfaces.EmployeeSortTest", "output_file": "EmployeeSortTest_output.txt"},
     {"target": "comparator.ComparatorTest", "output_file": "ComparatorTest_output.txt"}
+  ],
+  "v1ch07": [
+    {"target": "except.ExceptTest", "output_file": "ExceptTest_output.txt"},
+    {"target": "stackTrace.StackTraceTest", "input_file": "StackTraceTest_input.txt", "output_file": "StackTraceTest_output.txt"},
+    {"target": "assertion.AssertionTest", "input_file": "AssertionTest_input1.txt", "output_file": "AssertionTest_output1.txt"},
+    {"target": "assertion.AssertionTest", "input_file": "AssertionTest_input1.txt",
+      "jvm_options": "-ea", "output_file": "AssertionTest_output2.txt"},
+    {"target": "assertion.AssertionTest", "input_file": "AssertionTest_input3.txt",
+      "jvm_options": "-ea:assertion.MathUtils", "output_file": "AssertionTest_output3.txt"}
   ]
 }

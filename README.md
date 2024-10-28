@@ -101,3 +101,10 @@ python corejava.py test
 * [程序清单6-9 staticInnerClass/StaticInnerClassTest.java](v1ch06/staticInnerClass/StaticInnerClassTest.java)
 * [serviceLoader/ServiceLoaderTest.java](v1ch06/serviceLoader/ServiceLoaderTest.java)
 * [程序清单6-10 proxy/ProxyTest.java](v1ch06/proxy/ProxyTest.java)
+
+### 第7章 异常、断言和日志
+* [except/ExceptTest.java](v1ch07/except/ExceptTest.java)
+* [程序清单7-1 stackTrace/StackTraceTest.java](v1ch07/stackTrace/StackTraceTest.java)
+* [exceptional/ExceptionalTest.java](v1ch07/exceptional/ExceptionalTest.java)
+* [assertion/AssertionTest.java](v1ch07/assertion/AssertionTest.java)
+* [程序清单7-2 logging/LoggingImageViewer.java](v1ch07/logging/LoggingImageViewer.java)

@@ -1,0 +1,15 @@
+Enter n: factorial(3):
+stackTrace.StackTraceTest.factorial(StackTraceTest.java:19)
+stackTrace.StackTraceTest.main(StackTraceTest.java:31)
+factorial(2):
+stackTrace.StackTraceTest.factorial(StackTraceTest.java:19)
+stackTrace.StackTraceTest.factorial(StackTraceTest.java:22)
+stackTrace.StackTraceTest.main(StackTraceTest.java:31)
+factorial(1):
+stackTrace.StackTraceTest.factorial(StackTraceTest.java:19)
+stackTrace.StackTraceTest.factorial(StackTraceTest.java:22)
+stackTrace.StackTraceTest.factorial(StackTraceTest.java:22)
+stackTrace.StackTraceTest.main(StackTraceTest.java:31)
+return 1
+return 2
+return 6

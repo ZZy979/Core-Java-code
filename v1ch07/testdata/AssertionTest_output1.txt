@@ -1,0 +1,2 @@
+Enter a floating-point number: The square root is NaN
+The reciprocal is -0.125
