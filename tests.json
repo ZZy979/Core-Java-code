@@ -48,5 +48,15 @@
       "jvm_options": "-ea", "output_file": "AssertionTest_output2.txt"},
     {"target": "assertion.AssertionTest", "input_file": "AssertionTest_input3.txt",
       "jvm_options": "-ea:assertion.MathUtils", "output_file": "AssertionTest_output3.txt"}
+  ],
+  "v1ch08": [
+    {"target": "pair1.PairTest1", "output_file": "PairTest1_output.txt"},
+    {"target": "pair2.PairTest2", "output_file": "PairTest2_output.txt"},
+    {"target": "bridgeMethod.BridgeMethodTest", "output_file": "BridgeMethodTest_output.txt"},
+    {"target": "pair3.PairTest3", "output_file": "PairTest3_output.txt"},
+    {"target": "genericAlgorithms.GenericAlgorithms", "output_file": "GenericAlgorithms_output.txt"},
+    {"target": "genericReflection.GenericReflectionTest", "args": "pair.Pair", "output_file": "GenericReflectionTest_output1.txt"},
+    {"target": "genericReflection.GenericReflectionTest", "args": "pair2.ArrayAlg", "output_file": "GenericReflectionTest_output2.txt"},
+    {"target": "genericReflection.TypeLiterals", "output_file": "TypeLiterals_output.txt"}
   ]
 }

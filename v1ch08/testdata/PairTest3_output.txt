@@ -1,0 +1,3 @@
+Gus Greedy and Sid Sneaky are buddies.
+first: Sid Sneaky, second: Gus Greedy
+first: Gus Greedy, second: Sid Sneaky

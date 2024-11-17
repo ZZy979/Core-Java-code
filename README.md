@@ -27,13 +27,14 @@ python corejava.py run {chapter}/{target}
 
 ```shell
 python corejava.py run v1ch02/Welcome/Welcome
+python corejava.py run v1ch05/arrayList.ArrayListTest
 ```
 
 # 单元测试
 在项目根目录下执行：
 
 ```shell
-python corejava.py test
+python corejava.py test [chapter...]
 ```
 
 # 代码目录
@@ -108,3 +109,16 @@ python corejava.py test
 * [exceptional/ExceptionalTest.java](v1ch07/exceptional/ExceptionalTest.java)
 * [assertion/AssertionTest.java](v1ch07/assertion/AssertionTest.java)
 * [程序清单7-2 logging/LoggingImageViewer.java](v1ch07/logging/LoggingImageViewer.java)
+
+### 第8章 泛型编程
+* [pair/Pair.java](v1ch08/pair/Pair.java)
+* [程序清单8-1 pair1/PairTest1.java](v1ch08/pair1/PairTest1.java)
+* [程序清单8-2 pair2/PairTest2.java](v1ch08/pair2/PairTest2.java)
+* [bridgeMethod/BridgeMethodTest.java](v1ch08/bridgeMethod/BridgeMethodTest.java)
+* [genericAlgorithms/Pair.java](v1ch08/genericAlgorithms/Pair.java)
+* [limitations/NoGenericArray.java](v1ch08/limitations/NoGenericArray.java)
+* [genericAlgorithms/GenericAlgorithms.java](v1ch08/genericAlgorithms/GenericAlgorithms.java)
+* [limitations/DefeatCheckedExceptionChecking.java](v1ch08/limitations/DefeatCheckedExceptionChecking.java)
+* [程序清单8-3 pair3/PairTest3.java](v1ch08/pair3/PairTest3.java)
+* [程序清单8-4 genericReflection/GenericReflectionTest.java](v1ch08/genericReflection/GenericReflectionTest.java)
+* [程序清单8-5 genericReflection/TypeLiterals.java](v1ch08/genericReflection/TypeLiterals.java)

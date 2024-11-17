@@ -1,0 +1,4 @@
+nums=42 1729
+chars="Hi"
+strings=[Hello, World]
+

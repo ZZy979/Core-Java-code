@@ -58,5 +58,16 @@
     "exceptional.ExceptionalTest",
     "assertion.AssertionTest",
     "logging.LoggingImageViewer"
+  ],
+  "v1ch08": [
+    "pair1.PairTest1",
+    "pair2.PairTest2",
+    "bridgeMethod.BridgeMethodTest",
+    "limitations.NoGenericArray",
+    "genericAlgorithms.GenericAlgorithms",
+    "limitations.DefeatCheckedExceptionChecking",
+    "pair3.PairTest3",
+    "genericReflection.GenericReflectionTest",
+    "genericReflection.TypeLiterals"
   ]
 }

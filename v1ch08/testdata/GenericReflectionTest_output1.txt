@@ -1,0 +1,5 @@
+class pair.Pair<T> extends java.lang.Object
+public T getFirst()
+public T getSecond()
+public void setFirst(T)
+public void setSecond(T)

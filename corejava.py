@@ -1,6 +1,7 @@
 import argparse
 import difflib
 import json
+import os
 import pathlib
 import shlex
 import shutil
@@ -59,7 +60,7 @@ class Example:
 
         :param compile_options: str 编译选项，空格分隔
         """
-        cmd = ['javac', '-d', self.class_dir, *shlex.split(compile_options), self.src_file]
+        cmd = ['javac', '-cp', get_class_path(), '-d', self.class_dir, *shlex.split(compile_options), self.src_file]
         subprocess.run(cmd, cwd=self.src_dir, check=True)
 
     def run(self, compile_options='', jvm_options='', args=''):
@@ -163,22 +164,39 @@ def load_tests():
             yield TestCase(chapter, config)
 
 
+def get_class_path():
+    """生成编译时的类路径，支持跨章节目录引用。"""
+    chapter_dirs = list(map(str, ROOT_DIR.glob('v*')))
+    return os.pathsep.join(['.'] + chapter_dirs)
+
+
 def run(args):
     """运行示例程序。"""
     chapter, target = args.target.split('/', 1)
-    Example(chapter, target).run(args.args)
+    Example(chapter, target).run(args=args.args)
 
 
 def test(args):
     """运行测试。"""
     run = failed = 0
     for test_case in load_tests():
-        if not args.chapter or test_case.example.chapter == args.chapter:
+        if not args.chapter or test_case.example.chapter in args.chapter:
             run += 1
             if not test_case.run():
                 failed += 1
     print(f'Run {run} tests, {failed} failed')
     sys.exit(failed)
+
+
+def clean(args):
+    """清理编译输出。"""
+    if not args.chapter:
+        print(f'Delete {OUT_DIR}')
+        shutil.rmtree(OUT_DIR)
+    else:
+        for chapter in args.chapter:
+            print(f'Delete {OUT_DIR / chapter}')
+            shutil.rmtree(OUT_DIR / chapter)
 
 
 def create_arg_parser():
@@ -192,8 +210,12 @@ def create_arg_parser():
     run_parser.set_defaults(func=run)
 
     test_parser = sub_parsers.add_parser('test', help='运行测试')
-    test_parser.add_argument('-c', '--chapter', help='章节名称')
+    test_parser.add_argument('chapter', nargs='*', help='章节名称')
     test_parser.set_defaults(func=test)
+
+    clean_parser = sub_parsers.add_parser('clean', help='清理编译输出')
+    clean_parser.add_argument('chapter', nargs='*', help='章节名称')
+    clean_parser.set_defaults(func=clean)
 
     return parser
 
