@@ -63,24 +63,24 @@ class Example:
         cmd = ['javac', '-cp', get_class_path(), '-d', self.class_dir, *shlex.split(compile_options), self.src_file]
         subprocess.run(cmd, cwd=self.src_dir, check=True)
 
-    def run(self, compile_options='', jvm_options='', args=''):
+    def run(self, args='', compile_options='', jvm_options=''):
         """运行示例程序。
 
+        :param args: str 命令行参数，空格分隔
         :param compile_options: str 编译选项，空格分隔
         :param jvm_options: str JVM选项，空格分隔
-        :param args: str 命令行参数，空格分隔
         """
         self.build(compile_options)
         cmd = ['java', *shlex.split(jvm_options), self.full_class_name, *shlex.split(args)]
         subprocess.run(cmd, cwd=self.class_dir)
 
-    def test(self, compile_options='', jvm_options='', args='', input_file=None):
+    def test(self, args='', input_file=None, compile_options='', jvm_options=''):
         """测试示例程序。
 
-        :param compile_options: str 编译选项，空格分隔
-        :param jvm_options: str JVM选项，空格分隔
         :param args: str 命令行参数，空格分隔
         :param input_file: str 输入文件名
+        :param compile_options: str 编译选项，空格分隔
+        :param jvm_options: str JVM选项，空格分隔
         :return: subprocess.CompletedProcess对象
         """
         self.build(compile_options)
@@ -139,7 +139,7 @@ class TestCase:
         print(f'Testing {self}...', end='')
         with open(self.output_file, encoding='utf-8') as f:
             expected_output = f.read()
-        result = self.example.test(self.compile_options, self.jvm_options, self.args, self.input_file)
+        result = self.example.test(self.args, self.input_file, self.compile_options, self.jvm_options)
         actual_output = result.stdout
         if expected_output == actual_output:
             print('OK')
@@ -173,7 +173,7 @@ def get_class_path():
 def run(args):
     """运行示例程序。"""
     chapter, target = args.target.split('/', 1)
-    Example(chapter, target).run(args=args.args)
+    Example(chapter, target).run(args.args)
 
 
 def test(args):

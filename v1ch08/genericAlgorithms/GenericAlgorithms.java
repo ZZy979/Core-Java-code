@@ -25,6 +25,7 @@ public class GenericAlgorithms {
 }
 
 class ArrayAlg {
+    @SuppressWarnings("unchecked")
     public static <T extends Comparable> T[] minmax(IntFunction<T[]> constr, T... a) {
         T[] result = constr.apply(2);
         T min = a[0];
@@ -38,6 +39,7 @@ class ArrayAlg {
         return result;
     }
 
+    @SuppressWarnings("unchecked")
     public static <T extends Comparable> T[] minmax(T... a) {
         var result = (T[]) Array.newInstance(a.getClass().getComponentType(), 2);
         T min = a[0];
