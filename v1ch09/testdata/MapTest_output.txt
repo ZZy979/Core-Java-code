@@ -1,0 +1,5 @@
+{157-62-7935=[name=Gary Cooper, salary=0.0], 144-25-5464=[name=Amy Lee, salary=0.0], 456-62-5527=[name=Francesca Cruz, salary=0.0], 567-24-2546=[name=Harry Hacker, salary=0.0]}
+[name=Gary Cooper, salary=0.0]
+key=157-62-7935, value=[name=Gary Cooper, salary=0.0]
+key=144-25-5464, value=[name=Amy Lee, salary=0.0]
+key=456-62-5527, value=[name=Francesca Miller, salary=0.0]

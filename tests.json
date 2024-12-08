@@ -58,5 +58,12 @@
     {"target": "genericReflection.GenericReflectionTest", "args": "pair.Pair", "output_file": "GenericReflectionTest_output1.txt"},
     {"target": "genericReflection.GenericReflectionTest", "args": "pair2.ArrayAlg", "output_file": "GenericReflectionTest_output2.txt"},
     {"target": "genericReflection.TypeLiterals", "output_file": "TypeLiterals_output.txt"}
+  ],
+  "v1ch09": [
+    {"target": "circularArrayQueue.CircularArrayQueueTest", "output_file": "CircularArrayQueueTest_output.txt"},
+    {"target": "linkedList.LinkedListTest", "output_file": "LinkedListTest_output.txt"},
+    {"target": "treeSet.TreeSetTest", "output_file": "TreeSetTest_output.txt"},
+    {"target": "priorityQueue.PriorityQueueTest", "output_file": "PriorityQueueTest_output.txt"},
+    {"target": "map.MapTest", "output_file": "MapTest_output.txt"}
   ]
 }

@@ -69,5 +69,16 @@
     "pair3.PairTest3",
     "genericReflection.GenericReflectionTest",
     "genericReflection.TypeLiterals"
+  ],
+  "v1ch09": [
+    "circularArrayQueue.CircularArrayQueueTest",
+    "linkedList.LinkedListTest",
+    "set.SetTest",
+    "treeSet.TreeSetTest",
+    "priorityQueue.PriorityQueueTest",
+    "map.MapTest",
+    "shuffle.ShuffleTest",
+    "properties.ImageViewer",
+    "sieve.Sieve"
   ]
 }

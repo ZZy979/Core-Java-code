@@ -122,3 +122,17 @@ python corejava.py test [chapter...]
 * [程序清单8-3 pair3/PairTest3.java](v1ch08/pair3/PairTest3.java)
 * [程序清单8-4 genericReflection/GenericReflectionTest.java](v1ch08/genericReflection/GenericReflectionTest.java)
 * [程序清单8-5 genericReflection/TypeLiterals.java](v1ch08/genericReflection/TypeLiterals.java)
+
+### 第9章 集合
+* [circularArrayQueue/CircularArrayQueue.java](v1ch09/circularArrayQueue/CircularArrayQueue.java)
+* [circularArrayQueue/CircularArrayQueueTest.java](v1ch09/circularArrayQueue/CircularArrayQueueTest.java)
+* [程序清单9-1 linkedList/LinkedListTest.java](v1ch09/linkedList/LinkedListTest.java)
+* [程序清单9-2 set/SetTest.java](v1ch09/set/SetTest.java)
+* [程序清单9-3 treeSet/TreeSetTest.java](v1ch09/treeSet/TreeSetTest.java)
+* [程序清单9-4 treeSet/Item.java](v1ch09/treeSet/Item.java)
+* [程序清单9-5 priorityQueue/PriorityQueueTest.java](v1ch09/priorityQueue/PriorityQueueTest.java)
+* [程序清单9-6 map/MapTest.java](v1ch09/map/MapTest.java)
+* [程序清单9-7 shuffle/ShuffleTest.java](v1ch09/shuffle/ShuffleTest.java)
+* [properties/ImageViewer.java](v1ch09/properties/ImageViewer.java)
+* [程序清单9-8 sieve/Sieve.java](v1ch09/sieve/Sieve.java)
+* [程序清单9-9 sieve/sieve.cpp](v1ch09/sieve/sieve.cpp)
