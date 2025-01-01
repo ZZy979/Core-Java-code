@@ -136,3 +136,36 @@ python corejava.py test [chapter...]
 * [properties/ImageViewer.java](v1ch09/properties/ImageViewer.java)
 * [程序清单9-8 sieve/Sieve.java](v1ch09/sieve/Sieve.java)
 * [程序清单9-9 sieve/sieve.cpp](v1ch09/sieve/sieve.cpp)
+
+### 第10章 图形用户界面
+* [程序清单10-1 simpleFrame/SimpleFrameTest.java](v1ch10/simpleFrame/SimpleFrameTest.java)
+* [sizedFrame/SizedFrame.java](v1ch10/sizedFrame/SizedFrame.java)
+* [程序清单10-2 notHelloWorld/NotHelloWorldComponent.java](v1ch10/notHelloWorld/NotHelloWorldComponent.java)
+* [程序清单10-3 draw/DrawComponent.java](v1ch10/draw/DrawComponent.java)
+* [fill/FillComponent.java](v1ch10/fill/FillComponent.java)
+* [listFonts/ListFonts.java](v1ch10/listFonts/ListFonts.java)
+* [程序清单10-4 font/FontComponent.java](v1ch10/font/FontComponent.java)
+* [image/ImageComponent.java](v1ch10/image/ImageComponent.java)
+* [程序清单10-5 button/ButtonFrame.java](v1ch10/button/ButtonFrame.java)
+* [plaf/PlafFrame.java](v1ch10/plaf/PlafFrame.java)
+* [action/ActionFrame.java](v1ch10/action/ActionFrame.java)
+* [程序清单10-6 mouse/MouseComponent.java](v1ch10/mouse/MouseComponent.java)
+* [程序清单10-7 preferences/ImageViewerFrame.java](v1ch10/preferences/ImageViewerFrame.java)
+
+#### Swing示例集合
+为方便起见，将第10、11章中所有Swing示例集合打包成一个JAR文件，可以直接通过GUI选择要运行的示例。
+
+代码：[swingDemos/MainFrame.java](v1ch10/swingDemos/MainFrame.java)
+
+打包命令：
+
+```shell
+cd v1ch10
+bash build_swing_demos.sh
+```
+
+运行命令：
+
+```shell
+java -jar swingDemos.jar
+```

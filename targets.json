@@ -80,5 +80,20 @@
     "shuffle.ShuffleTest",
     "properties.ImageViewer",
     "sieve.Sieve"
+  ],
+  "v1ch10": [
+    "simpleFrame.SimpleFrameTest",
+    "sizedFrame.SizedFrameTest",
+    "notHelloWorld.NotHelloWorld",
+    "draw.DrawTest",
+    "fill.FillTest",
+    "listFonts.ListFonts",
+    "font.FontTest",
+    "image.ImageTest",
+    "button.ButtonTest",
+    "plaf.PlafTest",
+    "action.ActionTest",
+    "mouse.MouseTest",
+    "preferences.ImageViewer"
   ]
 }
