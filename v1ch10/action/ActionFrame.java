@@ -6,13 +6,14 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
+
+import static util.ResourceUtil.getImageIcon;
 
 /**
  * A frame with a panel that demonstrates color change actions.
@@ -52,11 +53,6 @@ public class ActionFrame extends JFrame {
         actionMap.put("panel.yellow", yellowAction);
         actionMap.put("panel.blue", blueAction);
         actionMap.put("panel.red", redAction);
-    }
-
-    private ImageIcon getImageIcon(String name) {
-        var url = getClass().getResource(name);
-        return url != null ? new ImageIcon(url) : null;
     }
 
     public class ColorAction extends AbstractAction {

@@ -95,5 +95,25 @@
     "action.ActionTest",
     "mouse.MouseTest",
     "preferences.ImageViewer"
+  ],
+  "v1ch11": [
+    "calculator.Calculator",
+    "text.TextComponentTest",
+    "checkBox.CheckBoxTest",
+    "radioButton.RadioButtonTest",
+    "border.BorderTest",
+    "comboBox.ComboBoxTest",
+    "slider.SliderTest",
+    "menu.MenuTest",
+    "toolBar.ToolBarTest",
+    "gridbag.GridBagLayoutTest",
+    "circleLayout.CircleLayoutTest",
+    "optionDialog.OptionDialogTest",
+    "dialog.DialogTest",
+    "dataExchange.DataExchangeTest",
+    "fileChooser.FileChooserTest",
+    "colorChooser.ColorChooserTest",
+    "eventTracer.EventTracerTest",
+    "robot.RobotTest"
   ]
 }
