@@ -115,5 +115,23 @@
     "colorChooser.ColorChooserTest",
     "eventTracer.EventTracerTest",
     "robot.RobotTest"
+  ],
+  "v1ch12": [
+    "bounce.Bounce",
+    "bounceThread.BounceThread",
+    "threads.ThreadTest",
+    "unsynch.UnsynchBankTest",
+    "lock.LockBankTest",
+    "synch.SynchBankTest",
+    "synch2.SynchBankTest2",
+    "blockingQueue.BlockingQueueTest",
+    "concurrentHashMap.ConcurrentHashMapDemo",
+    "future.FutureTest",
+    "threadPool.ThreadPoolTest",
+    "executors.ExecutorDemo",
+    "forkJoin.ForkJoinTest",
+    "completableFutures.CompletableFutureDemo",
+    "swingWorker.SwingWorkerTest",
+    "process.ReadDir"
   ]
 }

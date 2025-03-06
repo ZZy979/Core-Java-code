@@ -65,5 +65,8 @@
     {"target": "treeSet.TreeSetTest", "output_file": "TreeSetTest_output.txt"},
     {"target": "priorityQueue.PriorityQueueTest", "output_file": "PriorityQueueTest_output.txt"},
     {"target": "map.MapTest", "output_file": "MapTest_output.txt"}
+  ],
+  "v1ch12": [
+    {"target": "future.FutureTest", "input_file": "FutureTest_input.txt", "output_file": "FutureTest_output.txt"}
   ]
 }
