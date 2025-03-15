@@ -68,5 +68,13 @@
   ],
   "v1ch12": [
     {"target": "future.FutureTest", "input_file": "FutureTest_input.txt", "output_file": "FutureTest_output.txt"}
+  ],
+  "v2ch01": [
+    {"target": "streams.CountLongWords", "output_file": "CountLongWords_output.txt"},
+    {"target": "optional.OptionalTest", "output_file": "OptionalTest_output.txt"},
+    {"target": "collecting.CollectingResults", "output_file": "CollectingResults_output.txt"},
+    {"target": "collecting.CollectingIntoMaps", "jvm_options": "-Dfile.encoding=UTF-8", "output_file": "CollectingIntoMaps_output.txt"},
+    {"target": "collecting.DownstreamCollectors", "output_file": "DownstreamCollectors_output.txt"},
+    {"target": "streams.PrimitiveTypeStreams", "jvm_options": "-Dfile.encoding=UTF-8", "output_file": "PrimitiveTypeStreams_output.txt"}
   ]
 }

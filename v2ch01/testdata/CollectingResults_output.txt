@@ -1,0 +1,32 @@
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Object array: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+number: 0
+The following statement throws an exception:
+java.lang.ClassCastException: class [Ljava.lang.Object; cannot be cast to class [Ljava.lang.Integer; ([Ljava.lang.Object; and [Ljava.lang.Integer; are in module java.base of loader 'bootstrap')
+Integer array: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+noVowelSet: java.util.HashSet[, Pppr, rsrc, tdy, srprsd, kss, Txts, gssd, WLD, clmly]
+noVowelTreeSet: java.util.TreeSet[, B, BC, BCDC, BFR, BG, BRCH, BST, BSY, BT]
+Joining: ThssthPrjctGtnbrgtxtflcn
+Joining with commas: , Ths, s, th, Prjct, Gtnbrg, txt, f, lc, n
+Average word length: 2.4493551160791056
+Max word length: 10.0
+forEach:
+
+Ths
+s
+th
+Prjct
+Gtnbrg
+txt
+f
+lc
+n

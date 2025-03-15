@@ -1,0 +1,9 @@
+idToName: {1001=Peter, 1002=Paul, 1003=Mary}
+
+idToPerson: java.util.HashMap{1001=Person[id=1001, name=Peter], 1002=Person[id=1002, name=Paul], 1003=Person[id=1003, name=Mary]}
+
+idToPerson: java.util.TreeMap{1001=Person[id=1001, name=Peter], 1002=Person[id=1002, name=Paul], 1003=Person[id=1003, name=Mary]}
+
+languageNames: {English=English, Italian=italiano, French=français, Chinese=中文, Korean=한국어, German=Deutsch, Japanese=日本語}
+
+countryLanguageSets: {Canada=[English, French], South Korea=[Korean], United States=[English], China=[Chinese], Japan=[Japanese], Taiwan=[Chinese], United Kingdom=[English], Italy=[Italian], France=[French], Switzerland=[Italian, French, German], Germany=[German]}

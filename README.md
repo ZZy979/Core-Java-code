@@ -219,3 +219,14 @@ java -jar swingDemos.jar
 * [程序清单12-10 completableFutures/CompletableFutureDemo.java](v1ch12/completableFutures/CompletableFutureDemo.java)
 * [程序清单12-11 swingWorker/SwingWorkerTest.java](v1ch12/swingWorker/SwingWorkerTest.java)
 * [process/ReadDir.java](v1ch12/process/ReadDir.java)
+
+## 卷II 高级特性
+### 第1章 流
+* [程序清单1-1 streams/CountLongWords.java](v2ch01/streams/CountLongWords.java)
+* [程序清单1-2 streams/CreatingStreams.java](v2ch01/streams/CreatingStreams.java)
+* [程序清单1-3 optional/OptionalTest.java](v2ch01/optional/OptionalTest.java)
+* [程序清单1-4 collecting/CollectingResults.java](v2ch01/collecting/CollectingResults.java)
+* [程序清单1-5 collecting/CollectingIntoMaps.java](v2ch01/collecting/CollectingIntoMaps.java)
+* [程序清单1-6 collecting/DownstreamCollectors.java](v2ch01/collecting/DownstreamCollectors.java)
+* [程序清单1-7 streams/PrimitiveTypeStreams.java](v2ch01/streams/PrimitiveTypeStreams.java)
+* [程序清单1-8 parallel/ParallelStreams.java](v2ch01/parallel/ParallelStreams.java)

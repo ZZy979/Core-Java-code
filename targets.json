@@ -133,5 +133,15 @@
     "completableFutures.CompletableFutureDemo",
     "swingWorker.SwingWorkerTest",
     "process.ReadDir"
+  ],
+  "v2ch01": [
+    "streams.CountLongWords",
+    "streams.CreatingStreams",
+    "optional.OptionalTest",
+    "collecting.CollectingResults",
+    "collecting.CollectingIntoMaps",
+    "collecting.DownstreamCollectors",
+    "streams.PrimitiveTypeStreams",
+    "parallel.ParallelStreams"
   ]
 }
