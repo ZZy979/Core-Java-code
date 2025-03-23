@@ -1,0 +1,9 @@
+apollo11launch: 1969-07-16T09:32-04:00[America/New_York]
+instant: 1969-07-16T13:32:00Z
+zonedDateTime: 1969-07-16T13:32Z[UTC]
+skipped: 2013-03-31T03:30+02:00[Europe/Berlin]
+ambiguous: 2013-10-27T02:30+02:00[Europe/Berlin]
+anHourLater: 2013-10-27T02:30+01:00[Europe/Berlin]
+meeting: 2013-10-31T14:30-07:00[America/Los_Angeles]
+nextMeeting: 2013-11-07T13:30-08:00[America/Los_Angeles]
+nextMeeting: 2013-11-07T14:30-08:00[America/Los_Angeles]

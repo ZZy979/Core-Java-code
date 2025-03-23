@@ -76,5 +76,10 @@
     {"target": "collecting.CollectingIntoMaps", "jvm_options": "-Dfile.encoding=UTF-8", "output_file": "CollectingIntoMaps_output.txt"},
     {"target": "collecting.DownstreamCollectors", "output_file": "DownstreamCollectors_output.txt"},
     {"target": "streams.PrimitiveTypeStreams", "jvm_options": "-Dfile.encoding=UTF-8", "output_file": "PrimitiveTypeStreams_output.txt"}
+  ],
+  "v2ch06": [
+    {"target": "localdates.LocalDates", "output_file": "LocalDates_output.txt"},
+    {"target": "zonedtimes.ZonedTimes", "output_file": "ZonedTimes_output.txt"},
+    {"target": "formatting.Formatting", "jvm_options": "-Dfile.encoding=UTF-8", "output_file": "Formatting_output.txt"}
   ]
 }

@@ -143,5 +143,11 @@
     "collecting.DownstreamCollectors",
     "streams.PrimitiveTypeStreams",
     "parallel.ParallelStreams"
+  ],
+  "v2ch06": [
+    "timeline.TimeLine",
+    "localdates.LocalDates",
+    "zonedtimes.ZonedTimes",
+    "formatting.Formatting"
   ]
 }

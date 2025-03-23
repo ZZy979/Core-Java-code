@@ -1,0 +1,7 @@
+Standard formatter ISO_OFFSET_DATE_TIME: 1969-07-16T09:32:00-04:00
+Locale-specific formatter (US): July 16, 1969 at 9:32:00 AM EDT
+Locale-specific formatter (French): 16 juillet 1969 à 09:32:00 EDT
+Formatter with custom pattern: Wed 1969-07-16 09:32
+churchsBirthday: 1903-06-14
+apollo11launch: 1969-07-16T03:32-04:00
+Mon Tue Wed Thu Fri Sat Sun 
