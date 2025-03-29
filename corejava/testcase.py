@@ -3,28 +3,30 @@ import json
 import shlex
 import sys
 from collections import defaultdict
+from itertools import chain
 
 from corejava.config import ROOT_DIR
 
 
 class TestCase:
 
-    def __init__(self, target_manager, target_name, output_file, args=None, input_file=None, jvm_options=None):
-        """一个示例程序的测试用例。
+    def __init__(self, target_manager, target_name, output_file, jvm_options=None, args=None, input_file=None):
+        """示例程序的测试用例。
 
         :param target_manager: TargetManager对象
-        :param target_name: str 构建目标名称
+        :param target_name: str 构建目标名称，格式为chapter/name，例如v1ch02/Foo/com.example.foo.Foo
         :param output_file: str 用于比较标准输出的文件
+        :param jvm_options: List[str] JVM选项（可选）
         :param args: List[str] 命令行参数（可选）
         :param input_file: 标准输入文件（可选）
-        :param jvm_options: List[str] JVM选项（可选）
         """
         self.target_manager = target_manager
         self.target_name = target_name
+        self.chapter = target_name.split('/')[0]
+        self.jvm_options = jvm_options or []
         self.args = args or []
         self.input_file = input_file or None
         self.output_file = output_file
-        self.jvm_options = jvm_options or []
 
     def __str__(self):
         return f'Test case for {self.target_name}'
@@ -60,13 +62,13 @@ class TestCaseManager:
         """
         self.config_file = config_file
         self.target_manager = target_manager
-        self.test_cases = defaultdict(list)  # chapter -> [TestCase]
-        self.load_tests()
+        self.test_cases = self.load_tests()
 
     def load_tests(self):
         with open(self.config_file, encoding='utf-8') as f:
             test_config = json.load(f)
 
+        test_cases = defaultdict(list)  # chapter -> [TestCase]
         for chapter, configs in test_config.items():
             testdata_dir = ROOT_DIR / chapter / 'testdata'
             for config in configs:
@@ -81,8 +83,12 @@ class TestCaseManager:
                 args = shlex.split(config.get('args', ''))
                 input_file = testdata_dir / config['input_file'] if 'input_file' in config else None
                 output_file = testdata_dir / config['output_file']
-                test_case = TestCase(self.target_manager, target_name, output_file, args, input_file, jvm_options)
-                self.test_cases[chapter].append(test_case)
+                test_case = TestCase(self.target_manager, target_name, output_file, jvm_options, args, input_file)
+                test_cases[chapter].append(test_case)
+        return test_cases
+
+    def iter_tests(self):
+        return chain.from_iterable(self.test_cases.values())
 
     def run_tests(self, chapters=None):
         """运行指定章节的所有测试用例，如果未指定则运行所有测试用例。

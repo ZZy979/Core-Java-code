@@ -1,0 +1,14 @@
+{
+  "ch01": [
+    {"target": "A", "output_file": "A_output.txt"},
+    {"target": "B", "input_file": "B_input1.txt", "output_file": "B_output1.txt"},
+    {"target": "B", "input_file": "B_input2.txt", "output_file": "B_output2.txt"}
+  ],
+  "ch02": [
+    {"target": "C", "jvm_options": "-Dfile.encoding=UTF-8", "args": "arg1 arg2", "output_file": "C_output.txt"},
+    {"target": "D", "args": "\"hello world\"", "output_file": "D_output.txt"}
+  ],
+  "ch03": [
+    {"target": "E", "output_file": "E_output.txt"}
+  ]
+}

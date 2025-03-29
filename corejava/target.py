@@ -107,13 +107,13 @@ class TargetManager:
         :param config_file: str 构建目标配置文件
         """
         self.config_file = config_file
-        self.targets = {}  # name -> Target
-        self.load_targets()
+        self.targets = self.load_targets()
 
     def load_targets(self):
         with open(self.config_file, encoding='utf-8') as f:
             target_config = json.load(f)
 
+        targets = {}  # name -> Target
         for chapter, configs in target_config.items():
             for config in configs:
                 if isinstance(config, str):
@@ -121,13 +121,14 @@ class TargetManager:
                 name = config['name']
                 deps = config.get('deps', [])
                 target = Target(chapter, name, deps)
-                self.targets[target.name] = target
+                targets[target.name] = target
 
         # 验证依赖目标存在
-        for target in self.targets.values():
+        for target in targets.values():
             for dep in target.deps:
-                if dep not in self.targets:
+                if dep not in targets:
                     raise ValueError(f'Dependency "{dep}" of target "{target}" does not exits.')
+        return targets
 
     def __contains__(self, name):
         return name in self.targets
@@ -135,8 +136,12 @@ class TargetManager:
     def __getitem__(self, name):
         return self.targets[name]
 
+    def iter_targets(self):
+        return iter(self.targets.values())
+
     def _build_target_recursive(self, target_name, stack, built):
         if target_name in stack:
+            # 循环依赖
             circle = ' -> '.join(stack + [target_name])
             raise RuntimeError(f'Circular dependency detected: {circle}')
 
