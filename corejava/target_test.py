@@ -9,48 +9,85 @@ from corejava.target import Target, TargetManager
 class TargetTest(unittest.TestCase):
 
     def setUp(self):
-        self.foo_target = Target('ch01', 'Foo/com.example.foo.Foo')
-        self.bar_target = Target('ch02', 'com.example.bar.Bar', ['ch01/Foo/com.example.foo.Foo'])
+        self.foo = Target('ch01', 'Foo/com.example.foo.Foo')
+        self.bar = Target('ch02', 'com.example.bar.Bar', ['ch01/Foo/com.example.foo.Foo'])
 
     def test_init(self):
-        self.assertEqual('ch01', self.foo_target.chapter)
-        self.assertEqual('ch01/Foo/com.example.foo.Foo', self.foo_target.name)
-        self.assertEqual('com.example.foo.Foo', self.foo_target.main_class)
-        self.assertEqual(ROOT_DIR / 'ch01/Foo', self.foo_target.src_dir)
-        self.assertEqual(ROOT_DIR / 'ch01/Foo/com/example/foo/Foo.java', self.foo_target.src_file)
-        self.assertEqual(OUT_DIR / 'ch01/Foo', self.foo_target.out_dir)
-        self.assertListEqual([], self.foo_target.deps)
+        self.assertEqual('ch01', self.foo.chapter)
+        self.assertEqual('ch01/Foo/com.example.foo.Foo', self.foo.name)
+        self.assertEqual('com.example.foo.Foo', self.foo.main_class)
+        self.assertEqual(ROOT_DIR / 'ch01/Foo', self.foo.src_dir)
+        self.assertEqual(ROOT_DIR / 'ch01/Foo/com/example/foo/Foo.java', self.foo.src_file)
+        self.assertEqual(OUT_DIR / 'ch01/Foo', self.foo.out_dir)
+        self.assertListEqual([], self.foo.deps)
 
-        self.assertEqual(ROOT_DIR / 'ch02', self.bar_target.src_dir)
-        self.assertEqual(OUT_DIR / 'ch02', self.bar_target.out_dir)
-        self.assertListEqual(['ch01/Foo/com.example.foo.Foo'], self.bar_target.deps)
+        self.assertEqual(ROOT_DIR / 'ch02', self.bar.src_dir)
+        self.assertEqual(OUT_DIR / 'ch02', self.bar.out_dir)
+        self.assertListEqual(['ch01/Foo/com.example.foo.Foo'], self.bar.deps)
 
     def test_get_classpath(self):
-        self.assertListEqual(['.'], self.foo_target.get_classpath())
-        self.assertListEqual(['.', str(OUT_DIR / 'ch01/Foo')], self.bar_target.get_classpath())
+        self.assertListEqual(['.'], self.foo.get_classpath())
+        self.assertListEqual(['.', str(OUT_DIR / 'ch01/Foo')], self.bar.get_classpath())
+
+    def test_get_module_path(self):
+        self.assertListEqual([], self.foo.get_module_path(False))
+        self.assertListEqual([str(OUT_DIR / 'ch01/Foo')], self.foo.get_module_path(True))
+        self.assertListEqual([str(OUT_DIR / 'ch01/Foo')], self.bar.get_module_path(False))
+        self.assertListEqual([str(OUT_DIR / 'ch01/Foo'), str(OUT_DIR / 'ch02')], self.bar.get_module_path(True))
 
     def test_get_compile_command(self):
         foo_compile_command = [
-            'javac', '-d', OUT_DIR / 'ch01/Foo', '-cp', '.', ROOT_DIR / 'ch01/Foo/com/example/foo/Foo.java'
+            'javac', '-d', OUT_DIR / 'ch01/Foo', '-cp', '.',
+            ROOT_DIR / 'ch01/Foo/com/example/foo/Foo.java'
         ]
-        self.assertListEqual(foo_compile_command, self.foo_target.get_compile_command())
+        self.assertListEqual(foo_compile_command, self.foo.get_compile_command())
 
         bar_compile_command = [
             'javac', '-d', OUT_DIR / 'ch02', '-cp', os.pathsep.join(['.', str(OUT_DIR / 'ch01/Foo')]),
             ROOT_DIR / 'ch02/com/example/bar/Bar.java'
         ]
-        self.assertListEqual(bar_compile_command, self.bar_target.get_compile_command())
+        self.assertListEqual(bar_compile_command, self.bar.get_compile_command())
+
+    def test_get_compile_command_for_module(self):
+        self.foo.is_module = self.bar.is_module = True
+
+        foo_compile_command = [
+            'javac', '-d', OUT_DIR / 'ch01/Foo',
+            ROOT_DIR / 'ch01/Foo/module-info.java', ROOT_DIR / 'ch01/Foo/com/example/foo/Foo.java'
+        ]
+        self.assertListEqual(foo_compile_command, self.foo.get_compile_command())
+
+        bar_compile_command = [
+            'javac', '-d', OUT_DIR / 'ch02', '-p', str(OUT_DIR / 'ch01/Foo'),
+            ROOT_DIR / 'ch02/module-info.java', ROOT_DIR / 'ch02/com/example/bar/Bar.java'
+        ]
+        self.assertListEqual(bar_compile_command, self.bar.get_compile_command())
 
     def test_get_run_command(self):
         foo_run_command = ['java', '-cp', '.', 'com.example.foo.Foo']
-        self.assertListEqual(foo_run_command, self.foo_target.get_run_command())
+        self.assertListEqual(foo_run_command, self.foo.get_run_command())
 
         bar_run_command = [
             'java', '-cp', os.pathsep.join(['.', str(OUT_DIR / 'ch01/Foo')]),
             '-Dfile.encoding=UTF-8', 'com.example.bar.Bar', 'arg1', 'arg2'
         ]
         self.assertListEqual(
-            bar_run_command, self.bar_target.get_run_command(['arg1', 'arg2'], ['-Dfile.encoding=UTF-8']))
+            bar_run_command, self.bar.get_run_command(['arg1', 'arg2'], ['-Dfile.encoding=UTF-8']))
+
+    def test_get_run_command_for_module(self):
+        self.foo.is_module = self.bar.is_module = True
+        self.foo.module_name = 'mod1'
+        self.bar.module_name = 'mod2'
+
+        foo_run_command = ['java', '-p', str(OUT_DIR / 'ch01/Foo'), '-m', 'mod1/com.example.foo.Foo']
+        self.assertListEqual(foo_run_command, self.foo.get_run_command())
+
+        bar_run_command = [
+            'java', '-p', os.pathsep.join([str(OUT_DIR / 'ch01/Foo'), str(OUT_DIR / 'ch02')]),
+            '-Dfile.encoding=UTF-8', '-m', 'mod2/com.example.bar.Bar', 'arg1', 'arg2'
+        ]
+        self.assertListEqual(
+            bar_run_command, self.bar.get_run_command(['arg1', 'arg2'], ['-Dfile.encoding=UTF-8']))
 
 
 class TargetManagerTest(unittest.TestCase):
@@ -64,17 +101,21 @@ class TargetManagerTest(unittest.TestCase):
 
     def test_load_targets(self):
         targets = [
-            ("ch01/A", []),
-            ("ch01/B", []),
-            ("ch02/C", ["ch01/A", "ch01/B"]),
-            ("ch02/D", ["ch01/B"]),
-            ("ch03/E", ["ch02/C", "ch02/D"])
+            ("ch01/A", [], None),
+            ("ch01/B", [], None),
+            ("ch02/C", ["ch01/A", "ch01/B"], None),
+            ("ch02/D", ["ch01/B"], None),
+            ("ch03/E", ["ch02/C", "ch02/D"], None),
+            ("ch04/mod1/F", [], "mod1"),
+            ("ch04/mod2/G", ["ch04/mod1/F"], "mod2"),
         ]
-        for name, deps in targets:
+        self.assertEqual(len(targets), len(self.target_manager.targets))
+        for name, deps, module_name in targets:
             self.assertIn(name, self.target_manager)
             target = self.target_manager[name]
             self.assertEqual(name, target.name)
             self.assertListEqual(deps, target.deps)
+            self.assertEqual(module_name, target.module_name)
 
     def test_load_targets_with_invalid_dependency(self):
         self.assertRaisesRegex(

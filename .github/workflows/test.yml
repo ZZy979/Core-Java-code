@@ -24,5 +24,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Run test
-        run: python corejava.py test
+      - name: Run tool script test
+        run: python -m unittest -v corejava.target_test corejava.testcase_test
+      - name: Run Java test
+        run: python -m corejava test

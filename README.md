@@ -17,24 +17,24 @@ javac Welcome.java
 java Welcome
 ```
 
-方式二：使用工具脚本corejava.py。用法：
+方式二：使用工具脚本。用法：
 
 ```shell
-python corejava.py run {chapter}/{target}
+python -m corejava run {chapter}/{target}
 ```
 
 其中，chapter为章节名称（例如v1ch02），target为示例程序名称，格式为`[subdir/][package.]classname`（例如Welcome/Welcome）。例如：
 
 ```shell
-python corejava.py run v1ch02/Welcome/Welcome
-python corejava.py run v1ch05/arrayList.ArrayListTest
+python -m corejava run v1ch02/Welcome/Welcome
+python -m corejava run v1ch05/arrayList.ArrayListTest
 ```
 
 # 单元测试
 在项目根目录下执行：
 
 ```shell
-python corejava.py test [chapter...]
+python -m corejava test [chapter...]
 ```
 
 # 代码目录
