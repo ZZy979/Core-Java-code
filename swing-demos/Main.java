@@ -1,5 +1,3 @@
-package swingDemos;
-
 import java.awt.EventQueue;
 
 /**

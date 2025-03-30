@@ -155,19 +155,19 @@ python -m corejava test [chapter...]
 #### Swing示例集合
 为方便起见，将第10、11章中所有Swing示例集合打包成一个JAR文件，可以直接通过GUI选择要运行的示例。
 
-代码：[swingDemos/MainFrame.java](v1ch10/swingDemos/MainFrame.java)
+代码：[MainFrame.java](swing-demos/MainFrame.java)
 
 打包命令：
 
 ```shell
-cd v1ch10
+cd swing-demos
 bash build_swing_demos.sh
 ```
 
 运行命令：
 
 ```shell
-java -jar swingDemos.jar
+java -jar swing-demos.jar
 ```
 
 ### 第11章 Swing用户界面组件
