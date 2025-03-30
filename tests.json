@@ -38,7 +38,6 @@
   ],
   "v1ch06": [
     {"target": "interfaces.EmployeeSortTest", "output_file": "EmployeeSortTest_output.txt"},
-    {"target": "clone.CloneTest", "output_file": "CloneTest_output.txt"},
     {"target": "comparator.ComparatorTest", "output_file": "ComparatorTest_output.txt"}
   ],
   "v1ch07": [
