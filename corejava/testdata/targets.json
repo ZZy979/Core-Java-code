@@ -8,10 +8,10 @@
     {"name": "D", "deps": ["ch01/B"]}
   ],
   "ch03": [
-    {"name": "E", "deps": ["ch02/C", "ch02/D"]}
+    {"name": "E", "deps": ["ch02/C", "ch02/D"], "class_path": ["ch02/foo_lib.jar"]}
   ],
   "ch04": [
-    {"name": "mod1/F", "module_name": "mod1"},
-    {"name": "mod2/G", "module_name": "mod2", "deps": ["ch04/mod1/F"]}
+    {"name": "mod1/F", "module_name": "mod1", "srcs": ["F.java", "internal/FF.java"]},
+    {"name": "mod2/G", "module_name": "mod2", "deps": ["ch04/mod1/F"], "module_path": ["ch04/bar_lib.jar"]}
   ]
 }

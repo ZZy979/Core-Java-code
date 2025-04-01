@@ -14,7 +14,7 @@ class TestCase:
         """示例程序的测试用例。
 
         :param target_manager: TargetManager对象
-        :param target_name: str 构建目标名称，格式为chapter/name，例如v1ch02/Foo/com.example.foo.Foo
+        :param target_name: str 构建目标名称，格式为chapter/target_name，例如v1ch02/Foo/com.example.foo.Foo
         :param output_file: str 用于比较标准输出的文件
         :param jvm_options: List[str] JVM选项（可选）
         :param args: List[str] 命令行参数（可选）
@@ -56,6 +56,18 @@ class TestCaseManager:
 
     def __init__(self, config_file, target_manager):
         """测试用例管理器。
+
+        配置文件为JSON格式。顶层是一个JSON对象，key为章节名称，value为测试用例数组。例如：
+
+        {"ch01": [...], "ch02": [...]}
+
+        每个测试用例也是一个JSON对象，支持下列的key：
+
+        - target：构建目标名称，格式同TestCase.target_name
+        - jvm_options：JVM选项（可选），空格分隔的字符串
+        - args：命令行参数（可选），命令行参数（可选）
+        - input_file：标准输入文件（可选），路径相对于章节目录/testdata
+        - output_file：用于比较标准输出的文件，路径相对于章节目录/testdata
 
         :param config_file: str 测试用例配置文件
         :param target_manager: TargetManager对象

@@ -9,35 +9,45 @@ from corejava.config import ROOT_DIR, OUT_DIR
 
 class Target:
 
-    def __init__(self, chapter, name, deps=None, module_name=None):
+    def __init__(self, chapter, name, module_name=None, srcs=None, deps=None, class_path=None, module_path=None):
         """书中的示例程序（构建目标）。
 
         属性：
 
         - chapter：章节名称，例如v1ch02
-        - name：构建目标名称，格式为[subdir/][package.]classname，例如Foo/com.example.foo.Foo
+        - name：构建目标名称，例如v1ch02/Foo/com.example.foo.Foo
+        - module_name：Java模块名
+        - is_module：是否是Java模块
         - main_class：主类名，例如com.example.foo.Foo
         - src_dir：源文件目录，例如ROOT_DIR/v1ch02/Foo
-        - src_file：主类源文件，例如ROOT_DIR/v1ch02/Foo/com/example/foo/Foo.java
         - out_dir：类文件输出目录，例如OUT_DIR/v1ch02/Foo
-        - deps：依赖的目标名称列表，格式为chapter/name，例如v1ch03/Bar/com.example.bar.Bar
-        - module_name：Java模块名
+        - src_file：主类源文件，例如com/example/foo/Foo.java
+        - srcs：源文件列表
+        - deps：依赖的目标列表，例如v1ch03/Bar/com.example.bar.Bar
+        - class_path：额外的类路径列表
+        - module_path：额外的模块路径列表
 
         :param chapter: str 章节名称
-        :param name: str 构建目标名称
-        :param deps: List[str] 依赖的目标列表（可选）
+        :param name: str 构建目标名称，格式为[subdir/][package.]classname
         :param module_name: str Java模块名（可选）
+        :param srcs: List[str] 源文件列表（可选），路径相对于源文件路径(src_dir)，如果未指定则使用主类源文件(src_file)
+        :param deps: List[str] 依赖的目标列表（可选），格式为chapter/target_name
+        :param class_path: List[str] 额外的类路径列表（可选），路径相对于ROOT_DIR
+        :param module_path: List[str] 额外的模块路径列表（可选），路径相对于ROOT_DIR
         """
         self.chapter = chapter
         self.name = f'{chapter}/{name}'
-        self.deps = deps or []
         self.module_name = module_name
+        self.is_module = module_name is not None
 
         subdir, self.main_class = self.name.rsplit('/', 1)
         self.src_dir = ROOT_DIR / subdir
-        self.src_file = self.src_dir / (self.main_class.replace('.', '/') + '.java')
         self.out_dir = OUT_DIR / subdir
-        self.is_module = module_name is not None
+        self.src_file = self.main_class.replace('.', '/') + '.java'
+        self.srcs = srcs or [self.src_file]
+        self.deps = deps or []
+        self.class_path = [ROOT_DIR / p for p in class_path] if class_path else []
+        self.module_path = [ROOT_DIR / p for p in module_path] if module_path else []
 
     def __str__(self):
         return self.name
@@ -55,13 +65,13 @@ class Target:
             dirs.add(str(self.out_dir))
         return sorted(dirs)
 
-    def get_classpath(self):
+    def get_class_path(self):
         """返回类路径列表：当前目录和所有直接依赖的输出目录。"""
-        return self._get_dep_dirs(True)
+        return self._get_dep_dirs(True) + [str(p) for p in self.class_path]
 
     def get_module_path(self, for_run):
         """返回模块路径列表。"""
-        return self._get_dep_dirs(False, for_run)
+        return self._get_dep_dirs(False, for_run) + [str(p) for p in self.module_path]
 
     def get_dep_option(self, for_run):
         """返回指定依赖路径的选项，for_run为False表示用于编译命令，否则用于运行命令。"""
@@ -69,14 +79,15 @@ class Target:
             module_path = self.get_module_path(for_run)
             return ['-p', os.pathsep.join(module_path)] if module_path else []
         else:
-            return ['-cp', os.pathsep.join(self.get_classpath())]
+            class_path = self.get_class_path()
+            return ['-cp', os.pathsep.join(class_path)] if class_path else []
 
     def get_src_files(self):
         """返回要编译的源文件列表。"""
         if self.is_module:
-            return [self.src_dir / 'module-info.java', self.src_file]
+            return ['module-info.java'] + self.srcs
         else:
-            return [self.src_file]
+            return self.srcs
 
     def get_run_target_option(self):
         """返回指定运行目标的选项。"""
@@ -143,6 +154,19 @@ class TargetManager:
     def __init__(self, config_file):
         """构建目标管理器。
 
+        配置文件为JSON格式。顶层是一个JSON对象，key为章节名称，value为构建目标数组。例如：
+
+        {"ch01": [...], "ch02": [...]}
+
+        每个构建目标也是一个JSON对象，支持下列的key：
+
+        - name：构建目标名称，格式同Target.name
+        - module_name：Java模块名（可选），如果指定了则编译时自动将module-info.java添加到源文件列表
+        - srcs：源文件列表（可选），路径相对于源文件路径(Target.src_dir)，如果未指定则使用主类源文件(Target.src_file)
+        - deps：依赖的目标列表（可选），格式同Target.deps
+        - class_path：额外的类路径列表（可选），路径相对于ROOT_DIR
+        - module_path：额外的模块路径列表（可选），路径相对于ROOT_DIR
+
         :param config_file: str 构建目标配置文件
         """
         self.config_file = config_file
@@ -159,8 +183,11 @@ class TargetManager:
                     config = {'name': config}
                 name = config['name']
                 module_name = config.get('module_name')
+                srcs = config.get('srcs', [])
                 deps = config.get('deps', [])
-                target = Target(chapter, name, deps, module_name)
+                class_path = config.get('class_path', [])
+                module_path = config.get('module_path', [])
+                target = Target(chapter, name, module_name, srcs, deps, class_path, module_path)
                 targets[target.name] = target
 
         # 验证依赖目标存在
