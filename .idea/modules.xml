@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Core-Java-code.iml" filepath="$PROJECT_DIR$/Core-Java-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v2ch09/com.horstmann.greet/com.horstmann.greet.iml" filepath="$PROJECT_DIR$/v2ch09/com.horstmann.greet/com.horstmann.greet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v2ch09/com.horstmann.greetsvc/com.horstmann.greetsvc.iml" filepath="$PROJECT_DIR$/v2ch09/com.horstmann.greetsvc/com.horstmann.greetsvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v2ch09/com.horstmann.util/com.horstmann.util.iml" filepath="$PROJECT_DIR$/v2ch09/com.horstmann.util/com.horstmann.util.iml" />
       <module fileurl="file://$PROJECT_DIR$/swing-demos/swing-demos.iml" filepath="$PROJECT_DIR$/swing-demos/swing-demos.iml" />
       <module fileurl="file://$PROJECT_DIR$/v1ch02/v1ch02.iml" filepath="$PROJECT_DIR$/v1ch02/v1ch02.iml" />
       <module fileurl="file://$PROJECT_DIR$/v1ch03/v1ch03.iml" filepath="$PROJECT_DIR$/v1ch03/v1ch03.iml" />
@@ -17,6 +20,13 @@
       <module fileurl="file://$PROJECT_DIR$/v1ch12/v1ch12.iml" filepath="$PROJECT_DIR$/v1ch12/v1ch12.iml" />
       <module fileurl="file://$PROJECT_DIR$/v2ch01/v2ch01.iml" filepath="$PROJECT_DIR$/v2ch01/v2ch01.iml" />
       <module fileurl="file://$PROJECT_DIR$/v2ch06/v2ch06.iml" filepath="$PROJECT_DIR$/v2ch06/v2ch06.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v2ch09/v2ch09.automod/v2ch09.automod.iml" filepath="$PROJECT_DIR$/v2ch09/v2ch09.automod/v2ch09.automod.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v2ch09/v2ch09.exportedpkg/v2ch09.exportedpkg.iml" filepath="$PROJECT_DIR$/v2ch09/v2ch09.exportedpkg/v2ch09.exportedpkg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v2ch09/v2ch09.hellomod/v2ch09.hellomod.iml" filepath="$PROJECT_DIR$/v2ch09/v2ch09.hellomod/v2ch09.hellomod.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v2ch09/v2ch09.openpkg/v2ch09.openpkg.iml" filepath="$PROJECT_DIR$/v2ch09/v2ch09.openpkg/v2ch09.openpkg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v2ch09/v2ch09.openpkg2/v2ch09.openpkg2.iml" filepath="$PROJECT_DIR$/v2ch09/v2ch09.openpkg2/v2ch09.openpkg2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v2ch09/v2ch09.requiremod/v2ch09.requiremod.iml" filepath="$PROJECT_DIR$/v2ch09/v2ch09.requiremod/v2ch09.requiremod.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v2ch09/v2ch09.useservice/v2ch09.useservice.iml" filepath="$PROJECT_DIR$/v2ch09/v2ch09.useservice/v2ch09.useservice.iml" />
     </modules>
   </component>
 </project>

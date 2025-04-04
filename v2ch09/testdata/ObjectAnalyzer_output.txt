@@ -1,0 +1,1 @@
+com.horstmann.places.Country[name=Belgium,area=30510.0][]

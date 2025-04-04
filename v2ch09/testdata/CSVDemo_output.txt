@@ -1,0 +1,197 @@
+Afghanistan has area 250000.0
+Albania has area 11100.0
+Algeria has area 919590.0
+Andorra has area 181.0
+Angola has area 481351.0
+Antigua and Barbuda has area 171.0
+Argentina has area 1068296.0
+Armenia has area 11506.0
+Australia has area 2967893.0
+Austria has area 32382.0
+Azerbaijan has area 33436.0
+Bahamas, The has area 5382.0
+Bahrain has area 257.0
+Bangladesh has area 55598.0
+Barbados has area 166.0
+Belarus has area 80154.0
+Belgium has area 11787.0
+Belize has area 8867.0
+Benin has area 43483.0
+Bhutan has area 18147.0
+Bolivia has area 424162.0
+Bosnia and Herzegovina has area 19741.0
+Botswana has area 231803.0
+Brazil has area 3286470.0
+Brunei has area 2228.0
+Bulgaria has area 42822.0
+Burkina Faso has area 105869.0
+Burundi has area 10745.0
+Cambodia has area 69900.0
+Cameroon has area 183567.0
+Canada has area 3855081.0
+Cape Verde has area 1557.0
+Central African Republic has area 240534.0
+Chad has area 495752.0
+Chile has area 292258.0
+China has area 3705386.0
+Colombia has area 439733.0
+Comoros has area 838.0
+Congo, Democratic Republic of the has area 905563.0
+Congo, Republic of the has area 132046.0
+Costa Rica has area 19730.0
+Cote d'Ivoire has area 124502.0
+Croatia has area 21831.0
+Cuba has area 42803.0
+Cyprus has area 3571.0
+Czech Republic has area 30450.0
+Denmark has area 16639.0
+Djibouti has area 8880.0
+Dominica has area 291.0
+Dominican Republic has area 18815.0
+Ecuador has area 109483.0
+Egypt has area 386660.0
+El Salvador has area 8124.0
+Equatorial Guinea has area 10830.0
+Eritrea has area 46842.0
+Estonia has area 17462.0
+Ethiopia has area 435184.0
+Fiji has area 7054.0
+Finland has area 130558.0
+France has area 211208.0
+Gabon has area 103346.0
+Gambia has area 4363.0
+Georgia has area 26911.0
+Germany has area 137846.0
+Ghana has area 92456.0
+Greece has area 50942.0
+Grenada has area 133.0
+Guatemala has area 42042.0
+Guinea has area 94925.0
+Guinea-Bissau has area 13946.0
+Guyana has area 83000.0
+Haiti has area 10714.0
+Honduras has area 43278.0
+Hungary has area 35919.0
+Iceland has area 39768.0
+India has area 1269338.0
+Indonesia has area 741096.0
+Iran has area 636293.0
+Iraq has area 168753.0
+Ireland has area 27135.0
+Israel has area 8019.0
+Italy has area 116305.0
+Jamaica has area 4244.0
+Japan has area 145882.0
+Jordan has area 35637.0
+Kazakhstan has area 1049150.0
+Kenya has area 224961.0
+Kiribati has area 313.0
+Korea, North has area 46540.0
+Korea, South has area 38023.0
+Kosovo has area 4211.0
+Kuwait has area 6880.0
+Kyrgyzstan has area 76641.0
+Laos has area 91428.0
+Latvia has area 24938.0
+Lebanon has area 4015.0
+Lesotho has area 11720.0
+Liberia has area 43000.0
+Libya has area 679358.0
+Liechtenstein has area 62.0
+Lithuania has area 25174.0
+Luxembourg has area 998.0
+Macedonia has area 9781.0
+Madagascar has area 226656.0
+Malawi has area 45745.0
+Malaysia has area 127316.0
+Maldives has area 116.0
+Mali has area 478764.0
+Malta has area 122.0
+Marshall Islands has area 4577.0
+Mauritania has area 397953.0
+Mauritius has area 788.0
+Mexico has area 761602.0
+Micronesia, Federated States of has area 271.0
+Moldova has area 13067.0
+Monaco has area 1.0
+Mongolia has area 603905.0
+Montenegro has area 5415.0
+Morocco has area 172413.0
+Mozambique has area 309494.0
+Myanmar (Burma) has area 261969.0
+Namibia has area 318694.0
+Nauru has area 8.0
+Nepal has area 54363.0
+Netherlands has area 16033.0
+New Zealand has area 103737.0
+Nicaragua has area 49998.0
+Niger has area 489189.0
+Nigeria has area 356667.0
+Norway has area 125181.0
+Oman has area 82031.0
+Pakistan has area 310401.0
+Palau has area 177.0
+Panama has area 30193.0
+Papua New Guinea has area 178703.0
+Paraguay has area 157046.0
+Peru has area 496223.0
+Philippines has area 115830.0
+Poland has area 120728.0
+Portugal has area 35672.0
+Qatar has area 4416.0
+Romania has area 91669.0
+Russia has area 6592735.0
+Rwanda has area 10169.0
+Saint Kitts and Nevis has area 101.0
+Saint Lucia has area 238.0
+Saint Vincent and the Grenadines has area 150.0
+Samoa has area 1137.0
+San Marino has area 24.0
+Sao Tome and Principe has area 386.0
+Saudi Arabia has area 756981.0
+Senegal has area 75749.0
+Serbia has area 29913.0
+Seychelles has area 176.0
+Sierra Leone has area 27699.0
+Singapore has area 267.0
+Slovakia has area 18859.0
+Slovenia has area 7827.0
+Solomon Islands has area 10985.0
+Somalia has area 246199.0
+South Africa has area 471008.0
+South Sudan has area 400367.0
+Spain has area 194896.0
+Sri Lanka has area 25332.0
+Sudan has area 728215.0
+Suriname has area 63039.0
+Swaziland has area 6704.0
+Sweden has area 173731.0
+Switzerland has area 15942.0
+Syria has area 71498.0
+Taiwan has area 13892.0
+Tajikistan has area 55251.0
+Tanzania has area 364898.0
+Thailand has area 198455.0
+Timor-Leste has area 5641.0
+Togo has area 21925.0
+Tonga has area 289.0
+Trinidad and Tobago has area 1980.0
+Tunisia has area 63170.0
+Turkey has area 301382.0
+Turkmenistan has area 188455.0
+Tuvalu has area 10.0
+Uganda has area 91135.0
+Ukraine has area 233089.0
+United Arab Emirates has area 32000.0
+United Kingdom has area 94525.0
+United States has area 3718691.0
+Uruguay has area 68039.0
+Uzbekistan has area 172741.0
+Vanuatu has area 4710.0
+Vatican City has area 0.17
+Venezuela has area 352143.0
+Vietnam has area 127243.0
+Western Sahara has area 102703.0
+Yemen has area 203849.0
+Zambia has area 290584.0
+Zimbabwe has area 150803.0

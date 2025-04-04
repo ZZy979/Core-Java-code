@@ -152,5 +152,57 @@
     "localdates.LocalDates",
     "zonedtimes.ZonedTimes",
     "formatting.Formatting"
+  ],
+  "v2ch09": [
+    {"name": "v2ch09.hellomod/com.horstmann.hello.HelloWorld", "module_name": "v2ch09.hellomod"},
+    {"name": "v2ch09.requiremod/com.horstmann.hello.HelloWorld", "module_name": "v2ch09.requiremod"},
+    {
+      "name": "com.horstmann.greet/com.horstmann.greet.Greeter",
+      "module_name": "com.horstmann.greet",
+      "srcs": ["com/horstmann/greet/Greeter.java", "com/horstmann/greet/internal/GreeterImpl.java"]
+    },
+    {
+      "name": "v2ch09.exportedpkg/com.horstmann.hello.HelloWorld",
+      "module_name": "v2ch09.exportedpkg",
+      "deps": ["v2ch09/com.horstmann.greet/com.horstmann.greet.Greeter"]
+    },
+    {"name": "com.horstmann.util/com.horstmann.util.ObjectAnalyzer", "module_name": "com.horstmann.util"},
+    {
+      "name": "v2ch09.openpkg/com.horstmann.places.Demo",
+      "module_name": "v2ch09.openpkg",
+      "srcs": ["com/horstmann/places/Country.java", "com/horstmann/places/Demo.java"],
+      "deps": ["v2ch09/com.horstmann.util/com.horstmann.util.ObjectAnalyzer"]
+    },
+    {
+      "name": "v2ch09.openpkg2/com.horstmann.places.Demo",
+      "module_name": "v2ch09.openpkg2",
+      "srcs": ["com/horstmann/places/Country.java", "com/horstmann/places/Demo.java"],
+      "module_path": [
+        "v2ch09/jakarta.json-api-2.0.1.jar",
+        "v2ch09/jakarta.json.bind-api-2.0.0.jar",
+        "v2ch09/jakarta.json-2.0.1-module.jar",
+        "v2ch09/yasson-2.0.3.jar"
+      ]
+    },
+    {
+      "name": "v2ch09.automod/com.horstmann.places.CSVDemo",
+      "module_name": "v2ch09.automod",
+      "module_path": ["v2ch09/commons-csv-1.9.0.jar"]
+    },
+    {
+      "name": "com.horstmann.greetsvc/com.horstmann.greetsvc.GreeterService",
+      "module_name": "com.horstmann.greetsvc",
+      "srcs": [
+        "com/horstmann/greetsvc/GreeterService.java",
+        "com/horstmann/greetsvc/internal/FrenchGreeter.java",
+        "com/horstmann/greetsvc/internal/GermanGreeter.java",
+        "com/horstmann/greetsvc/internal/GermanGreeterFactory.java"
+      ]
+    },
+    {
+      "name": "v2ch09.useservice/com.horstmann.hello.HelloWorld",
+      "module_name": "v2ch09.useservice",
+      "deps": ["v2ch09/com.horstmann.greetsvc/com.horstmann.greetsvc.GreeterService"]
+    }
   ]
 }

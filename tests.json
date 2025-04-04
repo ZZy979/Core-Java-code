@@ -81,5 +81,16 @@
     {"target": "localdates.LocalDates", "output_file": "LocalDates_output.txt"},
     {"target": "zonedtimes.ZonedTimes", "output_file": "ZonedTimes_output.txt"},
     {"target": "formatting.Formatting", "jvm_options": "-Dfile.encoding=UTF-8", "output_file": "Formatting_output.txt"}
+  ],
+  "v2ch09": [
+    {"target": "v2ch09.hellomod/com.horstmann.hello.HelloWorld", "output_file": "HelloWorld_output.txt"},
+    {"target": "v2ch09.exportedpkg/com.horstmann.hello.HelloWorld", "output_file": "HelloWorld_output.txt"},
+    {"target": "v2ch09.openpkg/com.horstmann.places.Demo", "output_file": "ObjectAnalyzer_output.txt"},
+    {"target": "v2ch09.openpkg2/com.horstmann.places.Demo", "output_file": "ObjectToJSON_output.txt"},
+    {"target": "v2ch09.automod/com.horstmann.places.CSVDemo", "output_file": "CSVDemo_output.txt"},
+    {"target": "v2ch09.useservice/com.horstmann.hello.HelloWorld", "output_file": "GreeterService_output_de.txt"},
+    {"target": "v2ch09.useservice/com.horstmann.hello.HelloWorld", "args": "de", "output_file": "GreeterService_output_de.txt"},
+    {"target": "v2ch09.useservice/com.horstmann.hello.HelloWorld", "args": "fr", "output_file": "GreeterService_output_fr.txt"},
+    {"target": "v2ch09.useservice/com.horstmann.hello.HelloWorld", "args": "en", "output_file": "GreeterService_output_en.txt"}
   ]
 }

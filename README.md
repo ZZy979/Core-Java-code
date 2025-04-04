@@ -236,3 +236,15 @@ java -jar swing-demos.jar
 * [程序清单6-2 localdates/LocalDates.java](v2ch06/localdates/LocalDates.java)
 * [程序清单6-3 zonedtimes/ZonedTimes.java](v2ch06/zonedtimes/ZonedTimes.java)
 * [程序清单6-4 formatting/Formatting.java](v2ch06/formatting/Formatting.java)
+
+### 第9章 Java平台模块系统
+* [v2ch09.hellomod](v2ch09/v2ch09.hellomod)
+* [v2ch09.requiremod](v2ch09/v2ch09.requiremod)
+* [com.horstmann.greet](v2ch09/com.horstmann.greet)
+* [v2ch09.exportedpkg](v2ch09/v2ch09.exportedpkg)
+* [com.horstmann.util](v2ch09/com.horstmann.util)
+* [v2ch09.openpkg](v2ch09/v2ch09.openpkg)
+* [v2ch09.openpkg2](v2ch09/v2ch09.openpkg2)
+* [v2ch09.automod](v2ch09/v2ch09.automod)
+* [com.horstmann.greetsvc](v2ch09/com.horstmann.greetsvc)
+* [v2ch09.useservice](v2ch09/v2ch09.useservice)
