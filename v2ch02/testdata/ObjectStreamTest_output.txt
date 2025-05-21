@@ -1,0 +1,3 @@
+serial.Manager[name=Carl Cracker,salary=80000.0,hireDay=Tue Dec 15 00:00:00 UTC 1987][secretary=serial.Employee[name=Harry Hacker,salary=55000.0,hireDay=Sun Oct 01 00:00:00 UTC 1989]]
+serial.Employee[name=Harry Hacker,salary=55000.0,hireDay=Sun Oct 01 00:00:00 UTC 1989]
+serial.Manager[name=Tony Tester,salary=40000.0,hireDay=Thu Mar 15 00:00:00 UTC 1990][secretary=serial.Employee[name=Harry Hacker,salary=55000.0,hireDay=Sun Oct 01 00:00:00 UTC 1989]]

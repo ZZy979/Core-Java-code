@@ -1,0 +1,27 @@
+Enter pattern:
+Enter string to match:
+Match
+(Blackwell( Toaster))    (USD)(29.95)
+No match
+No match
+Match
+(Coffee) (EUR)(3.50)
+No match
+No match
+Match
+(Wireless( Mouse))	(GBP)(15.00)
+No match
+No match
+Match
+(Laptop( Charger)) (JPY)(12000)
+No match
+Match
+(Super Ultra HD Smart TV 4K Model( X1)) (USD)(999.99)
+No match
+No match
+Match
+(Blackwell( Toaster)) (USD)
+Match
+(Blackwell( Toaster)) (USD)(.99)
+Match
+(Blackwell( Toaster)) (USD)(1.2.3)

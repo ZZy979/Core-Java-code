@@ -1,0 +1,4 @@
+serializationTweaks.Employee[name=Harry Hacker,salary=50000.0,hireDay=1989-10-01]
+serializationTweaks.LabeledPoint[label=Rome,point=Point2D.Double[41.902782, 12.496366]]
+serializationTweaks.LabeledPixel[x=1919,y=1079][label=bottom right]
+serializationTweaks.ColoredPoint[color=java.awt.Color[r=255,g=175,b=175],location=java.awt.Point[x=3,y=4]]

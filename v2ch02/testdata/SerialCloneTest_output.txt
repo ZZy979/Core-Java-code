@@ -1,0 +1,2 @@
+serialClone.Employee[name=Harry Hacker,salary=38500.0,hireDay=1989-10-01]
+serialClone.Employee[name=Harry Hacker,salary=35000.0,hireDay=1989-10-01]

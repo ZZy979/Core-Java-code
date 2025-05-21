@@ -147,6 +147,20 @@
     "streams.PrimitiveTypeStreams",
     "parallel.ParallelStreams"
   ],
+  "v2ch02": [
+    {"name": "textFile.TextFileTest", "deps": ["v1ch05/equals.EqualsTest"]},
+    {"name": "randomAccess.RandomAccessTest", "deps": ["v1ch05/equals.EqualsTest"]},
+    "serial.ObjectStreamTest",
+    "serializationTweaks.ObjectStreamTest",
+    "serialClone.SerialCloneTest",
+    "findDirectories.FindDirectories",
+    "zip.ZipTest",
+    "memoryMap.MemoryMapTest",
+    "memoryMap.MemoryMapTest2",
+    {"name": "randomAccess2.RandomAccessTest", "deps": ["v1ch05/equals.EqualsTest"]},
+    "match.HrefMatch",
+    "regex.RegexTest"
+  ],
   "v2ch06": [
     "timeline.TimeLine",
     "localdates.LocalDates",

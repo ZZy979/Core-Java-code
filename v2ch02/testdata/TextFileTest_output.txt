@@ -1,0 +1,3 @@
+equals.Employee[name=Carl Cracker,salary=75000.0,hireDay=1987-12-15]
+equals.Employee[name=Harry Hacker,salary=50000.0,hireDay=1989-10-01]
+equals.Employee[name=Tony Tester,salary=40000.0,hireDay=1990-03-15]

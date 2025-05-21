@@ -38,6 +38,7 @@
   ],
   "v1ch06": [
     {"target": "interfaces.EmployeeSortTest", "output_file": "EmployeeSortTest_output.txt"},
+    {"target": "clone.CloneTest", "output_file": "CloneTest_output.txt"},
     {"target": "comparator.ComparatorTest", "output_file": "ComparatorTest_output.txt"}
   ],
   "v1ch07": [
@@ -76,6 +77,17 @@
     {"target": "collecting.CollectingIntoMaps", "jvm_options": "-Dfile.encoding=UTF-8", "output_file": "CollectingIntoMaps_output.txt"},
     {"target": "collecting.DownstreamCollectors", "output_file": "DownstreamCollectors_output.txt"},
     {"target": "streams.PrimitiveTypeStreams", "jvm_options": "-Dfile.encoding=UTF-8", "output_file": "PrimitiveTypeStreams_output.txt"}
+  ],
+  "v2ch02": [
+    {"target": "textFile.TextFileTest", "output_file": "TextFileTest_output.txt"},
+    {"target": "randomAccess.RandomAccessTest", "output_file": "TextFileTest_output.txt"},
+    {"target": "serial.ObjectStreamTest", "output_file": "ObjectStreamTest_output.txt"},
+    {"target": "serializationTweaks.ObjectStreamTest", "output_file": "TweakObjectStreamTest_output.txt"},
+    {"target": "serialClone.SerialCloneTest", "output_file": "SerialCloneTest_output.txt"},
+    {"target": "zip.ZipTest", "args": "../../v2ch02/testdata/SampleProject.zip", "output_file": "ZipTest_output.txt"},
+    {"target": "randomAccess2.RandomAccessTest", "output_file": "TextFileTest_output.txt"},
+    {"target": "regex.RegexTest", "input_file": "RegexTest_input1.txt", "output_file": "RegexTest_output1.txt"},
+    {"target": "regex.RegexTest", "input_file": "RegexTest_input2.txt", "output_file": "RegexTest_output2.txt"}
   ],
   "v2ch06": [
     {"target": "localdates.LocalDates", "output_file": "LocalDates_output.txt"},

@@ -1,5 +1,7 @@
 package clone;
 
+import java.util.TimeZone;
+
 /**
  * This program demonstrates cloning.
  * @version 1.11 2018-03-16
@@ -7,6 +9,7 @@ package clone;
  */
 public class CloneTest {
     public static void main(String[] args) throws CloneNotSupportedException {
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
         var original = new Employee("John Q. Public", 50000);
         original.setHireDay(2000, 1, 1);
         Employee copy = original.clone();

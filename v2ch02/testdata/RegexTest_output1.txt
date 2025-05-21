@@ -1,0 +1,21 @@
+Enter pattern:
+Enter string to match:
+Match
+((11):(59))am
+Match
+((12):(30))pm
+Match
+((1):(45))am
+Match
+((9):(00))am
+Match
+((5):(05))pm
+No match
+No match
+No match
+No match
+No match
+No match
+No match
+No match
+No match

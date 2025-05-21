@@ -1,0 +1,18 @@
+(\w+(\s+\w+)*)\s+([A-Z]{3})([0-9.]*)
+Blackwell Toaster    USD29.95
+Blackwell Toaster    29.95USD
+Blackwell Toaster    $29.95
+Coffee EUR3.50
+Coffee EUR 3.50
+Coffee EUR3,50
+Wireless Mouse	GBP15.00
+Wireless Mouse	gbp15.00
+Wireless Mouse	GB15.00
+Laptop Charger JPY12000
+Laptop-Charger JPY12000
+Super Ultra HD Smart TV 4K Model X1 USD999.99
+USD29.95
+Blackwell Toaster 29.95
+Blackwell Toaster USD
+Blackwell Toaster USD.99
+Blackwell Toaster USD1.2.3

@@ -1,0 +1,82 @@
+docs/
+docs/reference.txt
+   API Reference
+   -------------
+   
+   Function: createFile(path)
+   - Parameters:
+     - path (string): target file path
+   - Returns: boolean (success status)
+   
+   Function: deleteFile(path)
+   - Parameters: same as above
+   - Throws: IOError when missing permissions
+   
+   Version: 2024-06-15 (v1.2.3)
+docs/tutorial.txt
+   Tutorial: Getting Started
+   -------------------------
+   
+   Step 1: Create a new project
+   > init-project myproject
+   
+   Step 2: Add sample files
+   > touch README.txt docs/
+   
+   Step 3: Configure settings
+   Edit the following values in config:
+   - api_endpoint
+   - timeout_ms
+   
+   Next Steps: See reference.txt for advanced usage
+README.txt
+   Welcome to Sample Project v1.0
+   =============================
+   
+   This project demonstrates how to create a basic file structure
+   with documentation. To get started:
+   
+   1. Run `npm install` to setup dependencies
+   2. Check the docs/ folder for detailed guides
+   3. Edit config.json before first use
+---
+/README.txt
+   Welcome to Sample Project v1.0
+   =============================
+   
+   This project demonstrates how to create a basic file structure
+   with documentation. To get started:
+   
+   1. Run `npm install` to setup dependencies
+   2. Check the docs/ folder for detailed guides
+   3. Edit config.json before first use
+/docs/tutorial.txt
+   Tutorial: Getting Started
+   -------------------------
+   
+   Step 1: Create a new project
+   > init-project myproject
+   
+   Step 2: Add sample files
+   > touch README.txt docs/
+   
+   Step 3: Configure settings
+   Edit the following values in config:
+   - api_endpoint
+   - timeout_ms
+   
+   Next Steps: See reference.txt for advanced usage
+/docs/reference.txt
+   API Reference
+   -------------
+   
+   Function: createFile(path)
+   - Parameters:
+     - path (string): target file path
+   - Returns: boolean (success status)
+   
+   Function: deleteFile(path)
+   - Parameters: same as above
+   - Throws: IOError when missing permissions
+   
+   Version: 2024-06-15 (v1.2.3)
