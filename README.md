@@ -244,6 +244,17 @@ java -jar swing-demos.jar
 * [程序清单2-6 match/HrefMatch.java](v2ch02/match/HrefMatch.java)
 * [程序清单2-7 regex/RegexTest.java](v2ch02/regex/RegexTest.java)
 
+### 第4章 网络
+* [程序清单4-1 socket/SocketTest.java](v2ch04/socket/SocketTest.java)
+* [程序清单4-2 inetAddress/InetAddressTest.java](v2ch04/inetAddress/InetAddressTest.java)
+* [程序清单4-3 server/EchoServer.java](v2ch04/server/EchoServer.java)
+* [程序清单4-4 threaded/ThreadedEchoServer.java](v2ch04/threaded/ThreadedEchoServer.java)
+* [程序清单4-5 interruptible/InterruptibleSocketTest.java](v2ch04/interruptible/InterruptibleSocketTest.java)
+* [程序清单4-6 urlConnection/URLConnectionTest.java](v2ch04/urlConnection/URLConnectionTest.java)
+* [程序清单4-7 post/PostTest.java](v2ch04/post/PostTest.java)
+* [程序清单4-8 client/HttpClientTest.java](v2ch04/client/HttpClientTest.java)
+* [程序清单4-9 mail/MailTest.java](v2ch04/mail/MailTest.java)
+
 ### 第6章 日期和时间API
 * [程序清单6-1 timeline/TimeLine.java](v2ch06/timeline/TimeLine.java)
 * [程序清单6-2 localdates/LocalDates.java](v2ch06/localdates/LocalDates.java)

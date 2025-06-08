@@ -161,6 +161,17 @@
     "match.HrefMatch",
     "regex.RegexTest"
   ],
+  "v2ch04": [
+    "socket.SocketTest",
+    "inetAddress.InetAddressTest",
+    "server.EchoServer",
+    "threaded.ThreadedEchoServer",
+    "interruptible.InterruptibleSocketTest",
+    "urlConnection.URLConnectionTest",
+    "post.PostTest",
+    "client.HttpClientTest",
+    {"name": "mail.MailTest", "class_path": ["v2ch04/javax.mail.jar", "v2ch04/activation-1.1.1.jar"]}
+  ],
   "v2ch06": [
     "timeline.TimeLine",
     "localdates.LocalDates",
