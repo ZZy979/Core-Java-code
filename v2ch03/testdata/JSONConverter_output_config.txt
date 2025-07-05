@@ -1,0 +1,102 @@
+{
+  "name": "config",
+  "children": [
+    "\n    ",
+    {
+      "name": "entry",
+      "attributes": {"id": "title"},
+      "children": [
+        "\n        ",
+        {
+          "name": "font",
+          "children": [
+            "\n            ",
+            {
+              "name": "name",
+              "children": [
+                "Helvetica"
+              ]
+            },
+            "\n            ",
+            {
+              "name": "size",
+              "attributes": {"unit": "pt"},
+              "children": [
+                "36"
+              ]
+            },
+            "\n        "
+          ]
+        },
+        "\n    "
+      ]
+    },
+    "\n    ",
+    {
+      "name": "entry",
+      "attributes": {"id": "body"},
+      "children": [
+        "\n        ",
+        {
+          "name": "font",
+          "children": [
+            "\n            ",
+            {
+              "name": "name",
+              "children": [
+                "Times Roman"
+              ]
+            },
+            "\n            ",
+            {
+              "name": "size",
+              "attributes": {"unit": "pt"},
+              "children": [
+                "12"
+              ]
+            },
+            "\n        "
+          ]
+        },
+        "\n    "
+      ]
+    },
+    "\n    ",
+    {
+      "name": "entry",
+      "attributes": {"id": "background"},
+      "children": [
+        "\n        ",
+        {
+          "name": "color",
+          "children": [
+            "\n            ",
+            {
+              "name": "red",
+              "children": [
+                "0"
+              ]
+            },
+            "\n            ",
+            {
+              "name": "green",
+              "children": [
+                "50"
+              ]
+            },
+            "\n            ",
+            {
+              "name": "blue",
+              "children": [
+                "100"
+              ]
+            },
+            "\n        "
+          ]
+        },
+        "\n    "
+      ]
+    },
+    "\n"
+  ]
+}

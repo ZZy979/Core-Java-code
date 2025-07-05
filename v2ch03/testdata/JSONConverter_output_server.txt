@@ -1,0 +1,200 @@
+{
+  "name": "Server",
+  "children": [
+    "\n    ",
+    "Comment:  Debug low-level events in XmlMapper startup \n    <xmlmapper:debug level=\"0\" />\n    ",
+    "\n    \n    ",
+    "Comment:  \n\n    Logging:\n\n         Logging in Tomcat is quite flexible; we can either have a log\n         file per module (example: ContextManager) or we can have one\n         for Servlets and one for Jasper, or we can just have one\n         tomcat.log for both Servlet and Jasper.  Right now there are\n         three standard log streams, \"tc_log\", \"servlet_log\", and\n         \"JASPER_LOG\".  \n\n\t Path: \n\n\t The file to which to output this log, relative to\n\t TOMCAT_HOME.  If you omit a \"path\" value, then stderr or\n\t stdout will be used.\n\n\t Verbosity: \n\n\t Threshold for which types of messages are displayed in the\n\t log.  Levels are inclusive; that is, \"WARNING\" level displays\n\t any log message marked as warning, error, or fatal.  Default\n\t level is WARNING.\n\n\t verbosityLevel values can be: \n\t    FATAL\n\t    ERROR\n\t    WARNING \n            INFORMATION\n            DEBUG\n\n\t Timestamps:\n\n\t By default, logs print a timestamp in the form \"yyyy-MM-dd\n\t hh:mm:ss\" in front of each message.  To disable timestamps\n\t completely, set 'timestamp=\"no\"'. To use the raw\n\t msec-since-epoch, which is more efficient, set\n\t 'timestampFormat=\"msec\"'.  If you want a custom format, you\n\t can use 'timestampFormat=\"hh:mm:ss\"' following the syntax of\n\t java.text.SimpleDateFormat (see Javadoc API).  For a\n\t production environment, we recommend turning timestamps off,\n\t or setting the format to \"msec\".\n\n\t Custom Output:\n\n\t \"Custom\" means \"normal looking\".  \"Non-custom\" means\n\t \"surrounded with funny xml tags\".  In preparation for\n\t possibly disposing of \"custom\" altogether, now the default is\n\t 'custom=\"yes\"' (i.e. no tags)\n\n\t Per-component Debugging:\n\n\t Some components accept a \"debug\" attribute.  This further\n\t enhances log output.  If you set the \"debug\" level for a\n\t component, it may output extra debugging information.\n    ",
+    "\n\n    ",
+    "Comment:  if you don't want messages on screen, add the attribute\n            path=\"logs/tomcat.log\" \n\t to the Logger element below\n    ",
+    "\n    ",
+    {
+      "name": "Logger",
+      "attributes": {"name": "tc_log", "verbosityLevel": "INFORMATION"}
+    },
+    "\n\n    ",
+    {
+      "name": "Logger",
+      "attributes": {"name": "servlet_log", "path": "logs/servlet.log"}
+    },
+    "\n\n    ",
+    {
+      "name": "Logger",
+      "attributes": {"name": "JASPER_LOG", "path": "logs/jasper.log", "verbosityLevel": "INFORMATION"}
+    },
+    "\n\n    ",
+    "Comment:  You can add a \"home\" attribute to represent the \"base\" for \n         all relative paths. If none is set, the TOMCAT_HOME property\n         will be used, and if not set \".\" will be used.\n         webapps/, work/ and logs/ will be relative to this ( unless \n         set explicitely to absolute paths ).\n\n         You can also specify a \"randomClass\" attribute, which determines \n         a subclass of java.util.Random will be used for generating session IDs.\n         By default this is \"java.security.SecureRandom\". \n         Specifying \"java.util.Random\" will speed up Tomcat startup, \n         but it will cause sessions to be less secure.\n\n         You can specify the \"showDebugInfo\" attribute to control whether\n         debugging information is displayed in Tomcat's default responses.\n         This debugging information includes:\n             1. Stack traces for exceptions\n             2. Request URI's that cause status codes >= 400\n         The default is \"true\", so you must specify \"false\" to prevent\n         the debug information from appearing.  Since the debugging\n         information reveals internal details about what Tomcat is serving,\n         set showDebugInfo=\"false\" if you wish increased security.\n      ",
+    "\n    ",
+    {
+      "name": "ContextManager",
+      "attributes": {"debug": "0", "showDebugInfo": "true", "workDir": "work"},
+      "children": [
+        "\n\n      ",
+        "Comment:  ==================== Interceptors ==================== ",
+        "\n\n        ",
+        "Comment:  \n         ContextInterceptor className=\"org.apache.tomcat.context.LogEvents\" \n         ",
+        "\n        \n        ",
+        {
+          "name": "ContextInterceptor",
+          "attributes": {"className": "org.apache.tomcat.context.AutoSetup"}
+        },
+        "\n\n        ",
+        {
+          "name": "ContextInterceptor",
+          "attributes": {"className": "org.apache.tomcat.context.WebXmlReader"}
+        },
+        "\n\n        ",
+        "Comment:  Uncomment out if you have JDK1.2 and want to use policy \n        <ContextInterceptor \n            className=\"org.apache.tomcat.context.PolicyInterceptor\" />\n        ",
+        "\n\n        ",
+        {
+          "name": "ContextInterceptor",
+          "attributes": {"className": "org.apache.tomcat.context.LoaderInterceptor"}
+        },
+        "\n        ",
+        {
+          "name": "ContextInterceptor",
+          "attributes": {"className": "org.apache.tomcat.context.DefaultCMSetter"}
+        },
+        "\n        ",
+        {
+          "name": "ContextInterceptor",
+          "attributes": {"className": "org.apache.tomcat.context.WorkDirInterceptor"}
+        },
+        "\n\n        ",
+        "Comment:  Request processing ",
+        "\n        ",
+        "Comment:  Session interceptor will extract the session id from cookies and \n             deal with URL rewriting ( by fixing the URL ).  If you wish to\n             suppress the use of cookies for session identifiers, change the\n             \"noCookies\" attribute to \"true\"\n          ",
+        "\n        ",
+        {
+          "name": "RequestInterceptor",
+          "attributes": {"className": "org.apache.tomcat.request.SessionInterceptor", "noCookies": "false"}
+        },
+        "\n\n        ",
+        "Comment:  Find the container ( context and prefix/extension map ) \n             for a request.\n          ",
+        "\n        ",
+        {
+          "name": "RequestInterceptor",
+          "attributes": {"className": "org.apache.tomcat.request.SimpleMapper1", "debug": "0"}
+        },
+        "\n\n        ",
+        "Comment:  Non-standard invoker, for backward compat. ( /servlet/* )\n             You can modify the prefix that is matched by adjusting the\n             \"prefix\" parameter below.  Be sure your modified pattern\n             starts and ends with a slash.\n\n             NOTE:  This prefix applies to *all* web applications that\n             are running in this instance of Tomcat.\n          ",
+        "\n        ",
+        {
+          "name": "RequestInterceptor",
+          "attributes": {"className": "org.apache.tomcat.request.InvokerInterceptor", "debug": "0", "prefix": "/servlet/"}
+        },
+        "\n\n        ",
+        "Comment:  \"default\" handler - static files and dirs.  Set the\n             \"suppress\" property to \"true\" to suppress directory listings\n             when no welcome file is present.\n\n             NOTE:  This setting applies to *all* web applications that\n             are running in this instance of Tomcat.\n          ",
+        "\n        ",
+        {
+          "name": "RequestInterceptor",
+          "attributes": {"className": "org.apache.tomcat.request.StaticInterceptor", "debug": "0", "suppress": "false"}
+        },
+        "\n\n        ",
+        "Comment:  Plug a session manager. You can plug in more advanced session\n             modules.\n          ",
+        "\n        ",
+        {
+          "name": "RequestInterceptor",
+          "attributes": {"className": "org.apache.tomcat.session.StandardSessionInterceptor"}
+        },
+        "\n\n        ",
+        "Comment:  Check if the request requires an authenticated role.\n          ",
+        "\n        ",
+        {
+          "name": "RequestInterceptor",
+          "attributes": {"className": "org.apache.tomcat.request.AccessInterceptor", "debug": "0"}
+        },
+        "\n\n        ",
+        "Comment:  Check permissions using the simple xml file. You can \n             plug more advanced authentication modules.\n          ",
+        "\n        ",
+        {
+          "name": "RequestInterceptor",
+          "attributes": {"className": "org.apache.tomcat.request.SimpleRealm", "debug": "0"}
+        },
+        "\n\n       ",
+        "Comment:  UnComment the following and comment out the\n            above to get a JDBC realm.\n            Other options for driverName: \n              driverName=\"oracle.jdbc.driver.OracleDriver\"\n              connectionURL=\"jdbc:oracle:thin:@ntserver:1521:ORCL\"\n              connectionName=\"scott\"\n              connectionPassword=\"tiger\"\n\n              driverName=\"org.gjt.mm.mysql.Driver\"\n              connectionURL=\"jdbc:mysql://localhost/authority\"\n              connectionName=\"test\"\n              connectionPassword=\"test\"\n\n            \"connectionName\" and \"connectionPassword\" are optional.\n        ",
+        "\n        ",
+        "Comment: \n        <RequestInterceptor \n            className=\"org.apache.tomcat.request.JDBCRealm\" \n            debug=\"99\" \n\t    driverName=\"sun.jdbc.odbc.JdbcOdbcDriver\" \n\t    connectionURL=\"jdbc:odbc:TOMCAT\" \n\t    userTable=\"users\" \n            userNameCol=\"user_name\" \n            userCredCol=\"user_pass\" \n\t    userRoleTable=\"user_roles\" \n            roleNameCol=\"role_name\" />\n        ",
+        "\n\n        ",
+        "Comment:  Loaded last since JSP's that load-on-startup use request handling ",
+        "\n        ",
+        {
+          "name": "ContextInterceptor",
+          "attributes": {"className": "org.apache.tomcat.context.LoadOnStartupInterceptor"}
+        },
+        "\n\n      ",
+        "Comment:  ==================== Connectors ==================== ",
+        "\n\n        ",
+        "Comment:  Normal HTTP ",
+        "\n        ",
+        {
+          "name": "Connector",
+          "attributes": {"className": "org.apache.tomcat.service.PoolTcpConnector"},
+          "children": [
+            "\n            ",
+            {
+              "name": "Parameter",
+              "attributes": {"name": "handler", "value": "org.apache.tomcat.service.http.HttpConnectionHandler"}
+            },
+            "\n            ",
+            {
+              "name": "Parameter",
+              "attributes": {"name": "port", "value": "8080"}
+            },
+            "\n        "
+          ]
+        },
+        "\n\n        ",
+        "Comment: \n            Uncomment this for SSL support. \n            You _need_ to set up a server certificate if you want this\n            to work, and you need JSSE.\n            1. Add JSSE jars to CLASSPATH \n            2. Edit java.home/jre/lib/security/java.security\n               Add:\n               security.provider.2=com.sun.net.ssl.internal.ssl.Provider\n            3. Do: keytool -genkey -alias tomcat -keyalg RSA\n               RSA is essential to work with Netscape and IIS.\n               Use \"changeit\" as password. ( or add keypass attribute )\n               You don't need to sign the certificate.\n \n            You can set parameter keystore and keypass if you want \n            to change the default ( user.home/.keystore with changeit )\n         ",
+        "\n        ",
+        "Comment: \n        <Connector className=\"org.apache.tomcat.service.PoolTcpConnector\">\n            <Parameter name=\"handler\" \n                value=\"org.apache.tomcat.service.http.HttpConnectionHandler\"/>\n            <Parameter name=\"port\" \n                value=\"8443\"/>\n            <Parameter name=\"socketFactory\" \n                value=\"org.apache.tomcat.net.SSLSocketFactory\" />\n        </Connector>\n        ",
+        "\n\n        ",
+        "Comment:  Apache AJP12 support. This is also used to shut down tomcat.\n          ",
+        "\n        ",
+        {
+          "name": "Connector",
+          "attributes": {"className": "org.apache.tomcat.service.PoolTcpConnector"},
+          "children": [
+            "\n            ",
+            {
+              "name": "Parameter",
+              "attributes": {"name": "handler", "value": "org.apache.tomcat.service.connector.Ajp12ConnectionHandler"}
+            },
+            "\n            ",
+            {
+              "name": "Parameter",
+              "attributes": {"name": "port", "value": "8007"}
+            },
+            "\n        "
+          ]
+        },
+        "\n\n        ",
+        "Comment:  ==================== Special webapps ==================== ",
+        "\n        ",
+        "Comment:  You don't need this if you place your app in webapps/\n             and use defaults. \n             For security you'll also need to edit tomcat.policy\n\n             Defaults are: debug=0, reloadable=true, trusted=false\n             (trusted allows you to access tomcat internal objects \n             with FacadeManager ), crossContext=true (allows you to\n             access other contexts via ServletContext.getContext())\n \n             If security manager is enabled, you'll have read perms.\n             in the webapps dir and read/write in the workdir.\n         ",
+        "\n\n        ",
+        {
+          "name": "Context",
+          "attributes": {"crossContext": "false", "debug": "0", "docBase": "webapps/examples", "path": "/examples", "reloadable": "true"},
+          "children": [
+            " \n        "
+          ]
+        },
+        "\n\n        ",
+        "Comment:  Admin context will use tomcat.core to add/remove/get info about\n             the webapplications and tomcat internals. \n             By default it is not trusted - i.e. it is not allowed access to \n             tomcat internals, only informations that are available to all \n             servlets are visible.\n\n             If you change this to true, make sure you set a password.\n          ",
+        "\n        ",
+        {
+          "name": "Context",
+          "attributes": {"crossContext": "true", "debug": "0", "docBase": "webapps/admin", "path": "/admin", "reloadable": "true", "trusted": "false"},
+          "children": [
+            " \n        "
+          ]
+        },
+        "\n\n        ",
+        "Comment:  Virtual host example - \n             In \"127.0.0.1\" virtual host we'll reverse \"/\" and \n             \"/examples\"\n             (XXX need a better example )\n             (use  \"http://127.0.0.1/examples\" )\n        <Host name=\"127.0.0.1\" >\n           <Context path=\"\" \n                    docBase=\"webapps/examples\" />\n           <Context path=\"/examples\" \n                    docBase=\"webapps/ROOT\" />\n        </Host>\n         ",
+        "\n\n    "
+      ]
+    },
+    "\n"
+  ]
+}

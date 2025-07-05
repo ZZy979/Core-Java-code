@@ -1,0 +1,6 @@
+count(/gridbag/row)
+count(/gridbag/row[1]/cell)
+//bean/class/text()
+//bean[@id="sample"]/property[name/text()="text"]/value/*/text()
+count(//cell[@gridwidth])
+

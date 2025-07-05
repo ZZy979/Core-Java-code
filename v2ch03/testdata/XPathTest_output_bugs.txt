@@ -1,0 +1,30 @@
+XPath expression (empty line to exit): Element head
+XPath expression (empty line to exit): [#text: Core Java Bug List]
+XPath expression (empty line to exit): [#text: Welcome to the Core Java Bug List]
+XPath expression (empty line to exit): Element h1
+Element h2
+Element h2
+Element h2
+XPath expression (empty line to exit): [#text: 10th Edition Volume 2 (Java SE 8)]
+XPath expression (empty line to exit): Attribute href="bugs2.html#FirstEdition"
+XPath expression (empty line to exit): 53.0
+XPath expression (empty line to exit): 11.0
+XPath expression (empty line to exit): 14.0
+XPath expression (empty line to exit): 50.0
+XPath expression (empty line to exit): [#text: [2] Page 173]
+[#text: [2] Page 178]
+[#text: [2] Page 183]
+[#text: [2] Page 189]
+[#text: [2] Page 189]
+XPath expression (empty line to exit): [#text: Change "The GBC helper class is in Listing 12.12" to "The GBC helper class is in Listing 12.11"]
+XPath expression (empty line to exit): [#text: Page 238]
+[#text: Page 239]
+XPath expression (empty line to exit): Attribute src="cj10v1.jpg"
+Attribute src="cj10v2.jpg"
+XPath expression (empty line to exit): Maxim Belyaev, Aaron Chen, Alexey Elin, Yasir Bajwa, Maxim Belyaev
+XPath expression (empty line to exit): Attribute action="/cgi-bin/feedback.pl"
+XPath expression (empty line to exit): Attribute name="email"
+XPath expression (empty line to exit): [#text: 10th Edition (Java SE 8) Volume 1]
+XPath expression (empty line to exit): Attribute href="http://www.horstmann.com/corejava.html"
+XPath expression (empty line to exit): XPath expression (empty line to exit): Element h3
+XPath expression (empty line to exit): 

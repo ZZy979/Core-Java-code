@@ -1,0 +1,13 @@
+XPath expression (empty line to exit): 4.0
+XPath expression (empty line to exit): 3.0
+XPath expression (empty line to exit): [#text: javax.swing.JLabel]
+[#text: javax.swing.JComboBox]
+[#text: javax.swing.JTextArea]
+[#text: javax.swing.border.EtchedBorder]
+[#text: javax.swing.JLabel]
+[#text: javax.swing.JComboBox]
+[#text: javax.swing.JCheckBox]
+[#text: javax.swing.JCheckBox]
+XPath expression (empty line to exit): [#text: The quick brown fox jumps over the lazy dog]
+XPath expression (empty line to exit): 7.0
+XPath expression (empty line to exit): 

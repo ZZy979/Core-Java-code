@@ -161,6 +161,19 @@
     "match.HrefMatch",
     "regex.RegexTest"
   ],
+  "v2ch03": [
+    "dom.JSONConverter",
+    "domOld.TreeViewer",
+    "read.XMLReadTest",
+    "readOld.GridBagTest",
+    "xpath.XPathTest",
+    "xpathOld.XPathTester",
+    "sax.SAXTest",
+    "stax.StAXTest",
+    "write.XMLWriteTest",
+    "writeOld.XMLWriteTest",
+    "transform.TransformTest"
+  ],
   "v2ch04": [
     "socket.SocketTest",
     "inetAddress.InetAddressTest",

@@ -244,6 +244,25 @@ java -jar swing-demos.jar
 * [程序清单2-6 match/HrefMatch.java](v2ch02/match/HrefMatch.java)
 * [程序清单2-7 regex/RegexTest.java](v2ch02/regex/RegexTest.java)
 
+### 第3章 XML
+* [程序清单3-1 dom/JSONConverter.java](v2ch03/dom/JSONConverter.java)
+* [dom/DOMTreeFrame.java](v2ch03/domOld/DOMTreeFrame.java)
+* [程序清单3-2 read/XMLReadTest.java](v2ch03/read/XMLReadTest.java)
+* [程序清单3-3 read/config.xml](v2ch03/read/config.xml)
+* [read/config-schema.xml](v2ch03/read/config-schema.xml)
+* [程序清单3-4 config.dtd](v2ch03/read/config.dtd)
+* [程序清单3-5 config.xsd](v2ch03/read/config.xsd)
+* [readOld/GridBagPane.java](v2ch03/readOld/GridBagPane.java)
+* [程序清单3-6 xpath/XPathTest.java](v2ch03/xpath/XPathTest.java)
+* [xpathOld/XPathFrame.java](v2ch03/xpathOld/XPathFrame.java)
+* [程序清单3-7 sax/SAXTest.java](v2ch03/sax/SAXTest.java)
+* [程序清单3-8 stax/StAXTest.java](v2ch03/stax/StAXTest.java)
+* [程序清单3-9 write/XMLWriteTest.java](v2ch03/write/XMLWriteTest.java)
+* [writeOld/XMLWriteFrame.java](v2ch03/writeOld/XMLWriteFrame.java)
+* [程序清单3-10 transform/makehtml.xsl](v2ch03/transform/makehtml.xsl)
+* [程序清单3-11 transform/makeprop.xsl](v2ch03/transform/makeprop.xsl)
+* [程序清单3-12 transform/TransformTest.java](v2ch03/transform/TransformTest.java)
+
 ### 第4章 网络
 * [程序清单4-1 socket/SocketTest.java](v2ch04/socket/SocketTest.java)
 * [程序清单4-2 inetAddress/InetAddressTest.java](v2ch04/inetAddress/InetAddressTest.java)

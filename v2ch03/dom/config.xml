@@ -1,0 +1,21 @@
+<config>
+    <entry id="title">
+        <font>
+            <name>Helvetica</name>
+            <size unit="pt">36</size>
+        </font>
+    </entry>
+    <entry id="body">
+        <font>
+            <name>Times Roman</name>
+            <size unit="pt">12</size>
+        </font>
+    </entry>
+    <entry id="background">
+        <color>
+            <red>0</red>
+            <green>50</green>
+            <blue>100</blue>
+        </color>
+    </entry>
+</config>

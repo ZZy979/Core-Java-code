@@ -1,0 +1,1 @@
+{background=java.awt.Color[r=55,g=200,b=100], currency=USD}

@@ -1,0 +1,22 @@
+/html/head
+//title/text()
+/html/body/h1/text()
+/html/body/h1 | /html/body/h2
+/html/body/ul/li[2]/a/text()
+/html/body/ul/li[last()]/a/@href
+count(/html/body/dl[1]/dd)
+count(/html/body/dl[1]/dd[count(pre)=2])
+count(//dd[pre])
+count(//dt[starts-with(normalize-space(), "[2]")])
+/html/body/dl[1]/dt[position()>=5 and position()<10]/text()
+/html/body/dl[1]/dd[contains(text(),"GBC")]/text()
+//a[@id='CJ10V2']/parent::*/following-sibling::dl[1]/dt/text()
+//img[@class="sideimage"]/@src
+substring(//p[contains(., "Thanks to")], 11, 66)
+//form[@id="feedback"]/@action
+//form[@id="feedback"]//input[@name="Name"]/following-sibling::input[1]/@name
+//form[@id="feedback"]//select/option[@selected]/text()
+//form[@id="feedback"]/following::a/@href
+/html/body/h6
+/html/body/*[position()=3]
+
