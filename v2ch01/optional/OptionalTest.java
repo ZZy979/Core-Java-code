@@ -14,7 +14,7 @@ import java.util.Optional;
  */
 public class OptionalTest {
     public static void main(String[] args) throws IOException {
-        var contents = Files.readString(Path.of("../../gutenberg/alice30.txt"));
+        var contents = Files.readString(Path.of("gutenberg/alice30.txt"));
         List<String> wordList = List.of(contents.split("\\PL+"));
 
         Optional<String> optionalValue = wordList.stream()

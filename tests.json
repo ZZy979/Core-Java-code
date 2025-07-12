@@ -39,7 +39,8 @@
   "v1ch06": [
     {"target": "interfaces.EmployeeSortTest", "output_file": "EmployeeSortTest_output.txt"},
     {"target": "clone.CloneTest", "output_file": "CloneTest_output.txt"},
-    {"target": "comparator.ComparatorTest", "output_file": "ComparatorTest_output.txt"}
+    {"target": "comparator.ComparatorTest", "output_file": "ComparatorTest_output.txt"},
+    {"target": "serviceLoader.ServiceLoaderTest", "output_file": "ServiceLoaderTest_output.txt"}
   ],
   "v1ch07": [
     {"target": "except.ExceptTest", "output_file": "ExceptTest_output.txt"},
@@ -84,26 +85,33 @@
     {"target": "serial.ObjectStreamTest", "output_file": "ObjectStreamTest_output.txt"},
     {"target": "serializationTweaks.ObjectStreamTest", "output_file": "TweakObjectStreamTest_output.txt"},
     {"target": "serialClone.SerialCloneTest", "output_file": "SerialCloneTest_output.txt"},
-    {"target": "zip.ZipTest", "args": "../../v2ch02/testdata/SampleProject.zip", "output_file": "ZipTest_output.txt"},
+    {"target": "zip.ZipTest", "args": "zip/SampleProject.zip", "output_file": "ZipTest_output.txt",
+      "testdata": ["zip/SampleProject.zip"]},
     {"target": "randomAccess2.RandomAccessTest", "output_file": "TextFileTest_output.txt"},
     {"target": "regex.RegexTest", "input_file": "RegexTest_input1.txt", "output_file": "RegexTest_output1.txt"},
     {"target": "regex.RegexTest", "input_file": "RegexTest_input2.txt", "output_file": "RegexTest_output2.txt"}
   ],
   "v2ch03": [
-    {"target": "dom.JSONConverter", "args": "../../v2ch03/dom/config.xml", "output_file": "JSONConverter_output_config.txt"},
-    {"target": "dom.JSONConverter", "args": "../../v2ch03/dom/server.xml", "output_file": "JSONConverter_output_server.txt"},
-    {"target": "read.XMLReadTest", "args": "../../v2ch03/read/config.xml", "output_file": "XMLReadTest_output.txt"},
-    {"target": "read.XMLReadTest", "args": "../../v2ch03/read/config-schema.xml", "output_file": "XMLReadTest_output.txt"},
-    {"target": "xpath.XPathTest", "args": "../../v2ch03/xpath/fontdialog.xml",
-      "input_file": "XPathTest_input_fontdialog.txt", "output_file": "XPathTest_output_fontdialog.txt"},
-    {"target": "xpath.XPathTest", "args": "../../v2ch03/xpath/bugs.xhtml true",
-      "input_file": "XPathTest_input_bugs.txt", "output_file": "XPathTest_output_bugs.txt"},
-    {"target": "sax.SAXTest", "args": "../../v2ch03/xpath/bugs.xhtml", "output_file": "SAXTest_output.txt"},
-    {"target": "stax.StAXTest", "args": "../../v2ch03/xpath/bugs.xhtml", "output_file": "SAXTest_output.txt"},
-    {"target": "transform.TransformTest", "args": "../../v2ch03/transform/makehtml.xsl",
-      "output_file": "TransformTest_output.html"},
-    {"target": "transform.TransformTest", "args": "../../v2ch03/transform/makeprop.xsl",
-      "output_file": "TransformTest_output.properties"}
+    {"target": "dom.JSONConverter", "args": "dom/config.xml", "output_file": "JSONConverter_output_config.txt",
+      "testdata": ["dom/config.xml"]},
+    {"target": "dom.JSONConverter", "args": "dom/server.xml", "output_file": "JSONConverter_output_server.txt",
+      "testdata": ["dom/server.xml"]},
+    {"target": "read.XMLReadTest", "args": "read/config.xml", "output_file": "XMLReadTest_output.txt",
+      "testdata": ["read/config.xml", "read/config.dtd"]},
+    {"target": "read.XMLReadTest", "args": "read/config-schema.xml", "output_file": "XMLReadTest_output.txt",
+      "testdata": ["read/config-schema.xml", "read/config.xsd"]},
+    {"target": "xpath.XPathTest", "args": "xpath/fontdialog.xml",
+      "input_file": "XPathTest_input_fontdialog.txt", "output_file": "XPathTest_output_fontdialog.txt",
+      "testdata": ["xpath/fontdialog.xml", "xpath/gridbag.dtd"]},
+    {"target": "xpath.XPathTest", "args": "xpath/bugs.xhtml true",
+      "input_file": "XPathTest_input_bugs.txt", "output_file": "XPathTest_output_bugs.txt",
+      "testdata": ["xpath/bugs.xhtml"]},
+    {"target": "sax.SAXTest", "args": "xpath/bugs.xhtml", "output_file": "SAXTest_output.txt",
+      "testdata": ["xpath/bugs.xhtml"]},
+    {"target": "stax.StAXTest", "args": "xpath/bugs.xhtml", "output_file": "SAXTest_output.txt",
+      "testdata": ["xpath/bugs.xhtml"]},
+    {"target": "transform.TransformTest", "args": "transform/makehtml.xsl", "output_file": "TransformTest_output.html"},
+    {"target": "transform.TransformTest", "args": "transform/makeprop.xsl", "output_file": "TransformTest_output.properties"}
   ],
   "v2ch06": [
     {"target": "localdates.LocalDates", "output_file": "LocalDates_output.txt"},

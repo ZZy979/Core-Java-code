@@ -41,7 +41,7 @@ public class DownstreamCollectors {
                 groupingBy(Locale::getCountry, counting()));
         System.out.println("\ncountryToLocaleCounts: " + countryToLocaleCounts);
 
-        String citiesFilename = "../../v2ch01/cities.txt";
+        String citiesFilename = "cities.txt";
         Stream<City> cities = readCities(citiesFilename);
         Map<String, Integer> stateToCityPopulation = cities.collect(
                 groupingBy(City::state, summingInt(City::population)));

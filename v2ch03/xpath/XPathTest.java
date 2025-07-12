@@ -32,7 +32,7 @@ public class XPathTest {
         if (args.length >= 2 && args[1].equals("true")) {
             builder.setEntityResolver(CatalogManager.catalogResolver(
                     CatalogFeatures.defaults(),
-                    Path.of("../../v2ch03/xpath/catalog.xml").toAbsolutePath().toUri()));
+                    Path.of("xpath/catalog.xml").toAbsolutePath().toUri()));
         }
 
         XPathFactory xpfactory = XPathFactory.newInstance();

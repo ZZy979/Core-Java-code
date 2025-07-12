@@ -1,7 +1,7 @@
 {
   "v1ch02": [
     "Welcome/Welcome",
-    "ImageViewer/ImageViewer"
+    {"name": "ImageViewer/ImageViewer", "resources": ["cay.jpg", "cup.png", "duke.gif"]}
   ],
   "v1ch03": [
     "FirstSample/FirstSample",
@@ -33,7 +33,10 @@
     "abstractClasses.PersonTest",
     "enums.EnumTest",
     "sealed.SealedTest",
-    "resources.ResourceTest",
+    {
+      "name": "resources.ResourceTest",
+      "resources": ["resources/about.gif", "resources/data/about.txt", "corejava/title.txt"]
+    },
     "reflection.ReflectionTest",
     "objectAnalyzer.ObjectAnalyzerTest",
     "arrays.CopyOfTest",
@@ -49,7 +52,15 @@
     "localInnerClass.LocalInnerClassTest",
     "anonymousInnerClass.AnonymousInnerClassTest",
     "staticInnerClass.StaticInnerClassTest",
-    "serviceLoader.ServiceLoaderTest",
+    {
+      "name": "serviceLoader.ServiceLoaderTest",
+      "srcs": [
+        "serviceLoader/ServiceLoaderTest.java",
+        "serviceLoader/Cipher.java",
+        "serviceLoader/impl/CaesarCipher.java"
+      ],
+      "resources": ["META-INF/services/serviceLoader.Cipher"]
+    },
     "proxy.ProxyTest"
   ],
   "v1ch07": [
@@ -83,16 +94,16 @@
   ],
   "v1ch10": [
     "simpleFrame.SimpleFrameTest",
-    "sizedFrame.SizedFrameTest",
+    {"name": "sizedFrame.SizedFrameTest", "resources": ["icon.gif"]},
     "notHelloWorld.NotHelloWorld",
     "draw.DrawTest",
     "fill.FillTest",
     "listFonts.ListFonts",
     "font.FontTest",
-    "image.ImageTest",
+    {"name": "image.ImageTest", "resources": ["blue-ball.gif"]},
     "button.ButtonTest",
     "plaf.PlafTest",
-    "action.ActionTest",
+    {"name": "action.ActionTest", "resources": ["yellow-ball.gif", "blue-ball.gif", "red-ball.gif"]},
     "mouse.MouseTest",
     "preferences.ImageViewer",
     "util.ResourceUtil"
@@ -106,15 +117,31 @@
     "radioButton.RadioButtonTest",
     "border.BorderTest",
     "comboBox.ComboBoxTest",
-    {"name": "slider.SliderTest", "deps": ["v1ch10/util.ResourceUtil"]},
-    {"name": "menu.MenuTest", "deps": ["v1ch10/util.ResourceUtil"]},
-    {"name": "toolBar.ToolBarTest", "deps": ["v1ch10/util.ResourceUtil"]},
+    {
+      "name": "slider.SliderTest",
+      "deps": ["v1ch10/util.ResourceUtil"],
+      "resources": ["nine.gif", "ten.gif", "jack.gif", "queen.gif", "king.gif", "ace.gif"]
+    },
+    {
+      "name": "menu.MenuTest",
+      "deps": ["v1ch10/util.ResourceUtil"],
+      "resources": ["cut.gif", "copy.gif", "paste.gif"]
+    },
+    {
+      "name": "toolBar.ToolBarTest",
+      "deps": ["v1ch10/util.ResourceUtil"],
+      "resources": ["blue-ball.gif", "yellow-ball.gif", "red-ball.gif", "exit.gif"]
+    },
     "gridbag.GridBagLayoutTest",
     "circleLayout.CircleLayoutTest",
-    {"name": "optionDialog.OptionDialogTest", "deps": ["v1ch10/util.ResourceUtil"]},
+    {
+      "name": "optionDialog.OptionDialogTest",
+      "deps": ["v1ch10/util.ResourceUtil"],
+      "resources": ["yellow-ball.gif", "blue-ball.gif", "red-ball.gif"]
+    },
     "dialog.DialogTest",
     "dataExchange.DataExchangeTest",
-    {"name": "fileChooser.FileChooserTest", "deps": ["v1ch10/util.ResourceUtil"]},
+    {"name": "fileChooser.FileChooserTest", "deps": ["v1ch10/util.ResourceUtil"], "resources": ["palette.gif"]},
     "colorChooser.ColorChooserTest",
     "eventTracer.EventTracerTest",
     "robot.RobotTest"
@@ -138,14 +165,14 @@
     "process.ReadDir"
   ],
   "v2ch01": [
-    "streams.CountLongWords",
-    "streams.CreatingStreams",
-    "optional.OptionalTest",
-    "collecting.CollectingResults",
+    {"name": "streams.CountLongWords", "resources": ["gutenberg/alice30.txt"]},
+    {"name": "streams.CreatingStreams", "resources": ["gutenberg/alice30.txt"]},
+    {"name": "optional.OptionalTest", "resources": ["gutenberg/alice30.txt"]},
+    {"name": "collecting.CollectingResults", "resources": ["gutenberg/alice30.txt"]},
     "collecting.CollectingIntoMaps",
-    "collecting.DownstreamCollectors",
-    "streams.PrimitiveTypeStreams",
-    "parallel.ParallelStreams"
+    {"name": "collecting.DownstreamCollectors", "resources": ["cities.txt"]},
+    {"name": "streams.PrimitiveTypeStreams", "resources": ["gutenberg/alice30.txt"]},
+    {"name": "parallel.ParallelStreams", "resources": ["gutenberg/alice30.txt"]}
   ],
   "v2ch02": [
     {"name": "textFile.TextFileTest", "deps": ["v1ch05/equals.EqualsTest"]},
@@ -165,14 +192,34 @@
     "dom.JSONConverter",
     "domOld.TreeViewer",
     "read.XMLReadTest",
-    "readOld.GridBagTest",
-    "xpath.XPathTest",
+    {
+      "name": "readOld.GridBagTest",
+      "resources": [
+        "readOld/fontdialog.xml",
+        "readOld/gridbag.dtd",
+        "readOld/fontdialog-schema.xml",
+        "readOld/gridbag.xsd"
+      ]
+    },
+    {
+      "name": "xpath.XPathTest",
+      "resources": [
+        "xpath/catalog.xml",
+        "xpath/xhtml1-strict.dtd",
+        "xpath/xhtml-lat1.ent",
+        "xpath/xhtml-special.ent",
+        "xpath/xhtml-symbol.ent"
+      ]
+    },
     "xpathOld.XPathTester",
     "sax.SAXTest",
     "stax.StAXTest",
     "write.XMLWriteTest",
     "writeOld.XMLWriteTest",
-    "transform.TransformTest"
+    {
+      "name": "transform.TransformTest",
+      "resources": ["transform/employee.dat", "transform/makehtml.xsl", "transform/makeprop.xsl"]
+    }
   ],
   "v2ch04": [
     "socket.SocketTest",
@@ -181,9 +228,27 @@
     "threaded.ThreadedEchoServer",
     "interruptible.InterruptibleSocketTest",
     "urlConnection.URLConnectionTest",
-    "post.PostTest",
-    "client.HttpClientTest",
-    {"name": "mail.MailTest", "class_path": ["v2ch04/javax.mail.jar", "v2ch04/activation-1.1.1.jar"]}
+    {"name": "post.PostTest", "resources": ["post/post.properties", "post/test.properties"]},
+    {
+      "name": "client.HttpClientTest",
+      "resources": [
+        "client/post.properties",
+        "client/json.properties",
+        "client/fileupload.properties",
+        "client/cup.png"
+      ]
+    },
+    {
+      "name": "mail.MailTest",
+      "class_path": [
+        "v2ch04/javax.mail.jar",
+        "v2ch04/activation-1.1.1.jar"
+      ],
+      "resources": [
+        "mail/mail.properties",
+        "mail/message.txt"
+      ]
+    }
   ],
   "v2ch06": [
     "timeline.TimeLine",
@@ -225,7 +290,8 @@
     {
       "name": "v2ch09.automod/com.horstmann.places.CSVDemo",
       "module_name": "v2ch09.automod",
-      "module_path": ["v2ch09/commons-csv-1.9.0.jar"]
+      "module_path": ["v2ch09/commons-csv-1.9.0.jar"],
+      "resources": ["countries.csv"]
     },
     {
       "name": "com.horstmann.greetsvc/com.horstmann.greetsvc.GreeterService",

@@ -32,7 +32,7 @@ public class CreatingStreams {
     }
 
     public static void main(String[] args) throws IOException {
-        Path path = Path.of("../../gutenberg/alice30.txt");
+        Path path = Path.of("gutenberg/alice30.txt");
         var contents = Files.readString(path);
 
         Stream<String> words = Stream.of(contents.split("\\PL+"));

@@ -18,7 +18,7 @@ import java.util.stream.Stream;
  */
 public class CollectingResults {
     public static Stream<String> noVowels() throws IOException {
-        var contents = Files.readString(Path.of("../../gutenberg/alice30.txt"));
+        var contents = Files.readString(Path.of("gutenberg/alice30.txt"));
         List<String> wordList = List.of(contents.split("\\PL+"));
         return wordList.stream().map(s -> s.replaceAll("[aeiouAEIOU]", ""));
     }

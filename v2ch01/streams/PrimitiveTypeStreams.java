@@ -34,7 +34,7 @@ public class PrimitiveTypeStreams {
         IntStream is3 = IntStream.rangeClosed(5, 10);
         show("is3", is3);
 
-        Path path = Path.of("../../gutenberg/alice30.txt");
+        Path path = Path.of("gutenberg/alice30.txt");
         var contents = Files.readString(path);
 
         Stream<String> words = Stream.of(contents.split("\\PL+"));

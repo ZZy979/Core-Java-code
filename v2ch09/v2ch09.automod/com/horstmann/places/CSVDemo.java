@@ -9,7 +9,7 @@ import java.io.Reader;
 
 public class CSVDemo {
     public static void main(String[] args) throws IOException {
-        Reader in = new FileReader("../../../v2ch09/countries.csv");
+        Reader in = new FileReader("countries.csv");
         Iterable<CSVRecord> records = CSVFormat.EXCEL.builder().setDelimiter(';').setHeader().build().parse(in);
         for (CSVRecord record : records) {
             String name = record.get("Name");
