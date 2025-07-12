@@ -1,6 +1,6 @@
 import os
 import unittest
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 from corejava.config import ROOT_DIR, OUT_DIR
 from corejava.target import Target, TargetManager
@@ -15,7 +15,8 @@ class TargetTest(unittest.TestCase):
             'ch02', 'com.example.bar.Bar', 'mod2',
             ['com/example/bar/Bar.java', 'com/example/bar/internal/BarImpl.java'],
             ['ch01/Foo/com.example.foo.Foo'],
-            module_path=['ch02/bar_lib.jar'])
+            module_path=['ch02/bar_lib.jar'],
+            resources=['data/bar1.txt', 'data/bar2.txt'])
 
     def test_init(self):
         self.assertEqual('ch01', self.foo.chapter)
@@ -30,6 +31,7 @@ class TargetTest(unittest.TestCase):
         self.assertListEqual([], self.foo.deps)
         self.assertListEqual([ROOT_DIR / 'ch01/foo_lib.jar'], self.foo.class_path)
         self.assertListEqual([], self.foo.module_path)
+        self.assertListEqual([], self.foo.resources)
 
         self.assertEqual('ch02', self.bar.chapter)
         self.assertEqual('ch02/com.example.bar.Bar', self.bar.name)
@@ -43,6 +45,7 @@ class TargetTest(unittest.TestCase):
         self.assertListEqual(['ch01/Foo/com.example.foo.Foo'], self.bar.deps)
         self.assertListEqual([], self.bar.class_path)
         self.assertListEqual([ROOT_DIR / 'ch02/bar_lib.jar'], self.bar.module_path)
+        self.assertListEqual(['data/bar1.txt', 'data/bar2.txt'], self.bar.resources)
 
     def test_get_class_path(self):
         self.assertListEqual(['.', str(ROOT_DIR / 'ch01/foo_lib.jar')], self.foo.get_class_path())
@@ -122,6 +125,22 @@ class TargetTest(unittest.TestCase):
         self.assertListEqual(
             bar_run_command, self.bar.get_run_command(['arg1', 'arg2'], ['-Dfile.encoding=UTF-8']))
 
+    @patch('os.makedirs')
+    @patch('shutil.copy')
+    def test_copy_resources(self, mock_copy, mock_makedirs):
+        self.bar.copy_resources()
+        self.assertEqual(2, mock_makedirs.call_count)
+        mock_makedirs.assert_called_with(OUT_DIR / 'ch02/data', exist_ok=True)
+        self.assertEqual(2, mock_copy.call_count)
+        mock_copy.assert_any_call(ROOT_DIR / 'ch02/data/bar1.txt', OUT_DIR / 'ch02/data/bar1.txt')
+        mock_copy.assert_any_call(ROOT_DIR / 'ch02/data/bar2.txt', OUT_DIR / 'ch02/data/bar2.txt')
+
+        mock_makedirs.reset_mock()
+        mock_copy.reset_mock()
+        self.bar.copy_resources(['conf/bar.conf'])
+        mock_makedirs.assert_called_once_with(OUT_DIR / 'ch02/conf', exist_ok=True)
+        mock_copy.assert_called_once_with(ROOT_DIR / 'ch02/conf/bar.conf', OUT_DIR / 'ch02/conf/bar.conf')
+
 
 class TargetManagerTest(unittest.TestCase):
 
@@ -131,27 +150,29 @@ class TargetManagerTest(unittest.TestCase):
         for target in self.target_manager.iter_targets():
             target.build = Mock()
             target.run = Mock()
+            target.test = Mock()
 
     def test_load_targets(self):
         targets = [
-            ("ch01/A", None, ['A.java'], [], [], []),
-            ("ch01/B", None, ['B.java'], [], [], []),
-            ("ch02/C", None, ['C.java'], ["ch01/A", "ch01/B"], [], []),
-            ("ch02/D", None, ['D.java'], ["ch01/B"], [], []),
-            ("ch03/E", None, ['E.java'], ["ch02/C", "ch02/D"], [ROOT_DIR / "ch02/foo_lib.jar"], []),
-            ("ch04/mod1/F", "mod1", ["F.java", "internal/FF.java"], [], [], []),
-            ("ch04/mod2/G", "mod2", ['G.java'], ["ch04/mod1/F"], [], [ROOT_DIR / "ch04/bar_lib.jar"]),
+            ('ch01/A', None, ['A.java'], [], [], [], []),
+            ('ch01/B', None, ['B.java'], [], [], [], ['data/b.txt']),
+            ('ch02/C', None, ['C.java'], ['ch01/A', 'ch01/B'], [], [], []),
+            ('ch02/D', None, ['D.java'], ['ch01/B'], [], [], []),
+            ('ch03/E', None, ['E.java'], ['ch02/C', 'ch02/D'], [ROOT_DIR / 'ch02/foo_lib.jar'], [], []),
+            ('ch04/mod1/F', 'mod1', ['F.java', 'internal/FF.java'], [], [], [], ['conf/foo.conf']),
+            ('ch04/mod2/G', 'mod2', ['G.java'], ['ch04/mod1/F'], [], [ROOT_DIR / 'ch04/bar_lib.jar'], []),
         ]
         self.assertEqual(len(targets), len(self.target_manager.targets))
-        for name, module_name, srcs, deps, class_path, module_path in targets:
-            self.assertIn(name, self.target_manager)
-            target = self.target_manager[name]
-            self.assertEqual(name, target.name)
-            self.assertEqual(module_name, target.module_name)
-            self.assertListEqual(srcs, target.srcs)
-            self.assertListEqual(deps, target.deps)
-            self.assertListEqual(class_path, target.class_path)
-            self.assertListEqual(module_path, target.module_path)
+        for t in targets:
+            self.assertIn(t[0], self.target_manager)
+            target = self.target_manager[t[0]]
+            self.assertEqual(t[0], target.name)
+            self.assertEqual(t[1], target.module_name)
+            self.assertListEqual(t[2], target.srcs)
+            self.assertListEqual(t[3], target.deps)
+            self.assertListEqual(t[4], target.class_path)
+            self.assertListEqual(t[5], target.module_path)
+            self.assertListEqual(t[6], target.resources)
 
     def test_load_targets_with_invalid_dependency(self):
         self.assertRaisesRegex(
@@ -188,3 +209,12 @@ class TargetManagerTest(unittest.TestCase):
         self.target_manager.run_target('ch01/A', ['arg1', 'arg2'])
         target_a.build.assert_called_once()
         target_a.run.assert_called_once_with(['arg1', 'arg2'])
+
+    def test_test_target(self):
+        target_a = self.target_manager['ch01/A']
+        self.target_manager.test_target(
+            'ch01/A', ['arg1', 'arg2'], 'A_input.txt', ['-Dfile.encoding=UTF-8'],
+            ['data/a.txt'])
+        target_a.build.assert_called_once()
+        target_a.test.assert_called_once_with(
+            ['arg1', 'arg2'], 'A_input.txt', ['-Dfile.encoding=UTF-8'], ['data/a.txt'])

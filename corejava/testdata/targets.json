@@ -1,7 +1,7 @@
 {
   "ch01": [
     "A",
-    "B"
+    {"name": "B", "resources": ["data/b.txt"]}
   ],
   "ch02": [
     {"name": "C", "deps": ["ch01/A", "ch01/B"]},
@@ -11,7 +11,7 @@
     {"name": "E", "deps": ["ch02/C", "ch02/D"], "class_path": ["ch02/foo_lib.jar"]}
   ],
   "ch04": [
-    {"name": "mod1/F", "module_name": "mod1", "srcs": ["F.java", "internal/FF.java"]},
+    {"name": "mod1/F", "module_name": "mod1", "srcs": ["F.java", "internal/FF.java"], "resources": ["conf/foo.conf"]},
     {"name": "mod2/G", "module_name": "mod2", "deps": ["ch04/mod1/F"], "module_path": ["ch04/bar_lib.jar"]}
   ]
 }

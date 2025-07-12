@@ -14,11 +14,21 @@ class TestCaseTest(unittest.TestCase):
         self.target_manager = TargetManager(self.testdata_dir / 'targets.json')
         self.target = self.target_manager['ch01/A']
         self.test_case = JavaTestCase(
-            self.target_manager, 'ch01/A', 'A_output.txt',
-            ['-Dfile.encoding=UTF-8'], ['arg1', 'arg2'], 'A_input.txt')
+            self.target_manager, 'ch01/A', 'A_output.txt', ['-Dfile.encoding=UTF-8'],
+            ['arg1', 'arg2'], 'A_input.txt', ['data/a.txt'])
         for target in self.target_manager.targets.values():
             target.build = Mock()
             target.test = Mock()
+
+    def test_init(self):
+        t = self.test_case
+        self.assertEqual('ch01/A', t.target_name)
+        self.assertEqual('ch01', t.chapter)
+        self.assertListEqual(['-Dfile.encoding=UTF-8'], t.jvm_options)
+        self.assertListEqual(['arg1', 'arg2'], t.args)
+        self.assertEqual('A_input.txt', t.input_file)
+        self.assertEqual('A_output.txt', t.output_file)
+        self.assertListEqual(['data/a.txt'], t.testdata)
 
     def test_run_passed(self):
         attrs = {'return_value.stdout': 'Hello, world!'}
@@ -28,7 +38,8 @@ class TestCaseTest(unittest.TestCase):
             self.assertTrue(self.test_case.run())
             self.assertEqual('Testing ch01/A...OK\n', stdout.getvalue())
             self.target.build.assert_called_once()
-            self.target.test.assert_called_once_with(['arg1', 'arg2'], 'A_input.txt', ['-Dfile.encoding=UTF-8'])
+            self.target.test.assert_called_once_with(
+                ['arg1', 'arg2'], 'A_input.txt', ['-Dfile.encoding=UTF-8'], ['data/a.txt'])
 
     def test_run_failed(self):
         attrs = {'return_value.stdout': 'Goodbye, world!'}
@@ -52,16 +63,16 @@ class TestCaseManagerTest(unittest.TestCase):
     def test_load_tests(self):
         test_cases = {
             'ch01': [
-                ('A', [], [], None, ROOT_DIR / 'ch01/testdata/A_output.txt'),
-                ('B', [], [], ROOT_DIR / 'ch01/testdata/B_input1.txt', ROOT_DIR / 'ch01/testdata/B_output1.txt'),
-                ('B', [], [], ROOT_DIR / 'ch01/testdata/B_input2.txt', ROOT_DIR / 'ch01/testdata/B_output2.txt'),
+                ('A', [], [], None, ROOT_DIR / 'ch01/testdata/A_output.txt', ['data/a.txt', 'conf/a.conf']),
+                ('B', [], [], ROOT_DIR / 'ch01/testdata/B_input1.txt', ROOT_DIR / 'ch01/testdata/B_output1.txt', []),
+                ('B', [], [], ROOT_DIR / 'ch01/testdata/B_input2.txt', ROOT_DIR / 'ch01/testdata/B_output2.txt', []),
             ],
             'ch02': [
-                ('C', ['-Dfile.encoding=UTF-8'], ['arg1', 'arg2'], None, ROOT_DIR / 'ch02/testdata/C_output.txt'),
-                ('D', [], ['hello world'], None, ROOT_DIR / 'ch02/testdata/D_output.txt'),
+                ('C', ['-Dfile.encoding=UTF-8'], ['arg1', 'arg2'], None, ROOT_DIR / 'ch02/testdata/C_output.txt', []),
+                ('D', [], ['hello world'], None, ROOT_DIR / 'ch02/testdata/D_output.txt', []),
             ],
             'ch03': [
-                ('E', [], [], None, ROOT_DIR / 'ch03/testdata/E_output.txt'),
+                ('E', [], [], None, ROOT_DIR / 'ch03/testdata/E_output.txt', []),
             ],
         }
         for chapter, expected in test_cases.items():
@@ -74,6 +85,7 @@ class TestCaseManagerTest(unittest.TestCase):
                 self.assertListEqual(t[2], t2.args)
                 self.assertEqual(t[3], t2.input_file)
                 self.assertEqual(t[4], t2.output_file)
+                self.assertListEqual(t[5], t2.testdata)
 
     def test_load_tests_with_missing_config(self):
         self.assertRaisesRegex(

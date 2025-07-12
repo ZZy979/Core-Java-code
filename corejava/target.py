@@ -9,7 +9,9 @@ from corejava.config import ROOT_DIR, OUT_DIR
 
 class Target:
 
-    def __init__(self, chapter, name, module_name=None, srcs=None, deps=None, class_path=None, module_path=None):
+    def __init__(
+            self, chapter, name, module_name=None, srcs=None, deps=None,
+            class_path=None, module_path=None, resources=None):
         """书中的示例程序（构建目标）。
 
         属性：
@@ -26,6 +28,7 @@ class Target:
         - deps：依赖的目标列表，例如v1ch03/Bar/com.example.bar.Bar
         - class_path：额外的类路径列表
         - module_path：额外的模块路径列表
+        - resources: 资源文件列表，例如data/foo.txt
 
         :param chapter: str 章节名称
         :param name: str 构建目标名称，格式为[subdir/][package.]classname
@@ -34,6 +37,7 @@ class Target:
         :param deps: List[str] 依赖的目标列表（可选），格式为chapter/target_name
         :param class_path: List[str] 额外的类路径列表（可选），路径相对于ROOT_DIR
         :param module_path: List[str] 额外的模块路径列表（可选），路径相对于ROOT_DIR
+        :param resources: List[str] 资源文件列表（可选），路径相对于源文件路径(src_dir)
         """
         self.chapter = chapter
         self.name = f'{chapter}/{name}'
@@ -48,6 +52,7 @@ class Target:
         self.deps = deps or []
         self.class_path = [ROOT_DIR / p for p in class_path] if class_path else []
         self.module_path = [ROOT_DIR / p for p in module_path] if module_path else []
+        self.resources = resources or []
 
     def __str__(self):
         return self.name
@@ -65,13 +70,21 @@ class Target:
             dirs.add(str(self.out_dir))
         return sorted(dirs)
 
+    def _get_extra_class_path(self):
+        # 返回额外的类路径列表
+        return [str(p) for p in self.class_path]
+
+    def _get_extra_module_path(self):
+        # 返回额外的模块路径列表
+        return [str(p) for p in self.module_path]
+
     def get_class_path(self):
         """返回类路径列表：当前目录和所有直接依赖的输出目录。"""
-        return self._get_dep_dirs(True) + [str(p) for p in self.class_path]
+        return self._get_dep_dirs(include_current_dir=True) + self._get_extra_class_path()
 
     def get_module_path(self, for_run):
         """返回模块路径列表。"""
-        return self._get_dep_dirs(False, for_run) + [str(p) for p in self.module_path]
+        return self._get_dep_dirs(include_self=for_run) + self._get_extra_module_path()
 
     def get_dep_option(self, for_run):
         """返回指定依赖路径的选项，for_run为False表示用于编译命令，否则用于运行命令。"""
@@ -115,10 +128,23 @@ class Target:
             *(args or [])
         ]
 
-    def build(self):
+    def copy_resources(self, resources=None):
+        """将资源文件拷贝到输出目录。"""
+        resources = resources if resources is not None else self.resources
+        for res in resources:
+            src = self.src_dir / res
+            dst = self.out_dir / res
+            os.makedirs(dst.parent, exist_ok=True)
+            shutil.copy(src, dst)
+
+    def compile(self):
         """编译示例程序。"""
         cmd = self.get_compile_command()
         subprocess.run(cmd, cwd=self.src_dir, check=True)
+
+    def build(self):
+        self.compile()
+        self.copy_resources()
 
     def run(self, args=None, jvm_options=None):
         """运行示例程序。
@@ -129,14 +155,16 @@ class Target:
         cmd = self.get_run_command(args, jvm_options)
         subprocess.run(cmd, cwd=self.out_dir)
 
-    def test(self, args=None, input_file=None, jvm_options=None):
+    def test(self, args=None, input_file=None, jvm_options=None, testdata=None):
         """测试示例程序。
 
         :param args: List[str] 命令行参数
         :param input_file: str 输入文件名
         :param jvm_options: List[str] JVM选项
+        :param testdata: List[str] 测试数据
         :return: subprocess.CompletedProcess对象
         """
+        self.copy_resources(testdata or [])
         cmd = self.get_run_command(args, jvm_options)
         stdin = open(input_file, encoding='utf-8') if input_file else DEVNULL
         result = subprocess.run(cmd, cwd=self.out_dir, stdin=stdin, stdout=PIPE, text=True, encoding='utf-8')
@@ -166,6 +194,7 @@ class TargetManager:
         - deps：依赖的目标列表（可选），格式同Target.deps
         - class_path：额外的类路径列表（可选），路径相对于ROOT_DIR
         - module_path：额外的模块路径列表（可选），路径相对于ROOT_DIR
+        - resources：资源文件列表（可选），路径相对于源文件路径(Target.src_dir)
 
         :param config_file: str 构建目标配置文件
         """
@@ -187,7 +216,8 @@ class TargetManager:
                 deps = config.get('deps', [])
                 class_path = config.get('class_path', [])
                 module_path = config.get('module_path', [])
-                target = Target(chapter, name, module_name, srcs, deps, class_path, module_path)
+                resources = config.get('resources', [])
+                target = Target(chapter, name, module_name, srcs, deps, class_path, module_path, resources)
                 targets[target.name] = target
 
         # 验证依赖目标存在
@@ -234,6 +264,6 @@ class TargetManager:
         self.build_target(target_name)
         self.targets[target_name].run(args)
 
-    def test_target(self, target_name, args=None, input_file=None, jvm_options=None):
+    def test_target(self, target_name, args=None, input_file=None, jvm_options=None, testdata=None):
         self.build_target(target_name)
-        return self.targets[target_name].test(args, input_file, jvm_options)
+        return self.targets[target_name].test(args, input_file, jvm_options, testdata)

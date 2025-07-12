@@ -1,6 +1,6 @@
 {
   "ch01": [
-    {"target": "A", "output_file": "A_output.txt"},
+    {"target": "A", "output_file": "A_output.txt", "testdata": ["data/a.txt", "conf/a.conf"]},
     {"target": "B", "input_file": "B_input1.txt", "output_file": "B_output1.txt"},
     {"target": "B", "input_file": "B_input2.txt", "output_file": "B_output2.txt"}
   ],

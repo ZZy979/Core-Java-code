@@ -10,7 +10,9 @@ from corejava.config import ROOT_DIR
 
 class TestCase:
 
-    def __init__(self, target_manager, target_name, output_file, jvm_options=None, args=None, input_file=None):
+    def __init__(
+            self, target_manager, target_name, output_file, jvm_options=None, args=None, input_file=None,
+            testdata=None):
         """示例程序的测试用例。
 
         :param target_manager: TargetManager对象
@@ -19,6 +21,7 @@ class TestCase:
         :param jvm_options: List[str] JVM选项（可选）
         :param args: List[str] 命令行参数（可选）
         :param input_file: 标准输入文件（可选）
+        :param testdata: List[str] 测试数据（可选）
         """
         self.target_manager = target_manager
         self.target_name = target_name
@@ -27,6 +30,7 @@ class TestCase:
         self.args = args or []
         self.input_file = input_file or None
         self.output_file = output_file
+        self.testdata = testdata or []
 
     def __str__(self):
         return f'Test case for {self.target_name}'
@@ -36,7 +40,8 @@ class TestCase:
         print(f'Testing {self.target_name}...', end='')
         with open(self.output_file, encoding='utf-8') as f:
             expected_output = f.read()
-        result = self.target_manager.test_target(self.target_name, self.args, self.input_file, self.jvm_options)
+        result = self.target_manager.test_target(
+            self.target_name, self.args, self.input_file, self.jvm_options, self.testdata)
         actual_output = result.stdout
         if expected_output == actual_output:
             print('OK')
@@ -68,6 +73,7 @@ class TestCaseManager:
         - args：命令行参数（可选），命令行参数（可选）
         - input_file：标准输入文件（可选），路径相对于章节目录/testdata
         - output_file：用于比较标准输出的文件，路径相对于章节目录/testdata
+        - testdata：测试数据（可选），路径相对于构建目标的源文件目录
 
         :param config_file: str 测试用例配置文件
         :param target_manager: TargetManager对象
@@ -95,7 +101,9 @@ class TestCaseManager:
                 args = shlex.split(config.get('args', ''))
                 input_file = testdata_dir / config['input_file'] if 'input_file' in config else None
                 output_file = testdata_dir / config['output_file']
-                test_case = TestCase(self.target_manager, target_name, output_file, jvm_options, args, input_file)
+                testdata = config.get('testdata')
+                test_case = TestCase(
+                    self.target_manager, target_name, output_file, jvm_options, args, input_file, testdata)
                 test_cases[chapter].append(test_case)
         return test_cases
 
