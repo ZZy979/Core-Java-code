@@ -250,6 +250,31 @@
       ]
     }
   ],
+  "v2ch05": [
+    {"name": "util.DBUtil", "resources": ["database.properties"]},
+    {
+      "name": "test.TestDB",
+      "deps": ["v2ch05/util.DBUtil"],
+      "class_path": ["v2ch05/derby/lib/derby.jar", "v2ch05/derby/lib/derbytools.jar"]
+    },
+    "exec.ClearDB",
+    {
+      "name": "exec.ExecSQL",
+      "deps": ["v2ch05/util.DBUtil"],
+      "class_path": ["v2ch05/derby/lib/derby.jar", "v2ch05/derby/lib/derbytools.jar"],
+      "resources": ["Authors.sql", "Books.sql", "BooksAuthors.sql", "Publishers.sql"]
+    },
+    {
+      "name": "query.QueryTest",
+      "deps": ["v2ch05/util.DBUtil"],
+      "class_path": ["v2ch05/derby/lib/derby.jar", "v2ch05/derby/lib/derbytools.jar"]
+    },
+    {
+      "name": "view.ViewDB",
+      "deps": ["v2ch05/util.DBUtil"],
+      "class_path": ["v2ch05/derby/lib/derby.jar", "v2ch05/derby/lib/derbytools.jar"]
+    }
+  ],
   "v2ch06": [
     "timeline.TimeLine",
     "localdates.LocalDates",

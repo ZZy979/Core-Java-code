@@ -1,0 +1,78 @@
+0 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+AUTHOR_ID, NAME, FNAME
+ALEX, Alexander                , Christopher              
+BROO, Brooks                   , Frederick P.             
+CORM, Cormen                   , Thomas H.                
+DATE, Date                     , C. J.                    
+DARW, Darwen                   , Hugh                     
+FEIN, Feiner                   , Steven K.                
+FLAN, Flanagan                 , David                    
+FOLE, Foley                    , James D.                 
+GAMM, Gamma                    , Erich                    
+GARF, Garfinkel                , Simson                   
+HEIN, Hein                     , Trent R.                 
+HELM, Helm                     , Richard                  
+HOPC, Hopcroft                 , John E.                  
+HUGH, Hughes                   , John F.                  
+ISHI, Ishikawa                 , Sara                     
+JOHN, Johnson                  , Ralph                    
+KAHN, Kahn                     , David                    
+KERN, Kernighan                , Brian                    
+KIDD, Kidder                   , Tracy                    
+KNUT, Knuth                    , Donald E.                
+LEIS, Leiserson                , Charles E.               
+MOTW, Motwani                  , Rajeev                   
+NEME, Nemeth                   , Evi                      
+RAYM, Raymond                  , Eric                     
+RITC, Ritchie                  , Dennis                   
+RIVE, Rivest                   , Ronald R.                
+SCHN, Schneier                 , Bruce                    
+SEEB, Seebass                  , Scott                    
+SILV, Silverstein              , Murray                   
+SNYD, Snyder                   , Garth                    
+STEI, Stein                    , Clifford E.              
+STOL, Stoll                    , Clifford                 
+STRA, Strassmann               , Steven                   
+STRO, Stroustrup               , Bjarne                   
+ULLM, Ullman                   , Jeffrey D.               
+VAND, van Dam                  , Andries                  
+VLIS, Vlissides                , John                     
+WEIS, Weise                    , Daniel                   

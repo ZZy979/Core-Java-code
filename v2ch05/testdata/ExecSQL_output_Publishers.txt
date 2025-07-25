@@ -1,0 +1,18 @@
+0 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+1 rows updated
+PUBLISHER_ID, NAME, URL
+0201  , Addison-Wesley                , www.aw-bc.com                                                                   
+0471  , John Wiley & Sons             , www.wiley.com                                                                   
+0262  , MIT Press                     , mitpress.mit.edu                                                                
+0596  , O'Reilly                      , www.ora.com                                                                     
+019   , Oxford University Press       , www.oup.co.uk                                                                   
+013   , Prentice Hall                 , www.phptr.com                                                                   
+0679  , Random House                  , www.randomhouse.com                                                             
+07434 , Simon & Schuster              , www.simonsays.com                                                               

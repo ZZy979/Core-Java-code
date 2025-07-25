@@ -274,6 +274,12 @@ java -jar swing-demos.jar
 * [程序清单4-8 client/HttpClientTest.java](v2ch04/client/HttpClientTest.java)
 * [程序清单4-9 mail/MailTest.java](v2ch04/mail/MailTest.java)
 
+### 第5章 数据库编程
+* [程序清单5-1 test/TestDB.java](v2ch05/test/TestDB.java)
+* [程序清单5-2 exec/ExecSQL.java](v2ch05/exec/ExecSQL.java)
+* [程序清单5-3 query/QueryTest.java](v2ch05/query/QueryTest.java)
+* [程序清单5-4 view/ViewDB.java](v2ch05/view/ViewDB.java)
+
 ### 第6章 日期和时间API
 * [程序清单6-1 timeline/TimeLine.java](v2ch06/timeline/TimeLine.java)
 * [程序清单6-2 localdates/LocalDates.java](v2ch06/localdates/LocalDates.java)

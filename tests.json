@@ -113,6 +113,15 @@
     {"target": "transform.TransformTest", "args": "transform/makehtml.xsl", "output_file": "TransformTest_output.html"},
     {"target": "transform.TransformTest", "args": "transform/makeprop.xsl", "output_file": "TransformTest_output.properties"}
   ],
+  "v2ch05": [
+    {"target": "test.TestDB", "output_file": "TestDB_output.txt"},
+    {"target": "exec.ClearDB", "output_file": "ClearDB_output.txt"},
+    {"target": "exec.ExecSQL", "args": "Books.sql", "output_file": "ExecSQL_output_Books.txt"},
+    {"target": "exec.ExecSQL", "args": "Authors.sql", "output_file": "ExecSQL_output_Authors.txt"},
+    {"target": "exec.ExecSQL", "args": "Publishers.sql", "output_file": "ExecSQL_output_Publishers.txt"},
+    {"target": "exec.ExecSQL", "args": "BooksAuthors.sql", "output_file": "ExecSQL_output_BooksAuthors.txt"},
+    {"target": "query.QueryTest", "input_file": "QueryTest_input.txt", "output_file": "QueryTest_output.txt"}
+  ],
   "v2ch06": [
     {"target": "localdates.LocalDates", "output_file": "LocalDates_output.txt"},
     {"target": "zonedtimes.ZonedTimes", "output_file": "ZonedTimes_output.txt"},

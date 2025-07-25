@@ -1,0 +1,555 @@
+Q)uery C)hange prices E)xit: Authors:
+ 1) Any
+ 2) Alexander                
+ 3) Brooks                   
+ 4) Cormen                   
+ 5) Date                     
+ 6) Darwen                   
+ 7) Feiner                   
+ 8) Flanagan                 
+ 9) Foley                    
+10) Gamma                    
+11) Garfinkel                
+12) Hein                     
+13) Helm                     
+14) Hopcroft                 
+15) Hughes                   
+16) Ishikawa                 
+17) Johnson                  
+18) Kahn                     
+19) Kernighan                
+20) Kidder                   
+21) Knuth                    
+22) Leiserson                
+23) Motwani                  
+24) Nemeth                   
+25) Raymond                  
+26) Ritchie                  
+27) Rivest                   
+28) Schneier                 
+29) Seebass                  
+30) Silverstein              
+31) Snyder                   
+32) Stein                    
+33) Stoll                    
+34) Strassmann               
+35) Stroustrup               
+36) Ullman                   
+37) van Dam                  
+38) Vlissides                
+39) Weise                    
+Publishers:
+ 1) Any
+ 2) Addison-Wesley                
+ 3) John Wiley & Sons             
+ 4) MIT Press                     
+ 5) O'Reilly                      
+ 6) Oxford University Press       
+ 7) Prentice Hall                 
+ 8) Random House                  
+ 9) Simon & Schuster              
+80.00, Introduction to Algorithms                                  
+Q)uery C)hange prices E)xit: Authors:
+ 1) Any
+ 2) Alexander                
+ 3) Brooks                   
+ 4) Cormen                   
+ 5) Date                     
+ 6) Darwen                   
+ 7) Feiner                   
+ 8) Flanagan                 
+ 9) Foley                    
+10) Gamma                    
+11) Garfinkel                
+12) Hein                     
+13) Helm                     
+14) Hopcroft                 
+15) Hughes                   
+16) Ishikawa                 
+17) Johnson                  
+18) Kahn                     
+19) Kernighan                
+20) Kidder                   
+21) Knuth                    
+22) Leiserson                
+23) Motwani                  
+24) Nemeth                   
+25) Raymond                  
+26) Ritchie                  
+27) Rivest                   
+28) Schneier                 
+29) Seebass                  
+30) Silverstein              
+31) Snyder                   
+32) Stein                    
+33) Stoll                    
+34) Strassmann               
+35) Stroustrup               
+36) Ullman                   
+37) van Dam                  
+38) Vlissides                
+39) Weise                    
+Publishers:
+ 1) Any
+ 2) Addison-Wesley                
+ 3) John Wiley & Sons             
+ 4) MIT Press                     
+ 5) O'Reilly                      
+ 6) Oxford University Press       
+ 7) Prentice Hall                 
+ 8) Random House                  
+ 9) Simon & Schuster              
+Q)uery C)hange prices E)xit: Authors:
+ 1) Any
+ 2) Alexander                
+ 3) Brooks                   
+ 4) Cormen                   
+ 5) Date                     
+ 6) Darwen                   
+ 7) Feiner                   
+ 8) Flanagan                 
+ 9) Foley                    
+10) Gamma                    
+11) Garfinkel                
+12) Hein                     
+13) Helm                     
+14) Hopcroft                 
+15) Hughes                   
+16) Ishikawa                 
+17) Johnson                  
+18) Kahn                     
+19) Kernighan                
+20) Kidder                   
+21) Knuth                    
+22) Leiserson                
+23) Motwani                  
+24) Nemeth                   
+25) Raymond                  
+26) Ritchie                  
+27) Rivest                   
+28) Schneier                 
+29) Seebass                  
+30) Silverstein              
+31) Snyder                   
+32) Stein                    
+33) Stoll                    
+34) Strassmann               
+35) Stroustrup               
+36) Ullman                   
+37) van Dam                  
+38) Vlissides                
+39) Weise                    
+Publishers:
+ 1) Any
+ 2) Addison-Wesley                
+ 3) John Wiley & Sons             
+ 4) MIT Press                     
+ 5) O'Reilly                      
+ 6) Oxford University Press       
+ 7) Prentice Hall                 
+ 8) Random House                  
+ 9) Simon & Schuster              
+59.99, The Art of Computer Programming vol. 1                      
+59.99, The Art of Computer Programming vol. 2                      
+59.99, The Art of Computer Programming vol. 3                      
+Q)uery C)hange prices E)xit: Authors:
+ 1) Any
+ 2) Alexander                
+ 3) Brooks                   
+ 4) Cormen                   
+ 5) Date                     
+ 6) Darwen                   
+ 7) Feiner                   
+ 8) Flanagan                 
+ 9) Foley                    
+10) Gamma                    
+11) Garfinkel                
+12) Hein                     
+13) Helm                     
+14) Hopcroft                 
+15) Hughes                   
+16) Ishikawa                 
+17) Johnson                  
+18) Kahn                     
+19) Kernighan                
+20) Kidder                   
+21) Knuth                    
+22) Leiserson                
+23) Motwani                  
+24) Nemeth                   
+25) Raymond                  
+26) Ritchie                  
+27) Rivest                   
+28) Schneier                 
+29) Seebass                  
+30) Silverstein              
+31) Snyder                   
+32) Stein                    
+33) Stoll                    
+34) Strassmann               
+35) Stroustrup               
+36) Ullman                   
+37) van Dam                  
+38) Vlissides                
+39) Weise                    
+Authors:
+ 1) Any
+ 2) Alexander                
+ 3) Brooks                   
+ 4) Cormen                   
+ 5) Date                     
+ 6) Darwen                   
+ 7) Feiner                   
+ 8) Flanagan                 
+ 9) Foley                    
+10) Gamma                    
+11) Garfinkel                
+12) Hein                     
+13) Helm                     
+14) Hopcroft                 
+15) Hughes                   
+16) Ishikawa                 
+17) Johnson                  
+18) Kahn                     
+19) Kernighan                
+20) Kidder                   
+21) Knuth                    
+22) Leiserson                
+23) Motwani                  
+24) Nemeth                   
+25) Raymond                  
+26) Ritchie                  
+27) Rivest                   
+28) Schneier                 
+29) Seebass                  
+30) Silverstein              
+31) Snyder                   
+32) Stein                    
+33) Stoll                    
+34) Strassmann               
+35) Stroustrup               
+36) Ullman                   
+37) van Dam                  
+38) Vlissides                
+39) Weise                    
+Authors:
+ 1) Any
+ 2) Alexander                
+ 3) Brooks                   
+ 4) Cormen                   
+ 5) Date                     
+ 6) Darwen                   
+ 7) Feiner                   
+ 8) Flanagan                 
+ 9) Foley                    
+10) Gamma                    
+11) Garfinkel                
+12) Hein                     
+13) Helm                     
+14) Hopcroft                 
+15) Hughes                   
+16) Ishikawa                 
+17) Johnson                  
+18) Kahn                     
+19) Kernighan                
+20) Kidder                   
+21) Knuth                    
+22) Leiserson                
+23) Motwani                  
+24) Nemeth                   
+25) Raymond                  
+26) Ritchie                  
+27) Rivest                   
+28) Schneier                 
+29) Seebass                  
+30) Silverstein              
+31) Snyder                   
+32) Stein                    
+33) Stoll                    
+34) Strassmann               
+35) Stroustrup               
+36) Ullman                   
+37) van Dam                  
+38) Vlissides                
+39) Weise                    
+Publishers:
+ 1) Any
+ 2) Addison-Wesley                
+ 3) John Wiley & Sons             
+ 4) MIT Press                     
+ 5) O'Reilly                      
+ 6) Oxford University Press       
+ 7) Prentice Hall                 
+ 8) Random House                  
+ 9) Simon & Schuster              
+64.99, The C++ Programming Language                                
+Q)uery C)hange prices E)xit: Authors:
+ 1) Any
+ 2) Alexander                
+ 3) Brooks                   
+ 4) Cormen                   
+ 5) Date                     
+ 6) Darwen                   
+ 7) Feiner                   
+ 8) Flanagan                 
+ 9) Foley                    
+10) Gamma                    
+11) Garfinkel                
+12) Hein                     
+13) Helm                     
+14) Hopcroft                 
+15) Hughes                   
+16) Ishikawa                 
+17) Johnson                  
+18) Kahn                     
+19) Kernighan                
+20) Kidder                   
+21) Knuth                    
+22) Leiserson                
+23) Motwani                  
+24) Nemeth                   
+25) Raymond                  
+26) Ritchie                  
+27) Rivest                   
+28) Schneier                 
+29) Seebass                  
+30) Silverstein              
+31) Snyder                   
+32) Stein                    
+33) Stoll                    
+34) Strassmann               
+35) Stroustrup               
+36) Ullman                   
+37) van Dam                  
+38) Vlissides                
+39) Weise                    
+Publishers:
+ 1) Any
+ 2) Addison-Wesley                
+ 3) John Wiley & Sons             
+ 4) MIT Press                     
+ 5) O'Reilly                      
+ 6) Oxford University Press       
+ 7) Prentice Hall                 
+ 8) Random House                  
+ 9) Simon & Schuster              
+47.95, A Guide to the SQL Standard                                 
+79.99, Computer Graphics: Principles and Practice                  
+54.99, Design Patterns                                             
+105.00, Introduction to Automata Theory, Languages, and Computation 
+59.99, The Art of Computer Programming vol. 1                      
+59.99, The Art of Computer Programming vol. 2                      
+59.99, The Art of Computer Programming vol. 3                      
+64.99, The C++ Programming Language                                
+29.95, The Mythical Man-Month                                      
+Q)uery C)hange prices E)xit: Authors:
+ 1) Any
+ 2) Alexander                
+ 3) Brooks                   
+ 4) Cormen                   
+ 5) Date                     
+ 6) Darwen                   
+ 7) Feiner                   
+ 8) Flanagan                 
+ 9) Foley                    
+10) Gamma                    
+11) Garfinkel                
+12) Hein                     
+13) Helm                     
+14) Hopcroft                 
+15) Hughes                   
+16) Ishikawa                 
+17) Johnson                  
+18) Kahn                     
+19) Kernighan                
+20) Kidder                   
+21) Knuth                    
+22) Leiserson                
+23) Motwani                  
+24) Nemeth                   
+25) Raymond                  
+26) Ritchie                  
+27) Rivest                   
+28) Schneier                 
+29) Seebass                  
+30) Silverstein              
+31) Snyder                   
+32) Stein                    
+33) Stoll                    
+34) Strassmann               
+35) Stroustrup               
+36) Ullman                   
+37) van Dam                  
+38) Vlissides                
+39) Weise                    
+Publishers:
+ 1) Any
+ 2) Addison-Wesley                
+ 3) John Wiley & Sons             
+ 4) MIT Press                     
+ 5) O'Reilly                      
+ 6) Oxford University Press       
+ 7) Prentice Hall                 
+ 8) Random House                  
+ 9) Simon & Schuster              
+Publishers:
+ 1) Any
+ 2) Addison-Wesley                
+ 3) John Wiley & Sons             
+ 4) MIT Press                     
+ 5) O'Reilly                      
+ 6) Oxford University Press       
+ 7) Prentice Hall                 
+ 8) Random House                  
+ 9) Simon & Schuster              
+Publishers:
+ 1) Any
+ 2) Addison-Wesley                
+ 3) John Wiley & Sons             
+ 4) MIT Press                     
+ 5) O'Reilly                      
+ 6) Oxford University Press       
+ 7) Prentice Hall                 
+ 8) Random House                  
+ 9) Simon & Schuster              
+18.95, The Soul of a New Machine                                   
+Q)uery C)hange prices E)xit: Authors:
+ 1) Any
+ 2) Alexander                
+ 3) Brooks                   
+ 4) Cormen                   
+ 5) Date                     
+ 6) Darwen                   
+ 7) Feiner                   
+ 8) Flanagan                 
+ 9) Foley                    
+10) Gamma                    
+11) Garfinkel                
+12) Hein                     
+13) Helm                     
+14) Hopcroft                 
+15) Hughes                   
+16) Ishikawa                 
+17) Johnson                  
+18) Kahn                     
+19) Kernighan                
+20) Kidder                   
+21) Knuth                    
+22) Leiserson                
+23) Motwani                  
+24) Nemeth                   
+25) Raymond                  
+26) Ritchie                  
+27) Rivest                   
+28) Schneier                 
+29) Seebass                  
+30) Silverstein              
+31) Snyder                   
+32) Stein                    
+33) Stoll                    
+34) Strassmann               
+35) Stroustrup               
+36) Ullman                   
+37) van Dam                  
+38) Vlissides                
+39) Weise                    
+Publishers:
+ 1) Any
+ 2) Addison-Wesley                
+ 3) John Wiley & Sons             
+ 4) MIT Press                     
+ 5) O'Reilly                      
+ 6) Oxford University Press       
+ 7) Prentice Hall                 
+ 8) Random House                  
+ 9) Simon & Schuster              
+47.95, A Guide to the SQL Standard                                 
+65.00, A Pattern Language: Towns, Buildings, Construction          
+60.00, Applied Cryptography                                        
+79.99, Computer Graphics: Principles and Practice                  
+13.95, Cuckoo's Egg                                                
+54.99, Design Patterns                                             
+80.00, Introduction to Algorithms                                  
+105.00, Introduction to Automata Theory, Languages, and Computation 
+44.95, JavaScript: The Definitive Guide                            
+59.99, The Art of Computer Programming vol. 1                      
+59.99, The Art of Computer Programming vol. 2                      
+59.99, The Art of Computer Programming vol. 3                      
+42.00, The C Programming Language                                  
+64.99, The C++ Programming Language                                
+16.95, The Cathedral and the Bazaar                                
+70.00, The Codebreakers                                            
+29.95, The Mythical Man-Month                                      
+18.95, The Soul of a New Machine                                   
+16.95, The UNIX Hater's Handbook                                   
+68.00, UNIX System Administration Handbook                         
+Q)uery C)hange prices E)xit: Publishers:
+ 1) Addison-Wesley                
+ 2) John Wiley & Sons             
+ 3) MIT Press                     
+ 4) O'Reilly                      
+ 5) Oxford University Press       
+ 6) Prentice Hall                 
+ 7) Random House                  
+ 8) Simon & Schuster              
+Change prices by: 9 records updated.
+Q)uery C)hange prices E)xit: Authors:
+ 1) Any
+ 2) Alexander                
+ 3) Brooks                   
+ 4) Cormen                   
+ 5) Date                     
+ 6) Darwen                   
+ 7) Feiner                   
+ 8) Flanagan                 
+ 9) Foley                    
+10) Gamma                    
+11) Garfinkel                
+12) Hein                     
+13) Helm                     
+14) Hopcroft                 
+15) Hughes                   
+16) Ishikawa                 
+17) Johnson                  
+18) Kahn                     
+19) Kernighan                
+20) Kidder                   
+21) Knuth                    
+22) Leiserson                
+23) Motwani                  
+24) Nemeth                   
+25) Raymond                  
+26) Ritchie                  
+27) Rivest                   
+28) Schneier                 
+29) Seebass                  
+30) Silverstein              
+31) Snyder                   
+32) Stein                    
+33) Stoll                    
+34) Strassmann               
+35) Stroustrup               
+36) Ullman                   
+37) van Dam                  
+38) Vlissides                
+39) Weise                    
+Publishers:
+ 1) Any
+ 2) Addison-Wesley                
+ 3) John Wiley & Sons             
+ 4) MIT Press                     
+ 5) O'Reilly                      
+ 6) Oxford University Press       
+ 7) Prentice Hall                 
+ 8) Random House                  
+ 9) Simon & Schuster              
+52.95, A Guide to the SQL Standard                                 
+84.99, Computer Graphics: Principles and Practice                  
+59.99, Design Patterns                                             
+110.00, Introduction to Automata Theory, Languages, and Computation 
+64.99, The Art of Computer Programming vol. 1                      
+64.99, The Art of Computer Programming vol. 2                      
+64.99, The Art of Computer Programming vol. 3                      
+69.99, The C++ Programming Language                                
+34.95, The Mythical Man-Month                                      
+Q)uery C)hange prices E)xit: 
