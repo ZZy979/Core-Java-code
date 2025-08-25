@@ -286,6 +286,25 @@ java -jar swing-demos.jar
 * [程序清单6-3 zonedtimes/ZonedTimes.java](v2ch06/zonedtimes/ZonedTimes.java)
 * [程序清单6-4 formatting/Formatting.java](v2ch06/formatting/Formatting.java)
 
+### 第8章 脚本、编译和注解处理
+* [程序清单8-1 script/ScriptTest.java](v2ch08/script/ScriptTest.java)
+* [程序清单8-2 buttons1/ButtonFrame.java](v2ch08/buttons1/ButtonFrame.java)
+* [compiler/StringSource.java](v2ch08/compiler/StringSource.java)
+* [compiler/ByteArrayClass.java](v2ch08/compiler/ByteArrayClass.java)
+* [compiler/ByteArrayClassLoader.java](v2ch08/compiler/ByteArrayClassLoader.java)
+* [程序清单8-3 compiler/CompilerTest.java](v2ch08/compiler/CompilerTest.java)
+* [程序清单8-4 buttons2/ButtonFrame.java](v2ch08/buttons2/ButtonFrame.java)
+* [程序清单8-5 buttons2/action.properties](v2ch08/buttons2/action.properties)
+* [程序清单8-6 runtimeAnnotations/ActionListenerInstaller.java](v2ch08/runtimeAnnotations/ActionListenerInstaller.java)
+* [程序清单8-7 buttons3/ButtonFrame.java](v2ch08/buttons3/ButtonFrame.java)
+* [程序清单8-8 runtimeAnnotations/ActionListenerFor.java](v2ch08/runtimeAnnotations/ActionListenerFor.java)
+* [sourceAnnotations/ToStringAnnotationProcessor.java](v2ch08/sourceAnnotations/ToStringAnnotationProcessor.java)
+* [rect/SourceLevelAnnotationDemo.java](v2ch08/rect/SourceLevelAnnotationDemo.java)
+* [程序清单8-9 bytecodeAnnotations/EntryLogger.java](v2ch08/bytecodeAnnotations/EntryLogger.java)
+* [程序清单8-10 set/Item.java](v2ch08/set/Item.java)
+* [程序清单8-11 set/SetTest.java](v2ch08/set/SetTest.java)
+* [程序清单8-12 bytecodeAnnotations/EntryLoggingAgent.java](v2ch08/bytecodeAnnotations/EntryLoggingAgent.java)
+
 ### 第9章 Java平台模块系统
 * [v2ch09.hellomod](v2ch09/v2ch09.hellomod)
 * [v2ch09.requiremod](v2ch09/v2ch09.requiremod)

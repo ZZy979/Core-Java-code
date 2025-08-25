@@ -281,6 +281,35 @@
     "zonedtimes.ZonedTimes",
     "formatting.Formatting"
   ],
+  "v2ch08": [
+    {
+      "name": "script.ScriptTest",
+      "srcs": ["script/ScriptTest.java", "buttons1/ButtonFrame.java"],
+      "class_path": ["v2ch08/rhino/rhino-1.7.14.jar", "v2ch08/rhino/rhino-engine-1.7.14.jar"],
+      "resources": [
+        "buttons1/rhino.properties",
+        "buttons1/groovy.properties",
+        "buttons1/init.Renjin",
+        "buttons1/Renjin.properties",
+        "buttons1/init.sisc",
+        "buttons1/sisc.properties"
+      ]
+    },
+    {
+      "name": "compiler.CompilerTest",
+      "srcs": ["compiler/CompilerTest.java", "buttons2/ButtonFrame.java"],
+      "resources": ["buttons2/action.properties"]
+    },
+    "buttons3.ButtonTest",
+    "rect.SourceLevelAnnotationDemo",
+    "set.Item",
+    {
+      "name": "bytecodeAnnotations.EntryLogger",
+      "deps": ["v2ch08/set.Item"],
+      "class_path": ["v2ch08/asm-9.2.jar", "v2ch08/asm-commons-9.2.jar"]
+    },
+    "set.SetTest"
+  ],
   "v2ch09": [
     {"name": "v2ch09.hellomod/com.horstmann.hello.HelloWorld", "module_name": "v2ch09.hellomod"},
     {"name": "v2ch09.requiremod/com.horstmann.hello.HelloWorld", "module_name": "v2ch09.requiremod"},

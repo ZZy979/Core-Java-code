@@ -127,6 +127,11 @@
     {"target": "zonedtimes.ZonedTimes", "output_file": "ZonedTimes_output.txt"},
     {"target": "formatting.Formatting", "jvm_options": "-Dfile.encoding=UTF-8", "output_file": "Formatting_output.txt"}
   ],
+  "v2ch08": [
+    {"target": "rect.SourceLevelAnnotationDemo", "output_file": "SourceLevelAnnotationDemo_output.txt"},
+    {"target": "bytecodeAnnotations.EntryLogger", "args": "set/Item.class", "output_file": "EntryLogger_output.txt"},
+    {"target": "set.SetTest", "output_file": "SetTest_output.txt"}
+  ],
   "v2ch09": [
     {"target": "v2ch09.hellomod/com.horstmann.hello.HelloWorld", "output_file": "HelloWorld_output.txt"},
     {"target": "v2ch09.exportedpkg/com.horstmann.hello.HelloWorld", "output_file": "HelloWorld_output.txt"},
