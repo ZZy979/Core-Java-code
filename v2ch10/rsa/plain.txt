@@ -1,0 +1,3 @@
+Sensitive data: Credit card 4111-1111-1111-1111
+API Key: sk_test_123456789abcdef
+Session token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9

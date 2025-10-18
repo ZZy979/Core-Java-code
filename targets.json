@@ -362,5 +362,30 @@
       "module_name": "v2ch09.useservice",
       "deps": ["v2ch09/com.horstmann.greetsvc/com.horstmann.greetsvc.GreeterService"]
     }
+  ],
+  "v2ch10": [
+    {
+      "name": "classLoader.ClassLoaderTest",
+      "deps": ["v1ch11/gridbag.GridBagLayoutTest"],
+      "resources": [
+        "Calculator.caesar",
+        "CalculatorFrame.caesar",
+        "CalculatorPanel.caesar",
+        "CalculatorPanel$1.caesar",
+        "CalculatorPanel$CommandAction.caesar",
+        "CalculatorPanel$InsertAction.caesar"
+      ]
+    },
+    "classLoader.Caesar",
+    "verifier.VerifierTest",
+    {"name": "auth.AuthTest", "resources": ["auth/jaas.config"]},
+    {
+      "name": "jaas.JAASTest",
+      "srcs": ["jaas/JAASTest.java", "jaas/SimpleLoginModule.java"],
+      "resources": ["jaas/jaas.config", "jaas/password.txt"]
+    },
+    {"name": "hash.Digest", "resources": ["hash/input.txt"]},
+    {"name": "aes.AESTest", "resources": ["aes/secret.key"]},
+    {"name": "rsa.RSATest", "resources": ["rsa/public.key", "rsa/private.key"]}
   ]
 }

@@ -142,5 +142,35 @@
     {"target": "v2ch09.useservice/com.horstmann.hello.HelloWorld", "args": "de", "output_file": "GreeterService_output_de.txt"},
     {"target": "v2ch09.useservice/com.horstmann.hello.HelloWorld", "args": "fr", "output_file": "GreeterService_output_fr.txt"},
     {"target": "v2ch09.useservice/com.horstmann.hello.HelloWorld", "args": "en", "output_file": "GreeterService_output_en.txt"}
+  ],
+  "v2ch10": [
+    {"target": "hash.Digest", "args": "hash/input.txt SHA-1", "output_file": "Digest_output_sha1.txt"},
+    {"target": "hash.Digest", "args": "hash/input.txt MD5", "output_file": "Digest_output_md5.txt"},
+    {
+      "target": "aes.AESTest",
+      "args": "-encrypt aes/plain.txt aes/encrypted.dat aes/secret.key",
+      "output_file": "nothing.txt",
+      "testdata": ["aes/plain.txt"]
+    },
+    {
+      "target": "aes.AESTest",
+      "args": "-decrypt aes/encrypted.dat aes/decrypted.txt aes/secret.key",
+      "type": "file",
+      "output_file": "aes/decrypted.txt",
+      "compare_file": "../aes/plain.txt"
+    },
+    {
+      "target": "rsa.RSATest",
+      "args": "-encrypt rsa/plain.txt rsa/encrypted.dat rsa/public.key",
+      "output_file": "nothing.txt",
+      "testdata": ["rsa/plain.txt"]
+    },
+    {
+      "target": "rsa.RSATest",
+      "args": "-decrypt rsa/encrypted.dat rsa/decrypted.txt rsa/private.key",
+      "type": "file",
+      "output_file": "rsa/decrypted.txt",
+      "compare_file": "../rsa/plain.txt"
+    }
   ]
 }
