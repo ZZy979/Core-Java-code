@@ -1,4 +1,5 @@
 import difflib
+import filecmp
 import json
 import shlex
 import sys
@@ -11,16 +12,18 @@ from corejava.config import ROOT_DIR
 class TestCase:
 
     def __init__(
-            self, target_manager, target_name, output_file, jvm_options=None, args=None, input_file=None,
-            testdata=None):
+            self, target_manager, target_name, output_file, jvm_options=None, args=None,
+            type='stdout', input_file=None, compare_file=None, testdata=None):
         """示例程序的测试用例。
 
         :param target_manager: TargetManager对象
         :param target_name: str 构建目标名称，格式为chapter/target_name，例如v1ch02/Foo/com.example.foo.Foo
-        :param output_file: str 用于比较标准输出的文件
+        :param output_file: path-like 用于比较标准输出的文件(type=stdout)或程序的输出文件(type=file)
         :param jvm_options: List[str] JVM选项（可选）
         :param args: List[str] 命令行参数（可选）
-        :param input_file: 标准输入文件（可选）
+        :param type: str 测试类型，stdout或file
+        :param input_file: path-like 标准输入文件（可选）
+        :param compare_file: path-like 用于比较输出文件的文件(type=file)
         :param testdata: List[str] 测试数据（可选）
         """
         self.target_manager = target_manager
@@ -28,33 +31,39 @@ class TestCase:
         self.chapter = target_name.split('/')[0]
         self.jvm_options = jvm_options or []
         self.args = args or []
+        self.type = type
         self.input_file = input_file or None
         self.output_file = output_file
+        self.compare_file = compare_file
         self.testdata = testdata or []
 
     def __str__(self):
         return f'Test case for {self.target_name}'
 
     def run(self):
-        """运行示例程序，并将标准输出与指定的文件比较，如果一致则返回True。"""
-        print(f'Testing {self.target_name}...', end='')
-        with open(self.output_file, encoding='utf-8') as f:
-            expected_output = f.read()
+        """运行示例程序，并将标准输出与指定的文件比较，如果一致则返回True，否则返回False和错误信息。"""
         result = self.target_manager.test_target(
             self.target_name, self.args, self.input_file, self.jvm_options, self.testdata)
-        actual_output = result.stdout
-        if expected_output == actual_output:
-            print('OK')
-            return True
+        if self.type == 'stdout':
+            with open(self.output_file, encoding='utf-8') as f:
+                expected_output = f.read()
+            actual_output = result.stdout
+            if expected_output == actual_output:
+                return True, None
+            else:
+                return False, self.diff_msg(expected_output, actual_output)
+        elif self.type == 'file':
+            if filecmp.cmp(self.output_file, self.compare_file):
+                return True, None
+            else:
+                return False, f'File {self.output_file} and {self.compare_file} differ'
         else:
-            print('failed')
-            self._print_diff(expected_output, actual_output)
-            return False
+            raise ValueError(f'Unknown test type: {self.type}')
 
-    def _print_diff(self, expected, actual):
+    def diff_msg(self, expected, actual):
         expected_lines = expected.splitlines(keepends=True)
         actual_lines = actual.splitlines(keepends=True)
-        sys.stdout.writelines(difflib.ndiff(expected_lines, actual_lines))
+        return ''.join(difflib.ndiff(expected_lines, actual_lines))
 
 
 class TestCaseManager:
@@ -71,8 +80,11 @@ class TestCaseManager:
         - target：构建目标名称，格式同TestCase.target_name
         - jvm_options：JVM选项（可选），空格分隔的字符串
         - args：命令行参数（可选），命令行参数（可选）
-        - input_file：标准输入文件（可选），路径相对于章节目录/testdata
-        - output_file：用于比较标准输出的文件，路径相对于章节目录/testdata
+        - type：测试类型，stdout - 比较标准输出和output_file（默认），file - 比较output_file和compare_file
+        - input_file：标准输入文件（可选），路径相对于章节测试数据目录
+        - output_file：type为stdout时表示用于比较标准输出的文件，路径相对于章节测试数据目录；
+          type为file时表示程序的输出文件，路径相对于构建目标的输出目录
+        - compare_file：用于比较输出文件的文件，type为file时必需，路径相对于章节测试数据目录
         - testdata：测试数据（可选），路径相对于构建目标的源文件目录
 
         :param config_file: str 测试用例配置文件
@@ -88,24 +100,35 @@ class TestCaseManager:
 
         test_cases = defaultdict(list)  # chapter -> [TestCase]
         for chapter, configs in test_config.items():
-            testdata_dir = ROOT_DIR / chapter / 'testdata'
             for config in configs:
-                if not config.get('target') or not config.get('output_file'):
-                    raise ValueError(f'Missing "target" or "output_file" in test case: {config}')
-
-                target_name = f"{chapter}/{config['target']}"
-                if target_name not in self.target_manager:
-                    raise ValueError(f'Target "{target_name}" not found.')
-
-                jvm_options = shlex.split(config.get('jvm_options', ''))
-                args = shlex.split(config.get('args', ''))
-                input_file = testdata_dir / config['input_file'] if 'input_file' in config else None
-                output_file = testdata_dir / config['output_file']
-                testdata = config.get('testdata')
-                test_case = TestCase(
-                    self.target_manager, target_name, output_file, jvm_options, args, input_file, testdata)
-                test_cases[chapter].append(test_case)
+                test_cases[chapter].append(self.build_test_case(chapter, config))
         return test_cases
+
+    def is_config_valid(self, config):
+        return bool(config.get('target') and config.get('output_file') \
+            and (not config.get('type', 'stdout') == 'file' or config.get('compare_file')))
+
+    def build_test_case(self, chapter, config):
+        if not self.is_config_valid(config):
+            raise ValueError(f'Invalid config: {config}')
+
+        target_name = f"{chapter}/{config['target']}"
+        if target_name not in self.target_manager:
+            raise ValueError(f'Target "{target_name}" not found.')
+
+        testdata_dir = ROOT_DIR / chapter / 'testdata'
+        target = self.target_manager[target_name]
+        jvm_options = shlex.split(config.get('jvm_options', ''))
+        args = shlex.split(config.get('args', ''))
+        type = config.get('type', 'stdout')
+        input_file = testdata_dir / config['input_file'] if 'input_file' in config else None
+        output_file = target.out_dir / config['output_file'] if type == 'file' else \
+            testdata_dir / config['output_file']
+        compare_file = testdata_dir / config['compare_file'] if type == 'file' else None
+        testdata = config.get('testdata')
+        return TestCase(
+            self.target_manager, target_name, output_file, jvm_options, args,
+            type, input_file, compare_file, testdata)
 
     def iter_tests(self):
         return chain.from_iterable(self.test_cases.values())
@@ -119,8 +142,14 @@ class TestCaseManager:
         for chapter, test_cases in self.test_cases.items():
             if not chapters or chapter in chapters:
                 for test_case in test_cases:
+                    print(f'Testing {test_case.target_name}...', end='')
                     run += 1
-                    if not test_case.run():
+                    success, msg = test_case.run()
+                    if success:
+                        print('OK')
+                    else:
+                        print('failed')
+                        print(msg)
                         failed += 1
         print(f'Run {run} tests, {failed} failed')
         sys.exit(failed)

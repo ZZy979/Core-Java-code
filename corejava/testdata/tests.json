@@ -10,5 +10,15 @@
   ],
   "ch03": [
     {"target": "E", "output_file": "E_output.txt"}
+  ],
+  "ch04": [
+    {"target": "mod1/F", "type": "stdout", "output_file": "F_output.txt"},
+    {
+      "target": "mod2/G",
+      "args": "-o G_actual_out.txt",
+      "type": "file",
+      "output_file": "G_actual_out.txt",
+      "compare_file": "G_expected.txt"
+    }
   ]
 }
