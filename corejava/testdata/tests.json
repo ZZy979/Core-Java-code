@@ -5,7 +5,7 @@
     {"target": "B", "input_file": "B_input2.txt", "output_file": "B_output2.txt"}
   ],
   "ch02": [
-    {"target": "C", "jvm_options": "-Dfile.encoding=UTF-8", "args": "arg1 arg2", "output_file": "C_output.txt"},
+    {"target": "C", "jvm_options": "-ea", "args": "arg1 arg2", "output_file": "C_output.txt"},
     {"target": "D", "args": "\"hello world\"", "output_file": "D_output.txt"}
   ],
   "ch03": [

@@ -1,5 +1,6 @@
 import json
 import os
+import shlex
 import shutil
 import subprocess
 from subprocess import DEVNULL, PIPE
@@ -10,8 +11,8 @@ from corejava.config import ROOT_DIR, OUT_DIR
 class Target:
 
     def __init__(
-            self, chapter, name, module_name=None, srcs=None, deps=None,
-            class_path=None, module_path=None, resources=None):
+            self, chapter, name, module_name=None, srcs=None, deps=None, class_path=None, module_path=None,
+            compile_options=None, jvm_options=None, resources=None):
         """书中的示例程序（构建目标）。
 
         属性：
@@ -28,6 +29,8 @@ class Target:
         - deps：依赖的目标列表，例如v1ch03/Bar/com.example.bar.Bar
         - class_path：额外的类路径列表
         - module_path：额外的模块路径列表
+        - compile_options：编译选项
+        - jvm_options：JVM选项
         - resources: 资源文件列表，例如data/foo.txt
 
         :param chapter: str 章节名称
@@ -37,6 +40,8 @@ class Target:
         :param deps: List[str] 依赖的目标列表（可选），格式为chapter/target_name
         :param class_path: List[str] 额外的类路径列表（可选），路径相对于ROOT_DIR
         :param module_path: List[str] 额外的模块路径列表（可选），路径相对于ROOT_DIR
+        :param compile_options: List[str] 编译选项（可选）
+        :param jvm_options: List[str] JVM选项（可选）
         :param resources: List[str] 资源文件列表（可选），路径相对于源文件路径(src_dir)
         """
         self.chapter = chapter
@@ -52,6 +57,8 @@ class Target:
         self.deps = deps or []
         self.class_path = [ROOT_DIR / p for p in class_path] if class_path else []
         self.module_path = [ROOT_DIR / p for p in module_path] if module_path else []
+        self.compile_options = compile_options or []
+        self.jvm_options = jvm_options or []
         self.resources = resources or []
 
     def __str__(self):
@@ -111,22 +118,19 @@ class Target:
 
     def get_compile_command(self):
         """生成编译命令。"""
-        return [
-            'javac',
-            '-d', self.out_dir,
-            *self.get_dep_option(False),
-            *self.get_src_files()
-        ]
+        return ['javac', '-d', self.out_dir] \
+            + self.get_dep_option(False) \
+            + self.compile_options \
+            + self.get_src_files()
 
-    def get_run_command(self, args=None, jvm_options=None):
+    def get_run_command(self, args=None, extra_jvm_options=None):
         """生成运行命令。"""
-        return [
-            'java',
-            *self.get_dep_option(True),
-            *(jvm_options or []),
-            *self.get_run_target_option(),
-            *(args or [])
-        ]
+        return ['java'] \
+            + self.get_dep_option(True) \
+            + self.jvm_options \
+            + (extra_jvm_options or []) \
+            + self.get_run_target_option() \
+            + (args or [])
 
     def copy_resources(self, resources=None):
         """将资源文件拷贝到输出目录。"""
@@ -146,26 +150,26 @@ class Target:
         self.compile()
         self.copy_resources()
 
-    def run(self, args=None, jvm_options=None):
+    def run(self, args=None, extra_jvm_options=None):
         """运行示例程序。
 
         :param args: List[str] 命令行参数
-        :param jvm_options: List[str] JVM选项
+        :param extra_jvm_options: List[str] 额外JVM选项
         """
-        cmd = self.get_run_command(args, jvm_options)
+        cmd = self.get_run_command(args, extra_jvm_options)
         subprocess.run(cmd, cwd=self.out_dir)
 
-    def test(self, args=None, input_file=None, jvm_options=None, testdata=None):
+    def test(self, args=None, input_file=None, extra_jvm_options=None, testdata=None):
         """测试示例程序。
 
         :param args: List[str] 命令行参数
         :param input_file: str 输入文件名
-        :param jvm_options: List[str] JVM选项
+        :param extra_jvm_options: List[str] 额外JVM选项
         :param testdata: List[str] 测试数据
         :return: subprocess.CompletedProcess对象
         """
         self.copy_resources(testdata or [])
-        cmd = self.get_run_command(args, jvm_options)
+        cmd = self.get_run_command(args, extra_jvm_options)
         stdin = open(input_file, encoding='utf-8') if input_file else DEVNULL
         result = subprocess.run(cmd, cwd=self.out_dir, stdin=stdin, stdout=PIPE, text=True, encoding='utf-8')
         if input_file:
@@ -194,6 +198,8 @@ class TargetManager:
         - deps：依赖的目标列表（可选），格式同Target.deps
         - class_path：额外的类路径列表（可选），路径相对于ROOT_DIR
         - module_path：额外的模块路径列表（可选），路径相对于ROOT_DIR
+        - compile_options：编译选项（可选），空格分隔的字符串
+        - jvm_options：JVM选项（可选），空格分隔的字符串
         - resources：资源文件列表（可选），路径相对于源文件路径(Target.src_dir)
 
         :param config_file: str 构建目标配置文件
@@ -216,8 +222,12 @@ class TargetManager:
                 deps = config.get('deps', [])
                 class_path = config.get('class_path', [])
                 module_path = config.get('module_path', [])
+                compile_options = shlex.split(config.get('compile_options', ''))
+                jvm_options = shlex.split(config.get('jvm_options', ''))
                 resources = config.get('resources', [])
-                target = Target(chapter, name, module_name, srcs, deps, class_path, module_path, resources)
+                target = Target(
+                    chapter, name, module_name, srcs, deps, class_path, module_path,
+                    compile_options, jvm_options, resources)
                 targets[target.name] = target
 
         # 验证依赖目标存在
@@ -264,6 +274,6 @@ class TargetManager:
         self.build_target(target_name)
         self.targets[target_name].run(args)
 
-    def test_target(self, target_name, args=None, input_file=None, jvm_options=None, testdata=None):
+    def test_target(self, target_name, args=None, input_file=None, extra_jvm_options=None, testdata=None):
         self.build_target(target_name)
-        return self.targets[target_name].test(args, input_file, jvm_options, testdata)
+        return self.targets[target_name].test(args, input_file, extra_jvm_options, testdata)

@@ -10,7 +10,10 @@ class TargetTest(unittest.TestCase):
 
     def setUp(self):
         self.foo = Target(
-            'ch01', 'Foo/com.example.foo.Foo', None, class_path=['ch01/foo_lib.jar'])
+            'ch01', 'Foo/com.example.foo.Foo', None,
+            class_path=['ch01/foo_lib.jar'],
+            compile_options=['-target', '8'],
+            jvm_options=['-Dfile.encoding=UTF-8'])
         self.bar = Target(
             'ch02', 'com.example.bar.Bar', 'mod2',
             ['com/example/bar/Bar.java', 'com/example/bar/internal/BarImpl.java'],
@@ -31,6 +34,8 @@ class TargetTest(unittest.TestCase):
         self.assertListEqual([], self.foo.deps)
         self.assertListEqual([ROOT_DIR / 'ch01/foo_lib.jar'], self.foo.class_path)
         self.assertListEqual([], self.foo.module_path)
+        self.assertListEqual(['-target', '8'], self.foo.compile_options)
+        self.assertListEqual(['-Dfile.encoding=UTF-8'], self.foo.jvm_options)
         self.assertListEqual([], self.foo.resources)
 
         self.assertEqual('ch02', self.bar.chapter)
@@ -45,6 +50,8 @@ class TargetTest(unittest.TestCase):
         self.assertListEqual(['ch01/Foo/com.example.foo.Foo'], self.bar.deps)
         self.assertListEqual([], self.bar.class_path)
         self.assertListEqual([ROOT_DIR / 'ch02/bar_lib.jar'], self.bar.module_path)
+        self.assertListEqual([], self.bar.compile_options)
+        self.assertListEqual([], self.bar.jvm_options)
         self.assertListEqual(['data/bar1.txt', 'data/bar2.txt'], self.bar.resources)
 
     def test_get_class_path(self):
@@ -67,6 +74,7 @@ class TargetTest(unittest.TestCase):
         foo_compile_command = [
             'javac', '-d', OUT_DIR / 'ch01/Foo',
             '-cp', os.pathsep.join(['.', str(ROOT_DIR / 'ch01/foo_lib.jar')]),
+            '-target', '8',
             'com/example/foo/Foo.java'
         ]
         self.assertListEqual(foo_compile_command, self.foo.get_compile_command())
@@ -83,6 +91,7 @@ class TargetTest(unittest.TestCase):
 
         foo_compile_command = [
             'javac', '-d', OUT_DIR / 'ch01/Foo',
+            '-target', '8',
             'module-info.java', 'com/example/foo/Foo.java'
         ]
         self.assertListEqual(foo_compile_command, self.foo.get_compile_command())
@@ -99,31 +108,36 @@ class TargetTest(unittest.TestCase):
 
         foo_run_command = [
             'java', '-cp', os.pathsep.join(['.', str(ROOT_DIR / 'ch01/foo_lib.jar')]),
+            '-Dfile.encoding=UTF-8', '-ea',
             'com.example.foo.Foo'
         ]
-        self.assertListEqual(foo_run_command, self.foo.get_run_command())
+        self.assertListEqual(foo_run_command, self.foo.get_run_command(extra_jvm_options=['-ea']))
 
         bar_run_command = [
             'java', '-cp', os.pathsep.join(['.', str(OUT_DIR / 'ch01/Foo')]),
-            '-Dfile.encoding=UTF-8', 'com.example.bar.Bar', 'arg1', 'arg2'
+            'com.example.bar.Bar', 'arg1', 'arg2'
         ]
         self.assertListEqual(
-            bar_run_command, self.bar.get_run_command(['arg1', 'arg2'], ['-Dfile.encoding=UTF-8']))
+            bar_run_command, self.bar.get_run_command(['arg1', 'arg2']))
 
     def test_get_run_command_for_module(self):
         self.foo.is_module = self.bar.is_module = True
         self.foo.module_name = 'mod1'
         self.bar.module_name = 'mod2'
 
-        foo_run_command = ['java', '-p', str(OUT_DIR / 'ch01/Foo'), '-m', 'mod1/com.example.foo.Foo']
-        self.assertListEqual(foo_run_command, self.foo.get_run_command())
+        foo_run_command = [
+            'java', '-p', str(OUT_DIR / 'ch01/Foo'),
+            '-Dfile.encoding=UTF-8', '-ea',
+            '-m', 'mod1/com.example.foo.Foo'
+        ]
+        self.assertListEqual(foo_run_command, self.foo.get_run_command(extra_jvm_options=['-ea']))
 
         bar_run_command = [
             'java', '-p', os.pathsep.join([str(OUT_DIR / 'ch01/Foo'), str(OUT_DIR / 'ch02'), str(ROOT_DIR / 'ch02/bar_lib.jar')]),
-            '-Dfile.encoding=UTF-8', '-m', 'mod2/com.example.bar.Bar', 'arg1', 'arg2'
+            '-m', 'mod2/com.example.bar.Bar', 'arg1', 'arg2'
         ]
         self.assertListEqual(
-            bar_run_command, self.bar.get_run_command(['arg1', 'arg2'], ['-Dfile.encoding=UTF-8']))
+            bar_run_command, self.bar.get_run_command(['arg1', 'arg2']))
 
     @patch('os.makedirs')
     @patch('shutil.copy')
@@ -154,13 +168,13 @@ class TargetManagerTest(unittest.TestCase):
 
     def test_load_targets(self):
         targets = [
-            ('ch01/A', None, ['A.java'], [], [], [], []),
-            ('ch01/B', None, ['B.java'], [], [], [], ['data/b.txt']),
-            ('ch02/C', None, ['C.java'], ['ch01/A', 'ch01/B'], [], [], []),
-            ('ch02/D', None, ['D.java'], ['ch01/B'], [], [], []),
-            ('ch03/E', None, ['E.java'], ['ch02/C', 'ch02/D'], [ROOT_DIR / 'ch02/foo_lib.jar'], [], []),
-            ('ch04/mod1/F', 'mod1', ['F.java', 'internal/FF.java'], [], [], [], ['conf/foo.conf']),
-            ('ch04/mod2/G', 'mod2', ['G.java'], ['ch04/mod1/F'], [], [ROOT_DIR / 'ch04/bar_lib.jar'], []),
+            ('ch01/A', None, ['A.java'], [], [], [], [], [], []),
+            ('ch01/B', None, ['B.java'], [], [], [], [], [], ['data/b.txt']),
+            ('ch02/C', None, ['C.java'], ['ch01/A', 'ch01/B'], [], [], ['-target', '8'], ['-Dfile.encoding=UTF-8'], []),
+            ('ch02/D', None, ['D.java'], ['ch01/B'], [], [], [], [], []),
+            ('ch03/E', None, ['E.java'], ['ch02/C', 'ch02/D'], [ROOT_DIR / 'ch02/foo_lib.jar'], [], [], [], []),
+            ('ch04/mod1/F', 'mod1', ['F.java', 'internal/FF.java'], [], [], [], [], [], ['conf/foo.conf']),
+            ('ch04/mod2/G', 'mod2', ['G.java'], ['ch04/mod1/F'], [], [ROOT_DIR / 'ch04/bar_lib.jar'], [], [], []),
         ]
         self.assertEqual(len(targets), len(self.target_manager.targets))
         for t in targets:
@@ -172,7 +186,9 @@ class TargetManagerTest(unittest.TestCase):
             self.assertListEqual(t[3], target.deps)
             self.assertListEqual(t[4], target.class_path)
             self.assertListEqual(t[5], target.module_path)
-            self.assertListEqual(t[6], target.resources)
+            self.assertListEqual(t[6], target.compile_options)
+            self.assertListEqual(t[7], target.jvm_options)
+            self.assertListEqual(t[8], target.resources)
 
     def test_load_targets_with_invalid_dependency(self):
         self.assertRaisesRegex(

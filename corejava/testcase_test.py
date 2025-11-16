@@ -93,7 +93,7 @@ class TestCaseManagerTest(unittest.TestCase):
                     ROOT_DIR / 'ch01/testdata/B_output2.txt', None, []),
             ],
             'ch02': [
-                ('C', ['-Dfile.encoding=UTF-8'], ['arg1', 'arg2'], 'stdout', None,
+                ('C', ['-ea'], ['arg1', 'arg2'], 'stdout', None,
                     ROOT_DIR / 'ch02/testdata/C_output.txt', None, []),
                 ('D', [], ['hello world'], 'stdout', None,
                     ROOT_DIR / 'ch02/testdata/D_output.txt', None, []),
@@ -145,13 +145,13 @@ class TestCaseManagerTest(unittest.TestCase):
 
     def test_build_test_case(self):
         config = {
-            'target': 'C', 'jvm_options': '-Dfile.encoding=UTF-8', 'args': 'arg1 arg2',
+            'target': 'C', 'jvm_options': '-ea', 'args': 'arg1 arg2',
             'type': 'file', 'input_file': 'C_input.txt', 'output_file': 'C_actual_out.txt',
             'compare_file': 'C_expected_out.txt', 'testdata': ['data.txt']
         }
         t = self.test_case_manager.build_test_case('ch02', config)
         self.assertEqual('ch02/C', t.target_name)
-        self.assertListEqual(['-Dfile.encoding=UTF-8'], t.jvm_options)
+        self.assertListEqual(['-ea'], t.jvm_options)
         self.assertListEqual(['arg1', 'arg2'], t.args)
         self.assertEqual('file', t.type)
         self.assertEqual(ROOT_DIR / 'ch02/testdata/C_input.txt', t.input_file)

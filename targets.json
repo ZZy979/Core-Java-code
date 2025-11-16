@@ -38,7 +38,10 @@
       "resources": ["resources/about.gif", "resources/data/about.txt", "corejava/title.txt"]
     },
     "reflection.ReflectionTest",
-    "objectAnalyzer.ObjectAnalyzerTest",
+    {
+      "name": "objectAnalyzer.ObjectAnalyzerTest",
+      "jvm_options": "--add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED"
+    },
     "arrays.CopyOfTest",
     "methods.MethodTableTest"
   ],
@@ -169,9 +172,13 @@
     {"name": "streams.CreatingStreams", "resources": ["gutenberg/alice30.txt"]},
     {"name": "optional.OptionalTest", "resources": ["gutenberg/alice30.txt"]},
     {"name": "collecting.CollectingResults", "resources": ["gutenberg/alice30.txt"]},
-    "collecting.CollectingIntoMaps",
+    {"name": "collecting.CollectingIntoMaps", "jvm_options": "-Dfile.encoding=UTF-8"},
     {"name": "collecting.DownstreamCollectors", "resources": ["cities.txt"]},
-    {"name": "streams.PrimitiveTypeStreams", "resources": ["gutenberg/alice30.txt"]},
+    {
+      "name": "streams.PrimitiveTypeStreams",
+      "jvm_options": "-Dfile.encoding=UTF-8",
+      "resources": ["gutenberg/alice30.txt"]
+    },
     {"name": "parallel.ParallelStreams", "resources": ["gutenberg/alice30.txt"]}
   ],
   "v2ch02": [
@@ -279,7 +286,7 @@
     "timeline.TimeLine",
     "localdates.LocalDates",
     "zonedtimes.ZonedTimes",
-    "formatting.Formatting"
+    {"name": "formatting.Formatting", "jvm_options": "-Dfile.encoding=UTF-8"}
   ],
   "v2ch08": [
     {

@@ -19,7 +19,7 @@ class TestCase:
         :param target_manager: TargetManager对象
         :param target_name: str 构建目标名称，格式为chapter/target_name，例如v1ch02/Foo/com.example.foo.Foo
         :param output_file: path-like 用于比较标准输出的文件(type=stdout)或程序的输出文件(type=file)
-        :param jvm_options: List[str] JVM选项（可选）
+        :param jvm_options: List[str] 额外JVM选项（可选）
         :param args: List[str] 命令行参数（可选）
         :param type: str 测试类型，stdout或file
         :param input_file: path-like 标准输入文件（可选）
@@ -78,8 +78,8 @@ class TestCaseManager:
         每个测试用例也是一个JSON对象，支持下列的key：
 
         - target：构建目标名称，格式同TestCase.target_name
-        - jvm_options：JVM选项（可选），空格分隔的字符串
-        - args：命令行参数（可选），命令行参数（可选）
+        - jvm_options：额外JVM选项（可选），空格分隔的字符串
+        - args：命令行参数（可选），空格分隔的字符串
         - type：测试类型，stdout - 比较标准输出和output_file（默认），file - 比较output_file和compare_file
         - input_file：标准输入文件（可选），路径相对于章节测试数据目录
         - output_file：type为stdout时表示用于比较标准输出的文件，路径相对于章节测试数据目录；
