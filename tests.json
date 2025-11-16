@@ -213,5 +213,15 @@
       "output_file": "rsa/decrypted.txt",
       "compare_file": "../rsa/plain.txt"
     }
+  ],
+  "v2ch12": [
+    {"target": "helloNative/HelloNativeTest", "output_file": "HelloNativeTest_output.txt"},
+    {"target": "printf1/Printf1Test", "output_file": "Printf1Test_output.txt"},
+    {"target": "printf2/Printf2Test", "output_file": "Printf2Test_output.txt"},
+    {"target": "employee/EmployeeTest", "output_file": "EmployeeTest_output.txt"},
+    {"target": "printf3/Printf3Test", "output_file": "Printf3Test_output.txt"},
+    {"target": "array/ArrayAlgTest", "output_file": "ArrayAlgTest_output.txt"},
+    {"target": "printf4/Printf4Test", "output_file": "Printf4Test_output.txt"},
+    {"target": "panama.PanamaDemo", "output_file": "PanamaDemo_output.txt"}
   ]
 }

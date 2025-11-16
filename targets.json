@@ -394,5 +394,60 @@
     {"name": "hash.Digest", "resources": ["hash/input.txt"]},
     {"name": "aes.AESTest", "resources": ["aes/secret.key"]},
     {"name": "rsa.RSATest", "resources": ["rsa/public.key", "rsa/private.key"]}
+  ],
+  "v2ch12": [
+    {
+      "name": "helloNative/HelloNativeTest",
+      "srcs": ["HelloNative.java", "HelloNativeTest.java"],
+      "jvm_options": "-Djava.library.path=.",
+      "resources": ["HelloNative.dll", "libHelloNative.so"]
+    },
+    {
+      "name": "printf1/Printf1Test",
+      "srcs": ["Printf1.java", "Printf1Test.java"],
+      "jvm_options": "-Djava.library.path=.",
+      "resources": ["Printf1.dll", "libPrintf1.so"]
+    },
+    {
+      "name": "printf2/Printf2Test",
+      "srcs": ["Printf2.java", "Printf2Test.java"],
+      "jvm_options": "-Djava.library.path=.",
+      "resources": ["Printf2.dll", "libPrintf2.so"]
+    },
+    {
+      "name": "employee/EmployeeTest",
+      "srcs": ["Employee.java", "EmployeeTest.java"],
+      "jvm_options": "-Djava.library.path=.",
+      "resources": ["Employee.dll", "libEmployee.so"]
+    },
+    {
+      "name": "printf3/Printf3Test",
+      "srcs": ["Printf3.java", "Printf3Test.java"],
+      "jvm_options": "-Djava.library.path=.",
+      "resources": ["Printf3.dll", "libPrintf3.so"]
+    },
+    {
+      "name": "array/ArrayAlgTest",
+      "srcs": ["ArrayAlg.java", "ArrayAlgTest.java"],
+      "jvm_options": "-Djava.library.path=.",
+      "resources": ["ArrayAlg.dll", "libArrayAlg.so"]
+    },
+    {
+      "name": "printf4/Printf4Test",
+      "srcs": ["Printf4.java", "Printf4Test.java"],
+      "jvm_options": "-Djava.library.path=.",
+      "resources": ["Printf4.dll", "libPrintf4.so"]
+    },
+    {
+      "name": "win32reg/Win32RegKeyTest",
+      "srcs": ["Win32RegKey.java", "Win32RegKeyTest.java"],
+      "jvm_options": "-Djava.library.path=.",
+      "resources": ["Win32RegKey.dll"]
+    },
+    {
+      "name": "panama.PanamaDemo",
+      "compile_options": "--enable-preview --source 17 --add-modules jdk.incubator.foreign -Xlint:none",
+      "jvm_options": "--add-modules jdk.incubator.foreign --enable-native-access=ALL-UNNAMED"
+    }
   ]
 }

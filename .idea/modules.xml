@@ -33,6 +33,7 @@
       <module fileurl="file://$PROJECT_DIR$/v2ch09/v2ch09.requiremod/v2ch09.requiremod.iml" filepath="$PROJECT_DIR$/v2ch09/v2ch09.requiremod/v2ch09.requiremod.iml" />
       <module fileurl="file://$PROJECT_DIR$/v2ch09/v2ch09.useservice/v2ch09.useservice.iml" filepath="$PROJECT_DIR$/v2ch09/v2ch09.useservice/v2ch09.useservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/v2ch10/v2ch10.iml" filepath="$PROJECT_DIR$/v2ch10/v2ch10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/v2ch12/v2ch12.iml" filepath="$PROJECT_DIR$/v2ch12/v2ch12.iml" />
     </modules>
   </component>
 </project>
