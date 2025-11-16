@@ -400,43 +400,43 @@
       "name": "helloNative/HelloNativeTest",
       "srcs": ["HelloNative.java", "HelloNativeTest.java"],
       "jvm_options": "-Djava.library.path=.",
-      "resources": ["HelloNative.dll", "libHelloNative.so"]
+      "resources": ["HelloNative.dll", "libHelloNative.so", "libHelloNative.dylib"]
     },
     {
       "name": "printf1/Printf1Test",
       "srcs": ["Printf1.java", "Printf1Test.java"],
       "jvm_options": "-Djava.library.path=.",
-      "resources": ["Printf1.dll", "libPrintf1.so"]
+      "resources": ["Printf1.dll", "libPrintf1.so", "libPrintf1.dylib"]
     },
     {
       "name": "printf2/Printf2Test",
       "srcs": ["Printf2.java", "Printf2Test.java"],
       "jvm_options": "-Djava.library.path=.",
-      "resources": ["Printf2.dll", "libPrintf2.so"]
+      "resources": ["Printf2.dll", "libPrintf2.so", "libPrintf2.dylib"]
     },
     {
       "name": "employee/EmployeeTest",
       "srcs": ["Employee.java", "EmployeeTest.java"],
       "jvm_options": "-Djava.library.path=.",
-      "resources": ["Employee.dll", "libEmployee.so"]
+      "resources": ["Employee.dll", "libEmployee.so", "libEmployee.dylib"]
     },
     {
       "name": "printf3/Printf3Test",
       "srcs": ["Printf3.java", "Printf3Test.java"],
       "jvm_options": "-Djava.library.path=.",
-      "resources": ["Printf3.dll", "libPrintf3.so"]
+      "resources": ["Printf3.dll", "libPrintf3.so", "libPrintf3.dylib"]
     },
     {
       "name": "array/ArrayAlgTest",
       "srcs": ["ArrayAlg.java", "ArrayAlgTest.java"],
       "jvm_options": "-Djava.library.path=.",
-      "resources": ["ArrayAlg.dll", "libArrayAlg.so"]
+      "resources": ["ArrayAlg.dll", "libArrayAlg.so", "libArrayAlg.dylib"]
     },
     {
       "name": "printf4/Printf4Test",
       "srcs": ["Printf4.java", "Printf4Test.java"],
       "jvm_options": "-Djava.library.path=.",
-      "resources": ["Printf4.dll", "libPrintf4.so"]
+      "resources": ["Printf4.dll", "libPrintf4.so", "libPrintf4.dylib"]
     },
     {
       "name": "win32reg/Win32RegKeyTest",
