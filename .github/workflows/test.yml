@@ -26,8 +26,14 @@ jobs:
           python-version: '3.11'
       - name: Run tool script test
         run: python -m unittest -v
+      - name: Setup MSVC Compiler
+        if: runner.os == 'Windows'
+        uses: seanmiddleditch/gha-setup-vsdevenv@master
+        with:
+          components: Microsoft.VisualStudio.Component.VC.Tools.x86.x64
       - name: Build native libraries (Windows)
         if: runner.os == 'Windows'
+        shell: cmd
         run: mingw32-make -C v2ch12 -f Makefile_Windows
       - name: Build native libraries (macOS)
         if: runner.os == 'macOS'
