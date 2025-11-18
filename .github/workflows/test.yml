@@ -34,6 +34,9 @@ jobs:
       - name: Build native libraries (Windows)
         if: runner.os == 'Windows'
         run: mingw32-make -C v2ch12 -f Makefile_Windows
+      - name: Build native libraries (Linux)
+        if: runner.os == 'Linux'
+        run: make -C v2ch12 -f Makefile_Linux
       - name: Build native libraries (macOS)
         if: runner.os == 'macOS'
         run: make -C v2ch12 -f Makefile_macOS

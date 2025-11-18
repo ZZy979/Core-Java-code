@@ -4,7 +4,7 @@ all: InvocationTest
 	javac $<
 
 InvocationTest: InvocationTest.c Welcome.class
-	gcc -I $(JAVA_HOME)/include -I $(JAVA_HOME)/include/darwin -o $@ $< -L $(JAVA_HOME)/lib/server -ljvm
+	gcc -I $(JAVA_HOME)/include -I $(JAVA_HOME)/include/linux -o $@ $< -L $(JAVA_HOME)/lib/server -ljvm
 
 clean:
 	rm InvocationTest

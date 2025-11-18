@@ -1,0 +1,13 @@
+subdirs = array employee helloNative printf1 printf2 printf3 printf4
+
+all:
+	for d in $(subdirs); do \
+	  $(MAKE) -C $$d -f Makefile_Linux; \
+	done
+
+clean:
+	for d in $(subdirs); do \
+	  $(MAKE) -C $$d -f Makefile_Linux clean; \
+	done
+
+.PHONY: all clean

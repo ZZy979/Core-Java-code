@@ -1,0 +1,3 @@
+all: libPrintf3.so
+
+include ../build_native_lib_linux.mk
