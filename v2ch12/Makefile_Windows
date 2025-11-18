@@ -1,3 +1,6 @@
+SHELL := cmd.exe
+.SHELLFLAGS := /c
+
 subdirs = array employee helloNative printf1 printf2 printf3 printf4
 
 all:
