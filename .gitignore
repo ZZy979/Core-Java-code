@@ -12,3 +12,9 @@ __pycache__/
 
 # Visual Studio Code
 /.vscode/
+
+# Native library
+*.so
+*.dylib
+*.dll
+*.lib
