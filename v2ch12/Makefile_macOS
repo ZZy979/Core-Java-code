@@ -1,13 +1,13 @@
 subdirs = array employee helloNative printf1 printf2 printf3 printf4
 
 all:
-	for dir in $(subdirs); do \
-	  $(MAKE) -C $$dir -f Makefile_macOS; \
+	for d in $(subdirs); do \
+	  $(MAKE) -C $$d -f Makefile_macOS; \
 	done
 
 clean:
-	for dir in $(subdirs); do \
-	  $(MAKE) -C $$dir -f Makefile_macOS clean; \
+	for d in $(subdirs); do \
+	  $(MAKE) -C $$d -f Makefile_macOS clean; \
 	done
 
 .PHONY: all clean

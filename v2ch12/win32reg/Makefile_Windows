@@ -1,0 +1,6 @@
+all: Win32RegKey.dll
+
+Win32RegKey.dll: Win32RegKey.c
+	cl /I $(JAVA_HOME)\include /I $(JAVA_HOME)\include\win32 /LD $< advapi32.lib /Fe$@
+
+include ../build_native_lib_windows.mk
