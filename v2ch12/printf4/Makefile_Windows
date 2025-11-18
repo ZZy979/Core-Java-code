@@ -1,0 +1,3 @@
+all: Printf4.dll
+
+include ../build_native_lib_windows.mk

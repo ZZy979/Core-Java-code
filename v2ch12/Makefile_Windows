@@ -1,0 +1,14 @@
+SHELL := cmd.exe
+.SHELLFLAGS := /c
+
+subdirs = array employee helloNative printf1 printf2 printf3 printf4
+
+all:
+	for %%d in ($(subdirs)) do \
+	  $(MAKE) -C %%d -f Makefile_Windows
+
+clean:
+	for %%d in ($(subdirs)) do \
+	  $(MAKE) -C %%d -f Makefile_Windows clean
+
+.PHONY: all clean

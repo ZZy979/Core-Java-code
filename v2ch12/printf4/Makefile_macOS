@@ -1,0 +1,3 @@
+all: libPrintf4.dylib
+
+include ../build_native_lib_macos.mk

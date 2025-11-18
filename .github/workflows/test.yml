@@ -26,5 +26,19 @@ jobs:
           python-version: '3.11'
       - name: Run tool script test
         run: python -m unittest -v corejava.target_test corejava.testcase_test
+      - name: Setup MSVC Compiler
+        if: runner.os == 'Windows'
+        uses: seanmiddleditch/gha-setup-vsdevenv@master
+        with:
+          components: Microsoft.VisualStudio.Component.VC.Tools.x86.x64
+      - name: Build native libraries (Windows)
+        if: runner.os == 'Windows'
+        run: mingw32-make -C v2ch12 -f Makefile_Windows
+      - name: Build native libraries (Linux)
+        if: runner.os == 'Linux'
+        run: make -C v2ch12 -f Makefile_Linux
+      - name: Build native libraries (macOS)
+        if: runner.os == 'macOS'
+        run: make -C v2ch12 -f Makefile_macOS
       - name: Run Java test
         run: python -m corejava test

@@ -1,0 +1,3 @@
+all: libEmployee.dylib
+
+include ../build_native_lib_macos.mk

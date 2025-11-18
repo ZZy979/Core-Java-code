@@ -1,0 +1,3 @@
+all: HelloNative.dll
+
+include ../build_native_lib_windows.mk

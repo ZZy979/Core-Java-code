@@ -1,0 +1,12 @@
+all: InvocationTest.exe
+
+%.class: %.java
+	javac $<
+
+InvocationTest.exe: InvocationTest.c Welcome.class
+	cl /D_WINDOWS /I $(JAVA_HOME)\include /I $(JAVA_HOME)\include\win32 $< $(JAVA_HOME)\lib\jvm.lib advapi32.lib
+
+clean:
+	del *.dll *.lib *.obj *.exp *.exe
+
+.PHONY: all clean
