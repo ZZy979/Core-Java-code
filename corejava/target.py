@@ -1,3 +1,4 @@
+import glob
 import json
 import os
 import shlex
@@ -42,7 +43,7 @@ class Target:
         :param module_path: List[str] 额外的模块路径列表（可选），路径相对于ROOT_DIR
         :param compile_options: List[str] 编译选项（可选）
         :param jvm_options: List[str] JVM选项（可选）
-        :param resources: List[str] 资源文件列表（可选），路径相对于源文件路径(src_dir)
+        :param resources: List[str] 资源文件列表（可选），路径相对于源文件路径(src_dir)，支持通配符
         """
         self.chapter = chapter
         self.name = f'{chapter}/{name}'
@@ -136,10 +137,11 @@ class Target:
         """将资源文件拷贝到输出目录。"""
         resources = resources if resources is not None else self.resources
         for res in resources:
-            src = self.src_dir / res
-            dst = self.out_dir / res
-            os.makedirs(dst.parent, exist_ok=True)
-            shutil.copy(src, dst)
+            for f in glob.glob(res, root_dir=self.src_dir):
+                src = self.src_dir / f
+                dst = self.out_dir / f
+                os.makedirs(dst.parent, exist_ok=True)
+                shutil.copy(src, dst)
 
     def compile(self):
         """编译示例程序。"""
@@ -200,7 +202,7 @@ class TargetManager:
         - module_path：额外的模块路径列表（可选），路径相对于ROOT_DIR
         - compile_options：编译选项（可选），空格分隔的字符串
         - jvm_options：JVM选项（可选），空格分隔的字符串
-        - resources：资源文件列表（可选），路径相对于源文件路径(Target.src_dir)
+        - resources：资源文件列表（可选），路径相对于源文件路径(Target.src_dir)，支持通配符
 
         :param config_file: str 构建目标配置文件
         """

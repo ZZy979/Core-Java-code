@@ -19,7 +19,7 @@ class TargetTest(unittest.TestCase):
             ['com/example/bar/Bar.java', 'com/example/bar/internal/BarImpl.java'],
             ['ch01/Foo/com.example.foo.Foo'],
             module_path=['ch02/bar_lib.jar'],
-            resources=['data/bar1.txt', 'data/bar2.txt'])
+            resources=['data/*.txt', 'bar.jpg'])
 
     def test_init(self):
         self.assertEqual('ch01', self.foo.chapter)
@@ -52,7 +52,7 @@ class TargetTest(unittest.TestCase):
         self.assertListEqual([ROOT_DIR / 'ch02/bar_lib.jar'], self.bar.module_path)
         self.assertListEqual([], self.bar.compile_options)
         self.assertListEqual([], self.bar.jvm_options)
-        self.assertListEqual(['data/bar1.txt', 'data/bar2.txt'], self.bar.resources)
+        self.assertListEqual(['data/*.txt', 'bar.jpg'], self.bar.resources)
 
     def test_get_class_path(self):
         self.assertListEqual(['.', str(ROOT_DIR / 'ch01/foo_lib.jar')], self.foo.get_class_path())
@@ -139,21 +139,27 @@ class TargetTest(unittest.TestCase):
         self.assertListEqual(
             bar_run_command, self.bar.get_run_command(['arg1', 'arg2']))
 
-    @patch('os.makedirs')
-    @patch('shutil.copy')
-    def test_copy_resources(self, mock_copy, mock_makedirs):
-        self.bar.copy_resources()
-        self.assertEqual(2, mock_makedirs.call_count)
-        mock_makedirs.assert_called_with(OUT_DIR / 'ch02/data', exist_ok=True)
-        self.assertEqual(2, mock_copy.call_count)
-        mock_copy.assert_any_call(ROOT_DIR / 'ch02/data/bar1.txt', OUT_DIR / 'ch02/data/bar1.txt')
-        mock_copy.assert_any_call(ROOT_DIR / 'ch02/data/bar2.txt', OUT_DIR / 'ch02/data/bar2.txt')
+    def test_copy_resources(self):
+        resources = [['data/bar1.txt', 'data/bar2.txt'], ['bar.jpg']]
+        with patch('os.makedirs') as mock_makedirs, \
+                patch('shutil.copy') as mock_copy, \
+                patch('glob.glob', side_effect=resources) as mock_glob:
+            self.bar.copy_resources()
+            self.assertEqual(3, mock_makedirs.call_count)
+            mock_makedirs.assert_any_call(OUT_DIR / 'ch02/data', exist_ok=True)
+            mock_makedirs.assert_any_call(OUT_DIR / 'ch02', exist_ok=True)
+            self.assertEqual(3, mock_copy.call_count)
+            mock_copy.assert_any_call(ROOT_DIR / 'ch02/data/bar1.txt', OUT_DIR / 'ch02/data/bar1.txt')
+            mock_copy.assert_any_call(ROOT_DIR / 'ch02/data/bar2.txt', OUT_DIR / 'ch02/data/bar2.txt')
+            mock_copy.assert_any_call(ROOT_DIR / 'ch02/bar.jpg', OUT_DIR / 'ch02/bar.jpg')
 
-        mock_makedirs.reset_mock()
-        mock_copy.reset_mock()
-        self.bar.copy_resources(['conf/bar.conf'])
-        mock_makedirs.assert_called_once_with(OUT_DIR / 'ch02/conf', exist_ok=True)
-        mock_copy.assert_called_once_with(ROOT_DIR / 'ch02/conf/bar.conf', OUT_DIR / 'ch02/conf/bar.conf')
+        resources = [['conf/bar.conf']]
+        with patch('os.makedirs') as mock_makedirs, \
+                patch('shutil.copy') as mock_copy, \
+                patch('glob.glob', side_effect=resources) as mock_glob:
+            self.bar.copy_resources(['conf/bar.conf'])
+            mock_makedirs.assert_called_once_with(OUT_DIR / 'ch02/conf', exist_ok=True)
+            mock_copy.assert_called_once_with(ROOT_DIR / 'ch02/conf/bar.conf', OUT_DIR / 'ch02/conf/bar.conf')
 
 
 class TargetManagerTest(unittest.TestCase):

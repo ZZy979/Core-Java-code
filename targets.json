@@ -374,14 +374,7 @@
     {
       "name": "classLoader.ClassLoaderTest",
       "deps": ["v1ch11/gridbag.GridBagLayoutTest"],
-      "resources": [
-        "Calculator.caesar",
-        "CalculatorFrame.caesar",
-        "CalculatorPanel.caesar",
-        "CalculatorPanel$1.caesar",
-        "CalculatorPanel$CommandAction.caesar",
-        "CalculatorPanel$InsertAction.caesar"
-      ]
+      "resources": ["*.caesar"]
     },
     "classLoader.Caesar",
     "verifier.VerifierTest",
