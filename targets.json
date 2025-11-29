@@ -135,7 +135,8 @@
       "deps": ["v1ch10/util.ResourceUtil"],
       "resources": ["blue-ball.gif", "yellow-ball.gif", "red-ball.gif", "exit.gif"]
     },
-    "gridbag.GridBagLayoutTest",
+    "gridbag.GBC",
+    {"name": "gridbag.GridBagLayoutTest", "deps": ["v1ch11/gridbag.GBC"]},
     "circleLayout.CircleLayoutTest",
     {
       "name": "optionDialog.OptionDialogTest",
@@ -288,6 +289,31 @@
     "zonedtimes.ZonedTimes",
     {"name": "formatting.Formatting", "jvm_options": "-Dfile.encoding=UTF-8"}
   ],
+  "v2ch07": [
+    {"name": "numberFormat.NumberFormatTest", "deps": ["v1ch11/gridbag.GBC"]},
+    {"name": "numberFormat.NumberFormatTest2", "jvm_options": "-Duser.language=en -Dfile.encoding=UTF-8"},
+    {"name": "dateFormat.DateTimeFormatTest", "deps": ["v1ch11/gridbag.GBC"]},
+    {"name": "dateFormat.DateTimeFormatTest2", "jvm_options": "-Duser.language=en -Dfile.encoding=UTF-8"},
+    {"name": "collation.CollationTest", "deps": ["v1ch11/gridbag.GBC"]},
+    {"name": "collation.CollationTest2", "jvm_options": "-Duser.language=en -Dfile.encoding=UTF-8"},
+    {"name": "messageFormat.MessageFormatTest", "jvm_options": "-Duser.language=en -Dfile.encoding=UTF-8"},
+    {
+      "name": "retire.Retire",
+      "srcs": [
+        "retire/Retire.java",
+        "retire/RetireResources.java",
+        "retire/RetireResources_de.java",
+        "retire/RetireResources_zh.java"
+      ],
+      "deps": ["v1ch11/gridbag.GBC"],
+      "resources": [
+        "retire/RetireStrings.properties",
+        "retire/RetireStrings_de.properties",
+        "retire/RetireStrings_zh.properties"
+      ],
+      "jvm_options": "-Duser.language=en"
+    }
+  ],
   "v2ch08": [
     {
       "name": "script.ScriptTest",
@@ -371,11 +397,7 @@
     }
   ],
   "v2ch10": [
-    {
-      "name": "classLoader.ClassLoaderTest",
-      "deps": ["v1ch11/gridbag.GridBagLayoutTest"],
-      "resources": ["*.caesar"]
-    },
+    {"name": "classLoader.ClassLoaderTest", "deps": ["v1ch11/gridbag.GBC"], "resources": ["*.caesar"]},
     "classLoader.Caesar",
     "verifier.VerifierTest",
     {"name": "auth.AuthTest", "resources": ["auth/jaas.config"]},

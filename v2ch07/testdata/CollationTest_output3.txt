@@ -1,0 +1,30 @@
+ 1: Chinese (China)
+ 2: Chinese (Taiwan)
+ 3: English (Canada)
+ 4: English (United Kingdom)
+ 5: English (United States)
+ 6: French (France)
+ 7: German (Germany)
+ 8: Italian (Italy)
+ 9: Japanese (Japan)
+10: Korean (South Korea)
+11: Swedish (Sweden)
+Your choice:  1: Primary
+ 2: Secondary
+ 3: Tertiary
+ 4: Identical
+Your choice:  1: Canonical Decomposition
+ 2: Full Decomposition
+ 3: No Decomposition
+Your choice: able
+= Able
+America
+Angstrom
+JavaTM
+Java™
+office
+oﬃce
+zebra
+Zulu
+Ångström
+= Ångström

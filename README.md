@@ -286,6 +286,22 @@ java -jar swing-demos.jar
 * [程序清单6-3 zonedtimes/ZonedTimes.java](v2ch06/zonedtimes/ZonedTimes.java)
 * [程序清单6-4 formatting/Formatting.java](v2ch06/formatting/Formatting.java)
 
+### 第7章 国际化
+* [numberFormat/NumberFormatTest.java](v2ch07/numberFormat/NumberFormatTest.java)
+* [程序清单7-1 numberFormat/NumberFormatTest2.java](v2ch07/numberFormat/NumberFormatTest2.java)
+* [dateFormat/DateTimeFormatTest.java](v2ch07/dateFormat/DateTimeFormatTest.java)
+* [程序清单7-2 dateFormat/DateTimeFormatTest2.java](v2ch07/dateFormat/DateTimeFormatTest2.java)
+* [collation/CollationTest.java](v2ch07/collation/CollationTest.java)
+* [程序清单7-3 collation/CollationTest2.java](v2ch07/collation/CollationTest2.java)
+* [messageFormat/MessageFormatTest.java](v2ch07/messageFormat/MessageFormatTest.java)
+* [程序清单7-4 retire/Retire.java](v2ch07/retire/Retire.java)
+* [程序清单7-5 retire/RetireResources.java](v2ch07/retire/RetireResources.java)
+* [程序清单7-6 retire/RetireResources_de.java](v2ch07/retire/RetireResources_de.java)
+* [程序清单7-7 retire/RetireResources_zh.java](v2ch07/retire/RetireResources_zh.java)
+* [程序清单7-8 retire/RetireStrings.properties](v2ch07/retire/RetireStrings.properties)
+* [程序清单7-9 retire/RetireStrings_de.properties](v2ch07/retire/RetireStrings_de.properties)
+* [程序清单7-10 retire/RetireStrings_zh.properties](v2ch07/retire/RetireStrings_zh.properties)
+
 ### 第8章 脚本、编译和注解处理
 * [程序清单8-1 script/ScriptTest.java](v2ch08/script/ScriptTest.java)
 * [程序清单8-2 buttons1/ButtonFrame.java](v2ch08/buttons1/ButtonFrame.java)

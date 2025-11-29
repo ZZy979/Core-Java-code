@@ -168,6 +168,20 @@
     {"target": "zonedtimes.ZonedTimes", "output_file": "ZonedTimes_output.txt"},
     {"target": "formatting.Formatting", "output_file": "Formatting_output.txt"}
   ],
+  "v2ch07": [
+    {"target": "numberFormat.NumberFormatTest2", "input_file": "NumberFormatTest_input1.txt", "output_file": "NumberFormatTest_output1.txt"},
+    {"target": "numberFormat.NumberFormatTest2", "input_file": "NumberFormatTest_input2.txt", "output_file": "NumberFormatTest_output2.txt"},
+    {"target": "numberFormat.NumberFormatTest2", "input_file": "NumberFormatTest_input3.txt", "output_file": "NumberFormatTest_output3.txt"},
+    {"target": "numberFormat.NumberFormatTest2", "input_file": "NumberFormatTest_input4.txt", "output_file": "NumberFormatTest_output4.txt"},
+    {"target": "numberFormat.NumberFormatTest2", "input_file": "NumberFormatTest_input5.txt", "output_file": "NumberFormatTest_output5.txt"},
+    {"target": "dateFormat.DateTimeFormatTest2", "input_file": "DateTimeFormatTest_input1.txt", "output_file": "DateTimeFormatTest_output1.txt"},
+    {"target": "dateFormat.DateTimeFormatTest2", "input_file": "DateTimeFormatTest_input2.txt", "output_file": "DateTimeFormatTest_output2.txt"},
+    {"target": "dateFormat.DateTimeFormatTest2", "input_file": "DateTimeFormatTest_input3.txt", "output_file": "DateTimeFormatTest_output3.txt"},
+    {"target": "collation.CollationTest2", "input_file": "CollationTest_input1.txt", "output_file": "CollationTest_output1.txt"},
+    {"target": "collation.CollationTest2", "input_file": "CollationTest_input2.txt", "output_file": "CollationTest_output2.txt"},
+    {"target": "collation.CollationTest2", "input_file": "CollationTest_input3.txt", "output_file": "CollationTest_output3.txt"},
+    {"target": "messageFormat.MessageFormatTest", "output_file": "MessageFormatTest_output.txt"}
+  ],
   "v2ch08": [
     {"target": "rect.SourceLevelAnnotationDemo", "output_file": "SourceLevelAnnotationDemo_output.txt"},
     {"target": "bytecodeAnnotations.EntryLogger", "args": "set/Item.class", "output_file": "EntryLogger_output.txt"},

@@ -1,0 +1,19 @@
+ 1: Chinese (China)
+ 2: Chinese (Taiwan)
+ 3: English (Canada)
+ 4: English (United Kingdom)
+ 5: English (United States)
+ 6: French (France)
+ 7: German (Germany)
+ 8: Italian (Italy)
+ 9: Japanese (Japan)
+10: Korean (South Korea)
+Your choice:  1: Short
+ 2: Medium
+ 3: Long
+ 4: Full
+Your choice:  1: Date
+ 2: Time
+ 3: Date and Time
+Your choice: 오전 9:32:00
+Enter another time: 오후 3:04:05

@@ -1,0 +1,17 @@
+ 1: Chinese (China)
+ 2: Chinese (Taiwan)
+ 3: English (Canada)
+ 4: English (United Kingdom)
+ 5: English (United States)
+ 6: French (France)
+ 7: German (Germany)
+ 8: Italian (Italy)
+ 9: Japanese (Japan)
+10: Korean (South Korea)
+Your choice:  1: Number
+ 2: Compact Long
+ 3: Percent
+ 4: Currency
+Your choice:  1: Format
+ 2: Parse
+Your choice: Enter a floating-point number to parse: ParseException: Unparseable number: "a%"
