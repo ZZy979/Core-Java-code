@@ -78,8 +78,8 @@ class TestCaseManager:
         每个测试用例也是一个JSON对象，支持下列的key：
 
         - target：构建目标名称，格式同TestCase.target_name
-        - jvm_options：额外JVM选项（可选），空格分隔的字符串
-        - args：命令行参数（可选），空格分隔的字符串
+        - jvm_options：额外JVM选项（可选），空格分隔的字符串或字符串列表
+        - args：命令行参数（可选），空格分隔的字符串或字符串列表
         - type：测试类型，stdout - 比较标准输出和output_file（默认），file - 比较output_file和compare_file
         - input_file：标准输入文件（可选），路径相对于章节测试数据目录
         - output_file：type为stdout时表示用于比较标准输出的文件，路径相对于章节测试数据目录；
@@ -118,8 +118,8 @@ class TestCaseManager:
 
         testdata_dir = ROOT_DIR / chapter / 'testdata'
         target = self.target_manager[target_name]
-        jvm_options = shlex.split(config.get('jvm_options', ''))
-        args = shlex.split(config.get('args', ''))
+        jvm_options = self._parse_options(config.get('jvm_options', []))
+        args = self._parse_options(config.get('args', []))
         type = config.get('type', 'stdout')
         input_file = testdata_dir / config['input_file'] if 'input_file' in config else None
         output_file = target.out_dir / config['output_file'] if type == 'file' else \
@@ -129,6 +129,9 @@ class TestCaseManager:
         return TestCase(
             self.target_manager, target_name, output_file, jvm_options, args,
             type, input_file, compare_file, testdata)
+
+    def _parse_options(self, s):
+        return shlex.split(s) if isinstance(s, str) else s
 
     def iter_tests(self):
         return chain.from_iterable(self.test_cases.values())

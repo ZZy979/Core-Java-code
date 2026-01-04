@@ -200,8 +200,8 @@ class TargetManager:
         - deps：依赖的目标列表（可选），格式同Target.deps
         - class_path：额外的类路径列表（可选），路径相对于ROOT_DIR
         - module_path：额外的模块路径列表（可选），路径相对于ROOT_DIR
-        - compile_options：编译选项（可选），空格分隔的字符串
-        - jvm_options：JVM选项（可选），空格分隔的字符串
+        - compile_options：编译选项（可选），空格分隔的字符串或字符串列表
+        - jvm_options：JVM选项（可选），空格分隔的字符串或字符串列表
         - resources：资源文件列表（可选），路径相对于源文件路径(Target.src_dir)，支持通配符
 
         :param config_file: str 构建目标配置文件
@@ -224,8 +224,8 @@ class TargetManager:
                 deps = config.get('deps', [])
                 class_path = config.get('class_path', [])
                 module_path = config.get('module_path', [])
-                compile_options = shlex.split(config.get('compile_options', ''))
-                jvm_options = shlex.split(config.get('jvm_options', ''))
+                compile_options = self._parse_options(config.get('compile_options', []))
+                jvm_options = self._parse_options(config.get('jvm_options', []))
                 resources = config.get('resources', [])
                 target = Target(
                     chapter, name, module_name, srcs, deps, class_path, module_path,
@@ -238,6 +238,9 @@ class TargetManager:
                 if dep not in targets:
                     raise ValueError(f'Dependency "{dep}" of target "{target}" does not exits.')
         return targets
+
+    def _parse_options(self, s):
+        return shlex.split(s) if isinstance(s, str) else s
 
     def __contains__(self, name):
         return name in self.targets

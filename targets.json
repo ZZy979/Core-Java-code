@@ -40,7 +40,10 @@
     "reflection.ReflectionTest",
     {
       "name": "objectAnalyzer.ObjectAnalyzerTest",
-      "jvm_options": "--add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED"
+      "jvm_options": [
+        "--add-opens=java.base/java.util=ALL-UNNAMED",
+        "--add-opens=java.base/java.lang=ALL-UNNAMED"
+      ]
     },
     "arrays.CopyOfTest",
     "methods.MethodTableTest"

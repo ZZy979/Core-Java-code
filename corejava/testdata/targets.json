@@ -5,7 +5,7 @@
   ],
   "ch02": [
     {"name": "C", "compile_options": "-target 8", "jvm_options": "-Dfile.encoding=UTF-8", "deps": ["ch01/A", "ch01/B"]},
-    {"name": "D", "deps": ["ch01/B"]}
+    {"name": "D", "jvm_options": ["-Dfoo=1", "-Dbar=2"], "deps": ["ch01/B"]}
   ],
   "ch03": [
     {"name": "E", "deps": ["ch02/C", "ch02/D"], "class_path": ["ch02/foo_lib.jar"]}

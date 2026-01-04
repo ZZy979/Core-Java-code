@@ -177,7 +177,7 @@ class TargetManagerTest(unittest.TestCase):
             ('ch01/A', None, ['A.java'], [], [], [], [], [], []),
             ('ch01/B', None, ['B.java'], [], [], [], [], [], ['data/b.txt']),
             ('ch02/C', None, ['C.java'], ['ch01/A', 'ch01/B'], [], [], ['-target', '8'], ['-Dfile.encoding=UTF-8'], []),
-            ('ch02/D', None, ['D.java'], ['ch01/B'], [], [], [], [], []),
+            ('ch02/D', None, ['D.java'], ['ch01/B'], [], [], [], ["-Dfoo=1", "-Dbar=2"], []),
             ('ch03/E', None, ['E.java'], ['ch02/C', 'ch02/D'], [ROOT_DIR / 'ch02/foo_lib.jar'], [], [], [], []),
             ('ch04/mod1/F', 'mod1', ['F.java', 'internal/FF.java'], [], [], [], [], [], ['conf/foo.conf']),
             ('ch04/mod2/G', 'mod2', ['G.java'], ['ch04/mod1/F'], [], [ROOT_DIR / 'ch04/bar_lib.jar'], [], [], []),
