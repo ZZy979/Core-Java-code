@@ -413,6 +413,85 @@
     {"name": "aes.AESTest", "resources": ["aes/secret.key"]},
     {"name": "rsa.RSATest", "resources": ["rsa/public.key", "rsa/private.key"]}
   ],
+  "v2ch11": [
+    "list.ListTest",
+    "longList.LongListTest",
+    "listRendering.ListRenderingTest",
+    "table.TableTest",
+    "tableModel.InvestmentTable",
+    {"name": "tableRowColumn.TableRowColumnTest", "deps": ["v1ch10/util.ResourceUtil"], "resources": ["*.gif"]},
+    "tableSelection.TableSelectionTest",
+    {"name": "tableCellRender.TableCellRenderTest", "deps": ["v1ch10/util.ResourceUtil"], "resources": ["*.gif"]},
+    "tree.SimpleTree",
+    "treeEdit.TreeEditTest",
+    {
+      "name": "treeRender.ClassTree",
+      "deps": ["v1ch10/util.ResourceUtil"],
+      "resources": ["yellow-ball.gif", "blue-ball.gif", "red-ball.gif"]
+    },
+    {
+      "name": "treeModel.ObjectInspectorTest",
+      "deps": ["v2ch02/serial.ObjectStreamTest"],
+      "jvm_options": [
+        "--add-opens=java.base/java.util=ALL-UNNAMED"
+      ]
+    },
+    "textChange.ChangeTrackingTest",
+    "textFormat.FormatTest",
+    "spinner.SpinnerTest",
+    "editorPane.EditorPaneTest",
+    "progressBar.ProgressBarTest",
+    "progressMonitor.ProgressMonitorTest",
+    "progressMonitorInputStream.ProgressMonitorInputStreamTest",
+    {"name": "splitPane.SplitPaneTest", "deps": ["v1ch10/util.ResourceUtil"], "resources": ["*.gif"]},
+    {"name": "tabbedPane.TabbedPaneTest", "deps": ["v1ch10/util.ResourceUtil"], "resources": ["*.gif"]},
+    {"name": "internalFrame.InternalFrameTest", "deps": ["v1ch10/util.ResourceUtil"], "resources": ["*.gif"]},
+    "layer.LayerTest",
+    "shape.ShapeTest",
+    "area.AreaTest",
+    "stroke.StrokeTest",
+    {"name": "paint.PaintTest", "resources": ["blue-ball.gif"]},
+    "transform.TransformationTest",
+    "clip.ClippingTest",
+    {
+      "name": "transparency.TransparencyTest",
+      "deps": ["v1ch10/util.ResourceUtil"],
+      "resources": ["clouds.jpg"]
+    },
+    "composite.CompositeTest",
+    {
+      "name": "renderQuality.RenderQualityTest",
+      "deps": ["v1ch10/util.ResourceUtil", "v1ch11/gridbag.GBC"],
+      "resources": ["face.gif"]
+    },
+    {"name": "imageIO.ImageIOTest", "resources": ["e-mail.gif"]},
+    "rasterImage.RasterImageTest",
+    {
+      "name": "imageProcessing.ImageProcessingTest",
+      "resources": ["cj2.gif", "cj8v2.png"]
+    },
+    "print.PrintTest",
+    "book.BookTest",
+    "printService.PrintServiceTest",
+    "streamPrintService.StreamPrintServiceTest",
+    "transferText.TextTransferTest",
+    "imageTransfer.ImageTransferTest",
+    "serialTransfer.SerialTransferTest",
+    "dnd.SwingDnDTest",
+    {
+      "name": "dndImage.ImageListDnDTest",
+      "deps": ["v1ch10/util.ResourceUtil", "v2ch11/imageTransfer.ImageTransferTest"],
+      "resources": ["*.gif"]
+    },
+    {
+      "name": "splashScreen.SplashScreenTest",
+      "deps": ["v1ch10/util.ResourceUtil"],
+      "jvm_options": "-splash:splashScreen/splash.png",
+      "resources": ["splashScreen/splash.png"]
+    },
+    {"name": "desktopApp.DesktopAppTest", "deps": ["v1ch11/gridbag.GBC"]},
+    {"name": "systemTray.SystemTrayTest", "resources": ["systemTray/cookie.png", "systemTray/fortunes.txt"]}
+  ],
   "v2ch12": [
     {
       "name": "helloNative/HelloNativeTest",

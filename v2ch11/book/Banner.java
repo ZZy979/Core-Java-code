@@ -1,0 +1,94 @@
+package book;
+
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.font.FontRenderContext;
+import java.awt.font.TextLayout;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+
+/**
+ * A banner that prints a text string on multiple pages.
+ */
+public class Banner implements Printable {
+    private String message;
+    private double scale;
+
+    /**
+     * Constructs a banner.
+     * @param m the message string
+     */
+    public Banner(String m) {
+        message = m;
+    }
+
+    /**
+     * Gets the page count of this section.
+     * @param g2 the graphics context
+     * @param pf the page format
+     * @return the number of pages needed
+     */
+    public int getPageCount(Graphics2D g2, PageFormat pf) {
+        if (message.isEmpty())
+            return 0;
+        FontRenderContext context = g2.getFontRenderContext();
+        var f = new Font("Serif", Font.PLAIN, 72);
+        Rectangle2D bounds = f.getStringBounds(message, context);
+        scale = pf.getImageableHeight() / bounds.getHeight();
+        double width = scale * bounds.getWidth();
+        return (int) Math.ceil(width / pf.getImageableWidth());
+    }
+
+    @Override
+    public int print(Graphics g, PageFormat pf, int page) throws PrinterException {
+        var g2 = (Graphics2D) g;
+        if (page > getPageCount(g2, pf))
+            return Printable.NO_SUCH_PAGE;
+        g2.translate(pf.getImageableX(), pf.getImageableY());
+        drawPage(g2, pf, page);
+        return Printable.PAGE_EXISTS;
+    }
+
+    public void drawPage(Graphics2D g2, PageFormat pf, int page) {
+        if (message.isEmpty())
+            return;
+        page--;  // account for cover page
+
+        drawCropMarks(g2, pf);
+        g2.clip(new Rectangle2D.Double(0, 0, pf.getImageableWidth(), pf.getImageableHeight()));
+        g2.translate(-page * pf.getImageableWidth(), 0);
+        g2.scale(scale, scale);
+
+        FontRenderContext context = g2.getFontRenderContext();
+        var f = new Font("Serif", Font.PLAIN, 72);
+        var layout = new TextLayout(message, f, context);
+        AffineTransform transform = AffineTransform.getTranslateInstance(0, layout.getAscent());
+        Shape outline = layout.getOutline(transform);
+        g2.draw(outline);
+    }
+
+    /**
+     * Draws 1/2" crop marks in the corners of the page.
+     * @param g2 the graphics context
+     * @param pf the page format
+     */
+    public void drawCropMarks(Graphics2D g2, PageFormat pf) {
+        final double C = 36;  // crop mark length = 1/2 inch
+        double w = pf.getImageableWidth();
+        double h = pf.getImageableHeight();
+        g2.draw(new Line2D.Double(0, 0, 0, C));
+        g2.draw(new Line2D.Double(0, 0, C, 0));
+        g2.draw(new Line2D.Double(w, 0, w, C));
+        g2.draw(new Line2D.Double(w, 0, w - C, 0));
+        g2.draw(new Line2D.Double(0, h, 0,h - C));
+        g2.draw(new Line2D.Double(0, h, C,h));
+        g2.draw(new Line2D.Double(w, h, w, h - C));
+        g2.draw(new Line2D.Double(w, h, w - C, h));
+    }
+}
